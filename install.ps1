@@ -1,10 +1,10 @@
 # install.ps1
-# Interactive installation script for awesome-copilot-id (Windows Terminal/PowerShell)
+# Interactive installation script for polya-sdlc-coder (Windows Terminal/PowerShell)
 # Requires -Version 5.1
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "=== Awesome Copilot ID - Installer ===" -ForegroundColor Cyan
+Write-Host "=== Polya SDLC Coder - Installer ===" -ForegroundColor Cyan
 
 # 1. Define target directory (default: current directory)
 $targetPath = Read-Host "Enter your target project path (default: .)"
@@ -21,7 +21,7 @@ try {
 Write-Host "Target directory: $targetPath" -ForegroundColor Yellow
 
 # 2. Create temporary directory to download the repository
-$tempDirName = "awesome-copilot-" + (Get-Random)
+$tempDirName = "polya-sdlc-" + (Get-Random)
 $tempDir = Join-Path $env:TEMP $tempDirName
 $tempZip = Join-Path $tempDir "archive.zip"
 $tempExtract = Join-Path $tempDir "extracted"
@@ -30,69 +30,51 @@ $tempExtract = Join-Path $tempDir "extracted"
 New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
 
 try {
-    # 3. Download repository (using ZIP)
-    Write-Host "Downloading repository from GitHub (ZIP)..." -ForegroundColor Cyan
-    $repoZipUrl = "https://github.com/GulajavaMinistudio/awesome-copilot-id/archive/refs/heads/main.zip"
-    
-    # Use TLS 1.2 for secure connection
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    Invoke-WebRequest -Uri $repoZipUrl -OutFile $tempZip -UseBasicParsing
-    
-    Write-Host "Extracting files..." -ForegroundColor Cyan
-    Expand-Archive -Path $tempZip -DestinationPath $tempExtract
-    
-    $sourceContentDir = Join-Path $tempExtract "awesome-copilot-id-main"
-    if (!(Test-Path $sourceContentDir)) {
+    # 3. Download repository (Git Clone or ZIP)
+    $repoGitUrl = "https://github.com/GulajavaMinistudio/polya-sdlc-coder.git"
+    $repoZipUrl = "https://github.com/GulajavaMinistudio/polya-sdlc-coder/archive/refs/heads/main.zip"
+    $sourceContentDir = ""
+
+    $gitCmd = Get-Command git -ErrorAction SilentlyContinue
+    if ($null -ne $gitCmd) {
+        Write-Host "Cloning repository from GitHub (Shallow Clone)..." -ForegroundColor Cyan
+        git clone --depth=1 -q $repoGitUrl $tempExtract
+        $sourceContentDir = $tempExtract
+    } else {
+        Write-Host "Downloading repository from GitHub (ZIP)..." -ForegroundColor Cyan
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest -Uri $repoZipUrl -OutFile $tempZip -UseBasicParsing
+        
+        Write-Host "Extracting files..." -ForegroundColor Cyan
+        Expand-Archive -Path $tempZip -DestinationPath $tempExtract
+        
+        $candidateDir = Join-Path $tempExtract "polya-sdlc-coder-main"
+        if (Test-Path $candidateDir) {
+            $sourceContentDir = $candidateDir
+        } else {
+            $subDirs = Get-ChildItem -Path $tempExtract -Directory
+            if ($subDirs.Count -gt 0) {
+                $sourceContentDir = $subDirs[0].FullName
+            }
+        }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($sourceContentDir) -or !(Test-Path $sourceContentDir)) {
         Write-Host "Error: Failed to find downloaded source directory." -ForegroundColor Red
         exit 1
     }
 
-    # 4. Interactive menu for SDLC package selection
-    Write-Host ""
-    Write-Host "Select the SDLC Methodology Package to install:" -ForegroundColor Cyan
-    Write-Host "1) Standard SDLC Package -> 12-Phase Full SDLC Pipeline (/sdlc-*), Code Janitor, Omni-Dev, UI Designer"
-    Write-Host "2) TDD-Spec SDLC Package -> Strict Test-First & Executable Spec Kit (21 /tdd-* skills, Seams Matrix, Floor-Guard)"
-    Write-Host "3) Polya-Coder Heuristic Package -> Veteran Principal Engineer, Pólya 1945 Heuristics, Clean Architecture & SOLID (/polya-router)"
-    Write-Host "4) Polya-SDLC Package -> Streamlined Pólya Heuristic Suite (/to-* skills, /to-ask-help, /to-prd)"
-    Write-Host ""
-    
-    $pkgChoice = Read-Host "Enter your package choice (1-4, default: 1)"
-    if ([string]::IsNullOrWhiteSpace($pkgChoice)) { $pkgChoice = "1" }
-    
-    $srcDir = ""
-    $srcAgents = ""
-    $packageName = ""
-    
-    switch ($pkgChoice) {
-        "1" {
-            $srcDir = Join-Path $sourceContentDir ".agents"
-            $srcAgents = Join-Path $sourceContentDir "AGENTS.md"
-            $packageName = "Standard SDLC Package"
-        }
-        "2" {
-            $srcDir = Join-Path (Join-Path $sourceContentDir "tdd-spec-skills") ".agents"
-            $srcAgents = Join-Path (Join-Path $sourceContentDir "tdd-spec-skills") "AGENTS.md"
-            $packageName = "TDD-Spec SDLC Package"
-        }
-        "3" {
-            $srcDir = Join-Path (Join-Path $sourceContentDir "polya-coder") ".agents"
-            $srcAgents = Join-Path (Join-Path $sourceContentDir "polya-coder") "AGENTS.md"
-            $packageName = "Polya-Coder Heuristic Package"
-        }
-        "4" {
-            $srcDir = Join-Path (Join-Path $sourceContentDir "polya-sdlc") ".agents"
-            $srcAgents = Join-Path (Join-Path $sourceContentDir "polya-sdlc") "AGENTS.md"
-            $packageName = "Polya-SDLC Package"
-        }
-        Default {
-            Write-Host "Invalid choice. Process aborted." -ForegroundColor Red
-            exit 1
-        }
-    }
-    
-    Write-Host "Selected Package: $packageName" -ForegroundColor Green
+    $srcDir = Join-Path $sourceContentDir ".agents"
+    $srcAgents = Join-Path $sourceContentDir "AGENTS.md"
 
-    # 5. Interactive menu for platform selection
+    if (!(Test-Path $srcDir) -or !(Test-Path $srcAgents)) {
+        Write-Host "Error: Expected '.agents' folder or 'AGENTS.md' not found in downloaded repository." -ForegroundColor Red
+        exit 1
+    }
+
+    Write-Host "Ready to install: Polya SDLC Coder" -ForegroundColor Green
+
+    # 4. Interactive menu for platform selection
     Write-Host ""
     Write-Host "Select the AI Assistant platform you want to install in your project:" -ForegroundColor Cyan
     Write-Host "1) Standard Platforms (GitHub Copilot, Antigravity, OpenCode, CommandCode, Codex, Pi, OMP) -> installs to .agents/"
@@ -116,7 +98,7 @@ try {
         }
     }
 
-    # 6. Copy chosen platform configuration directories
+    # 5. Copy chosen platform configuration directories
     
     foreach ($dstDirName in $destDirs) {
         $dstDir = Join-Path $targetPath $dstDirName
@@ -166,6 +148,15 @@ try {
             }
             # Copy contents of .agents to destination
             Copy-Item -Path "$srcDir\*" -Destination $dstDir -Recurse -Force
+            
+            # If destination is not .agents, remove duplicate memory file
+            if ($dstDirName -ne ".agents") {
+                $secMemory = Join-Path $dstDir "instructions\memory.instructions.md"
+                if (Test-Path $secMemory) {
+                    Remove-Item -Path $secMemory -Force -ErrorAction SilentlyContinue
+                }
+            }
+
             Write-Host "Successfully copied agents configuration to $dstDir" -ForegroundColor Green
             
             # Restore kept memory files
@@ -188,7 +179,7 @@ try {
         }
     }
 
-    # 7. Copy AGENTS.md
+    # 6. Copy AGENTS.md
     $dstAgents = Join-Path $targetPath "AGENTS.md"
 
     if (Test-Path $srcAgents) {
@@ -207,15 +198,17 @@ try {
                 $bakPath = $dstAgents + ".bak"
                 Copy-Item -Path $dstAgents -Destination $bakPath -Force
                 
-                $currentDate = Get-Date -Format "yyyy-MM-dd"
-                $mergeHeader = "`r`n`r`n# --- MERGED TEMPLATE (Added on $currentDate) ---`r`n"
-                
-                # Append content
-                Add-Content -Path $dstAgents -Value $mergeHeader -Encoding utf8
-                $newContent = Get-Content -Path $srcAgents -Raw
-                Add-Content -Path $dstAgents -Value $newContent -Encoding utf8
-                
-                Write-Host "Merged new template into existing AGENTS.md. Backup created at: $bakPath" -ForegroundColor Green
+                $alreadyMerged = Select-String -Path $dstAgents -Pattern "POLYA-SDLC COMPLETE PIPELINE|MERGED POLYA TEMPLATE" -Quiet
+                if (-not $alreadyMerged) {
+                    $currentDate = Get-Date -Format "yyyy-MM-dd"
+                    $mergeHeader = "`r`n`r`n# --- MERGED POLYA TEMPLATE (Added on $currentDate) ---`r`n"
+                    Add-Content -Path $dstAgents -Value $mergeHeader -Encoding utf8
+                    $newContent = Get-Content -Path $srcAgents -Raw
+                    Add-Content -Path $dstAgents -Value $newContent -Encoding utf8
+                    Write-Host "Merged new template into existing AGENTS.md. Backup created at: $bakPath" -ForegroundColor Green
+                } else {
+                    Write-Host "Pólya SDLC template already merged in AGENTS.md. Skipping duplicate append." -ForegroundColor Yellow
+                }
             } else {
                 Write-Host "Skipping copy of 'AGENTS.md'..." -ForegroundColor Yellow
             }
@@ -232,19 +225,14 @@ try {
     Write-Host "[IMPORTANT]: Please review 'AGENTS.md' in your project to:" -ForegroundColor Yellow
     Write-Host "1. Customize the project name on the first line so that AI agents can recognize your project context." -ForegroundColor Yellow
     Write-Host "2. Change the language preference in the '## Communication' section if necessary." -ForegroundColor Yellow
-    if ($pkgChoice -eq "2") {
-        Write-Host "3. For TDD-Spec SDLC, start by typing '/tdd-init' (to bootstrap constitution/constraints) or '/tdd-ask-help' for guidance." -ForegroundColor Cyan
-    } elseif ($pkgChoice -eq "3") {
-        Write-Host "3. For Polya-Coder, start by typing '/polya-router' for interactive triage or '/polya-init' to re-bootstrap." -ForegroundColor Cyan
-    } elseif ($pkgChoice -eq "4") {
-        Write-Host "3. For Polya-SDLC, start by typing '/to-ask-help' for interactive triage or '/to-explore' to begin discovery." -ForegroundColor Cyan
-    } else {
-        Write-Host "3. For Standard SDLC, start by typing '/sdlc-explore-ideas' to begin discovery." -ForegroundColor Cyan
-    }
+    Write-Host "Next Steps with Pólya SDLC:" -ForegroundColor Cyan
+    Write-Host "- Start by typing '/to-ask-help' for interactive Socratic triage guidance and intent routing." -ForegroundColor Cyan
+    Write-Host "- Type '/to-explore' to survey and discover problem spaces (Phase 0)." -ForegroundColor Cyan
+    Write-Host "- In an existing codebase, run '/to-map' to document architecture topography into 'docs/ARCHITECTURE.md'." -ForegroundColor Cyan
     Write-Host ""
 
 } finally {
-    # 8. Clean up temporary files
+    # 7. Clean up temporary files
     if (Test-Path $tempDir) {
         Write-Host "Cleaning up temporary files..." -ForegroundColor Cyan
         Remove-Item -Path $tempDir -Recurse -Force

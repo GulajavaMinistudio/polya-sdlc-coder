@@ -1,6 +1,6 @@
 #!/bin/bash
 # install.sh
-# Interactive installation script for awesome-copilot-id (Linux/macOS)
+# Interactive installation script for polya-sdlc-coder (Linux/macOS)
 
 # Terminal colors
 RED='\033[0;31m'
@@ -9,7 +9,7 @@ YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-echo -e "${CYAN}=== Awesome Copilot ID - Installer ===${NC}"
+echo -e "${CYAN}=== Polya SDLC Coder - Installer ===${NC}"
 
 # 1. Define target directory (default: current directory)
 # Redirect stdin from /dev/tty to allow reading from keyboard when piped via curl
@@ -27,7 +27,7 @@ fi
 echo -e "Target directory: ${YELLOW}$TARGET_PATH${NC}"
 
 # 2. Create temporary directory to download the repository
-TEMP_DIR=$(mktemp -d -t awesome-copilot-XXXXXX)
+TEMP_DIR=$(mktemp -d -t polya-sdlc-XXXXXX)
 ZIP_FILE="$TEMP_DIR/archive.zip"
 EXTRACT_DIR="$TEMP_DIR/extracted"
 
@@ -40,22 +40,27 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# 3. Determine download method (ZIP or Git Clone)
+# 3. Determine download method (Git Clone or ZIP)
 DOWNLOAD_METHOD=""
-if command -v unzip >/dev/null 2>&1 && (command -v curl >/dev/null 2>&1 || command -v wget >/dev/null 2>&1); then
-    DOWNLOAD_METHOD="zip"
-elif command -v git >/dev/null 2>&1; then
+if command -v git >/dev/null 2>&1; then
     DOWNLOAD_METHOD="git"
+elif command -v unzip >/dev/null 2>&1 && (command -v curl >/dev/null 2>&1 || command -v wget >/dev/null 2>&1); then
+    DOWNLOAD_METHOD="zip"
 else
-    echo -e "${RED}Error: This script requires 'unzip' + 'curl'/'wget', or 'git' to download the repository.${NC}"
+    echo -e "${RED}Error: This script requires 'git' or 'unzip' + 'curl'/'wget' to download the repository.${NC}"
     exit 1
 fi
 
 SOURCE_CONTENT_DIR=""
 
-if [ "$DOWNLOAD_METHOD" = "zip" ]; then
+if [ "$DOWNLOAD_METHOD" = "git" ]; then
+    echo -e "${CYAN}Cloning repository from GitHub (Shallow Clone)...${NC}"
+    REPO_GIT_URL="https://github.com/GulajavaMinistudio/polya-sdlc-coder.git"
+    git clone --depth=1 -q "$REPO_GIT_URL" "$EXTRACT_DIR"
+    SOURCE_CONTENT_DIR="$EXTRACT_DIR"
+else
     echo -e "${CYAN}Downloading repository from GitHub (ZIP)...${NC}"
-    REPO_ZIP_URL="https://github.com/GulajavaMinistudio/awesome-copilot-id/archive/refs/heads/main.zip"
+    REPO_ZIP_URL="https://github.com/GulajavaMinistudio/polya-sdlc-coder/archive/refs/heads/main.zip"
     
     if command -v curl >/dev/null 2>&1; then
         curl -fsSL "$REPO_ZIP_URL" -o "$ZIP_FILE"
@@ -71,62 +76,29 @@ if [ "$DOWNLOAD_METHOD" = "zip" ]; then
     echo -e "${CYAN}Extracting files...${NC}"
     mkdir -p "$EXTRACT_DIR"
     unzip -q "$ZIP_FILE" -d "$EXTRACT_DIR"
-    SOURCE_CONTENT_DIR="$EXTRACT_DIR/awesome-copilot-id-main"
-else
-    echo -e "${CYAN}Cloning repository from GitHub (Shallow Clone)...${NC}"
-    REPO_GIT_URL="https://github.com/GulajavaMinistudio/awesome-copilot-id.git"
-    git clone --depth=1 -q "$REPO_GIT_URL" "$EXTRACT_DIR"
-    SOURCE_CONTENT_DIR="$EXTRACT_DIR"
+    if [ -d "$EXTRACT_DIR/polya-sdlc-coder-main" ]; then
+        SOURCE_CONTENT_DIR="$EXTRACT_DIR/polya-sdlc-coder-main"
+    else
+        SOURCE_CONTENT_DIR=$(find "$EXTRACT_DIR" -mindepth 1 -maxdepth 1 -type d | head -n 1)
+    fi
 fi
 
-if [ ! -d "$SOURCE_CONTENT_DIR" ]; then
+if [ -z "$SOURCE_CONTENT_DIR" ] || [ ! -d "$SOURCE_CONTENT_DIR" ]; then
     echo -e "${RED}Error: Failed to find downloaded source directory.${NC}"
     exit 1
 fi
 
-# 4. Interactive menu for SDLC package selection
-echo -e "\n${CYAN}Select the SDLC Methodology Package to install:${NC}"
-echo -e "1) ${GREEN}Standard SDLC Package${NC} -> 12-Phase Full SDLC Pipeline (/sdlc-*), Code Janitor, Omni-Dev, UI Designer"
-echo -e "2) ${GREEN}TDD-Spec SDLC Package${NC} -> Strict Test-First & Executable Spec Kit (21 /tdd-* skills, Seams Matrix, Floor-Guard)"
-echo -e "3) ${GREEN}Polya-Coder Heuristic Package${NC} -> Veteran Principal Engineer, Pólya 1945 Heuristics, Clean Architecture & SOLID (/polya-router)"
-echo -e "4) ${GREEN}Polya-SDLC Package${NC} -> Streamlined Pólya Heuristic Suite (/to-* skills, /to-ask-help, /to-prd)"
-read -p "Enter your package choice (1-4, default: 1): " PKG_CHOICE < /dev/tty
-PKG_CHOICE=${PKG_CHOICE:-1}
+SRC_DIR="$SOURCE_CONTENT_DIR/.agents"
+SRC_AGENTS="$SOURCE_CONTENT_DIR/AGENTS.md"
 
-SRC_DIR=""
-SRC_AGENTS=""
-PACKAGE_NAME=""
+if [ ! -d "$SRC_DIR" ] || [ ! -f "$SRC_AGENTS" ]; then
+    echo -e "${RED}Error: Expected '.agents' folder or 'AGENTS.md' not found in downloaded repository.${NC}"
+    exit 1
+fi
 
-case $PKG_CHOICE in
-    1)
-        SRC_DIR="$SOURCE_CONTENT_DIR/.agents"
-        SRC_AGENTS="$SOURCE_CONTENT_DIR/AGENTS.md"
-        PACKAGE_NAME="Standard SDLC Package"
-        ;;
-    2)
-        SRC_DIR="$SOURCE_CONTENT_DIR/tdd-spec-skills/.agents"
-        SRC_AGENTS="$SOURCE_CONTENT_DIR/tdd-spec-skills/AGENTS.md"
-        PACKAGE_NAME="TDD-Spec SDLC Package"
-        ;;
-    3)
-        SRC_DIR="$SOURCE_CONTENT_DIR/polya-coder/.agents"
-        SRC_AGENTS="$SOURCE_CONTENT_DIR/polya-coder/AGENTS.md"
-        PACKAGE_NAME="Polya-Coder Heuristic Package"
-        ;;
-    4)
-        SRC_DIR="$SOURCE_CONTENT_DIR/polya-sdlc/.agents"
-        SRC_AGENTS="$SOURCE_CONTENT_DIR/polya-sdlc/AGENTS.md"
-        PACKAGE_NAME="Polya-SDLC Package"
-        ;;
-    *)
-        echo -e "${RED}Invalid choice. Process aborted.${NC}"
-        exit 1
-        ;;
-esac
+echo -e "Ready to install: ${GREEN}Polya SDLC Coder${NC}"
 
-echo -e "Selected Package: ${GREEN}$PACKAGE_NAME${NC}"
-
-# 5. Interactive menu for platform selection
+# 4. Interactive menu for platform selection
 echo -e "\n${CYAN}Select the AI Assistant platform you want to install in your project:${NC}"
 echo -e "1) ${GREEN}Standard Platforms${NC} (GitHub Copilot, Antigravity, OpenCode, CommandCode, Codex, Pi, OMP) -> installs to .agents/"
 echo -e "2) ${GREEN}Claude Code${NC} -> installs to .claude/"
@@ -199,6 +171,12 @@ for dst_dir_name in "${DEST_DIRS[@]}"; do
         # Create destination directory and copy contents
         mkdir -p "$DST_DIR"
         cp -a "$SRC_DIR/." "$DST_DIR/"
+
+        # If destination is not .agents, remove duplicate memory.instructions.md
+        if [ "$dst_dir_name" != ".agents" ]; then
+            rm -f "$DST_DIR/instructions/memory.instructions.md"
+        fi
+
         echo -e "Successfully copied agents configuration to ${GREEN}$TARGET_PATH/$dst_dir_name${NC}"
         
         # Restore kept memory files if any
@@ -224,7 +202,7 @@ for dst_dir_name in "${DEST_DIRS[@]}"; do
     fi
 done
 
-# 7. Copy AGENTS.md
+# 5. Copy AGENTS.md
 DST_AGENTS="$TARGET_PATH/AGENTS.md"
 
 if [ -f "$SRC_AGENTS" ]; then
@@ -241,9 +219,13 @@ if [ -f "$SRC_AGENTS" ]; then
         elif [[ "$AGENTS_CHOICE" =~ ^[Mm]$ ]]; then
             # Merge: Back up first, then append new template content
             cp "$DST_AGENTS" "${DST_AGENTS}.bak"
-            echo -e "\n\n# --- MERGED TEMPLATE (Added on $(date +%Y-%m-%d)) ---\n" >> "$DST_AGENTS"
-            cat "$SRC_AGENTS" >> "$DST_AGENTS"
-            echo -e "Merged new template into existing AGENTS.md. Backup created at: ${GREEN}${DST_AGENTS}.bak${NC}"
+            if ! grep -Eq "POLYA-SDLC COMPLETE PIPELINE|MERGED POLYA TEMPLATE" "$DST_AGENTS" 2>/dev/null; then
+                echo -e "\n\n# --- MERGED POLYA TEMPLATE (Added on $(date +%Y-%m-%d)) ---\n" >> "$DST_AGENTS"
+                cat "$SRC_AGENTS" >> "$DST_AGENTS"
+                echo -e "Merged new template into existing AGENTS.md. Backup created at: ${GREEN}${DST_AGENTS}.bak${NC}"
+            else
+                echo -e "${YELLOW}Pólya SDLC template already merged in AGENTS.md. Skipping duplicate append.${NC}"
+            fi
         else
             echo -e "${YELLOW}Skipping copy of 'AGENTS.md'...${NC}"
         fi
@@ -260,12 +242,7 @@ echo -e "\n${GREEN}[OK] Installation completed successfully!${NC}"
 echo -e "${YELLOW}[IMPORTANT]: Please review 'AGENTS.md' in your project to:"
 echo -e "1. Customize the project name on the first line so that AI agents can recognize your project context."
 echo -e "2. Change the language preference in the '## Communication' section if necessary.${NC}"
-if [ "$PKG_CHOICE" = "2" ]; then
-    echo -e "${CYAN}3. For TDD-Spec SDLC, start by typing '/tdd-init' (to bootstrap constitution/constraints) or '/tdd-ask-help' for guidance.${NC}\n"
-elif [ "$PKG_CHOICE" = "3" ]; then
-    echo -e "${CYAN}3. For Polya-Coder, start by typing '/polya-router' for interactive triage or '/polya-init' to re-bootstrap.${NC}\n"
-elif [ "$PKG_CHOICE" = "4" ]; then
-    echo -e "${CYAN}3. For Polya-SDLC, start by typing '/to-ask-help' for interactive triage or '/to-explore' to begin discovery.${NC}\n"
-else
-    echo -e "${CYAN}3. For Standard SDLC, start by typing '/sdlc-explore-ideas' to begin discovery.${NC}\n"
-fi
+echo -e "${CYAN}Next Steps with Pólya SDLC:"
+echo -e "- Start by typing '/to-ask-help' for interactive Socratic triage guidance and intent routing."
+echo -e "- Type '/to-explore' to survey and discover problem spaces (Phase 0)."
+echo -e "- In an existing codebase, run '/to-map' to document architecture topography into 'docs/ARCHITECTURE.md'.${NC}\n"
