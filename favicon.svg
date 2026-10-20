@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <!-- Background Dark Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2d"/>
+      <stop offset="100%" stop-color="#151517"/>
+    </linearGradient>
+    
+    <!-- Lightning Bolt Energetic Amber-Orange Gradient -->
+    <linearGradient id="bolt-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffc837"/>
+      <stop offset="50%" stop-color="#ff8008"/>
+      <stop offset="100%" stop-color="#ff3b30"/>
+    </linearGradient>
+
+    <!-- Subtle Top Sheen -->
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Drop Shadow for Glyphs -->
+    <filter id="glyph-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base with Border -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg-grad)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2"/>
+  <rect x="5" y="5" width="118" height="58" rx="26" fill="url(#sheen)"/>
+
+  <!-- Glyphs Group -->
+  <g filter="url(#glyph-shadow)">
+    <!-- Mathematical Sigma (Pólya Problem-Solving) -->
+    <path d="M 56 34 L 24 34 L 24 43 L 42 64 L 24 85 L 24 94 L 56 94 L 56 84 L 40 84 L 50 72 L 50 56 L 40 44 L 56 44 Z" fill="#ffffff"/>
+
+    <!-- Lightning Bolt (Agentic Velocity) -->
+    <path d="M 88 28 L 68 62 L 83 62 L 72 100 L 102 58 L 86 58 L 95 28 Z" fill="url(#bolt-grad)"/>
+  </g>
+</svg>

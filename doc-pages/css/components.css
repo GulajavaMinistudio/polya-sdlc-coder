@@ -73,14 +73,20 @@
   opacity: 0.9;
 }
 
-.global-nav-brand .monogram {
+.global-nav-brand .monogram,
+.global-nav-brand .nav-brand-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 24px;
   height: 24px;
-  background-color: rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-xs);
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.global-nav-brand .monogram {
+  background-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 13px;
