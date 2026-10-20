@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-ask-help Skill - Socratic Triage Mentor & Router | Pólya SDLC Coder</title>
+  <meta name="description" content="Socratic triage mentor, navigator, and autonomous intent router for the Pólya Heuristic Coder ecosystem. Deconstructs user tasks into Unknown, Data, and Condition.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-ask-help</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-ask-help</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Utility: Socratic Router & Mentor</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-ask-help Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          The intelligent router over the whole Pólya ecosystem when you are not sure which flow you are in. Deconstructs tasks and routes to the optimal skill.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "Where shall I start? Start with the statement of the problem. What can I do? Visualize the problem as a whole as clearly as you can."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-ask-help" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-ask-help"><code>/to-ask-help I need to add webhook idempotency for payment webhooks, but I'm not sure which files to touch.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-ask-help</code> is the Socratic router over the whole set of Pólya skills (analogous to <code>ask-matt</code> in AI Hero). When you are not sure which flow you are in, or when you have a natural user prompt without a command prefix, <code>to-ask-help</code> takes over. It performs autonomous codebase reconnaissance without halting to ask "which files should I read?", deconstructs the task into George Pólya's Problem Triad (The Unknown, The Known Data, and The Condition), and dispatches the optimal <code>/to-*</code> sub-skill.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          If confidence is high, it announces discovered Clean Architecture seams and immediately launches the phase. If ambiguous, it renders a concise ASCII Triage Card with candidate seams and a single confirmation question. It strictly enforces The Pause Rule: prompts like "build me feature X" are routed to <code>/to-spec</code> or <code>/to-plan</code>, never directly to code implementation.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A feature request, bug, or idea, and you aren't sure which SDLC phase fits</td>
+              <td><code>/to-ask-help [your task description]</code></td>
+            </tr>
+            <tr>
+              <td>You want a Socratic diagnostic of your problem without knowing commands</td>
+              <td><code>/to-ask-help</code> (bare invocation renders full Socratic triage menu)</td>
+            </tr>
+            <tr>
+              <td>You already know you need a formal Technical Specification</td>
+              <td><code>/to-spec</code> directly</td>
+            </tr>
+            <tr>
+              <td>You already know you need vertical tracer bullets from an approved spec</td>
+              <td><code>/to-plan</code> directly</td>
+            </tr>
+            <tr>
+              <td>A routine mechanical fix (&le; 2 files)</td>
+              <td><code>/to-quick-fix</code> directly</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Natural Task Description:</strong> Provide your natural prompt, error message, or feature request.</li>
+            <li><strong>Autonomous Reconnaissance:</strong> Inspects repository files, manifests, and <code>docs/ARCHITECTURE.md</code> automatically.</li>
+            <li><strong>Cross-Cutting Router:</strong> Does not enforce a session lock; routes cleanly to any phase.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single triage run follows four automated steps:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Autonomous Codebase Reconnaissance:</strong> Inspects package manifests, directory trees, and Clean Architecture seams. Never halts to ask "what files should I read?".</li>
+          <li><strong>Instant Pólya Deconstruction:</strong> Maps The Unknown (target deliverable), The Known Data (inputs, tables), and The Condition (Find vs. Prove).</li>
+          <li><strong>Sub-Skill Routing Matrix:</strong> Matches the problem nature to the exact sub-skill (Phase 0 Discovery &rarr; Phase 6 Docs).</li>
+          <li><strong>Execution Dispatch:</strong> High confidence launches the phase immediately; ambiguous tasks present an ASCII Triage Card with candidate seams.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Does /to-ask-help ever write production code directly?</h3>
+          <p class="qa-answer">
+            Never! Natural prompts like "build me feature X" are routed to <code>/to-spec</code> or <code>/to-plan</code>, never directly to code implementation. The Pause Rule is strictly enforced to prevent premature, unverified coding.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What happens if the workspace is completely empty (greenfield)?</h3>
+          <p class="qa-answer">
+            The Greenfield Project Guard activates: instead of failing, it routes you to <code>/to-explore</code>, <code>/to-prd</code>, or <code>/to-spec</code> to design directory structures and scaffolding from scratch.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>It renders the concise ASCII Pólya Triage Card (Unknown, Data, Condition, Recommended Sub-Skill).</li>
+          <li>It inspects existing repository files itself rather than asking you what framework or directory you use.</li>
+          <li>It routes you to the exact appropriate skill without skipping the planning or specification gates.</li>
+          <li>It handles greenfield repositories without throwing errors.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-ask-help</code> is the router over the entire Pólya ecosystem:
+        </p>
+        <pre class="flow-spine">             ┌──▶ /to-explore (Phase 0: Ideation & Spikes)
+             ├──▶ /to-prd     (Phase 0.5: Business Requirements)
+             ├──▶ /to-spec    (Phase 1: Architecture & Contracts)
+/to-ask-help ┼──▶ /to-plan    (Phase 2: Tracer Bullets)
+(The Router) ├──▶ /to-code    (Phase 3: Clean Implementation)
+             ├──▶ /to-review  (Phase 4: SOLID Quality Audit)
+             ├──▶ /to-fix     (Phase 5: First-Principles Remediation)
+             └──▶ /to-quick-fix (Bypass: Routine One-Shot Fixes)</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It acts as the universal entrypoint whenever you are uncertain which flow or phase to initiate.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="../index.html" class="handoff-link">
+            <span class="handoff-label">← Portal Hub</span>
+            <span class="handoff-target">All 14 Skills Overview</span>
+          </a>
+          <a href="to-explore.html" class="handoff-link next">
+            <span class="handoff-label">Next Phase →</span>
+            <span class="handoff-target">/to-explore (Problem Discovery)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

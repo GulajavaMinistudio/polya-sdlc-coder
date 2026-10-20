@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-docs Skill - Diátaxis Technical Documentation | Pólya SDLC Coder</title>
+  <meta name="description" content="Phase 6 of the Pólya Heuristic Coder: Technical Documentation via Diátaxis Framework (Tutorials, How-To Guides, Reference, Explanation), plus PR descriptions, changelogs, release notes, and postmortems.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-docs</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-docs</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Phase 6: Technical Documentation</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-docs Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          Transforms verified code into purpose-driven technical documentation adhering strictly to the Diátaxis framework and operational delivery artifacts.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "Can you use the result? Can you use the method for some other problem? It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-docs" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-docs"><code>/to-docs @docs/spec/checkout-spec.md Author How-To guide for integrating checkout webhook and document reference schemas.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-docs</code> translates completed, verified software systems into clear, purpose-driven technical documentation adhering to the <strong>Diátaxis Framework</strong> (<a href="https://diataxis.fr/" target="_blank" rel="noopener">diataxis.fr</a>). It enforces strict quadrant separation across <strong>Tutorials</strong> (learning journeys for beginners), <strong>How-To Guides</strong> (task-oriented recipes and runbooks), <strong>Reference</strong> (austere descriptions of APIs, schemas, and error codes), and <strong>Explanation</strong> (discursive architectural context and ADR rationale).
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It also authors essential operational delivery artifacts: Pull Request descriptions, Keep a Changelog entries, audience-tailored Release Notes, and Blameless Postmortems. It inspects verified code directly (<code>[file:line]</code>) before writing to eliminate hallucinated flags or non-existent parameters. It refuses to modify application code.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Implementation verified & reviewed (verdict GO) ready for user/developer docs</td>
+              <td><code>/to-docs @docs/spec/{slug}-spec.md</code></td>
+            </tr>
+            <tr>
+              <td>A completed branch ready for a comprehensive Pull Request description</td>
+              <td><code>/to-docs</code> (PR Description)</td>
+            </tr>
+            <tr>
+              <td>A new release tag needing structured Keep a Changelog entries</td>
+              <td><code>/to-docs</code> (CHANGELOG.md)</td>
+            </tr>
+            <tr>
+              <td>An incident retrospective after production outage or major regression</td>
+              <td><code>/to-docs</code> (Blameless Postmortem)</td>
+            </tr>
+            <tr>
+              <td>Designing internal backend database schemas, ports, or DTO contracts</td>
+              <td><code>/to-spec</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Verified Codebase:</strong> Feature must be implemented and passing tests before writing user-facing guides or API references.</li>
+            <li><strong>Source-Grounded Truth:</strong> The agent MUST inspect real code (<code>view_file</code> / <code>grep_search</code>) to verify exact signatures and flags.</li>
+            <li><strong>Strict Documentation-Only Scope:</strong> Modifying production source code or altering tests is strictly prohibited.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single documentation run follows four structured phases:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Audit & Clarify:</strong> Identifies target audience and selects exactly ONE Diátaxis quadrant (Tutorial, How-To, Reference, Explanation) OR one operational delivery format (PR description, Changelog, Release Notes, Postmortem).</li>
+          <li><strong>Design & Outline:</strong> Presents a clear structural outline tailored to the selected quadrant.</li>
+          <li><strong>Source-Grounded Drafting:</strong> Inspects real source code (<code>[file:line]</code>) and git history to ensure 100% technical truth. Verifies all code snippets are copy-paste runnable with clearly marked dummy credentials.</li>
+          <li><strong>Persist Output:</strong> Saves document to its canonical directory adhering to <code>DOCS-TEMPLATE.md</code> and offers to record milestones to <code>memory.instructions.md</code> via <code>/to-memory</code>.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Why can't I combine a Tutorial, API Reference, and Explanation into one README?</h3>
+          <p class="qa-answer">
+            Mixing Diátaxis quadrants confuses beginners with dense reference tables, buries actionable steps under discursive theory, and bloats documents. Pure, focused documents are significantly easier to read and maintain.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What is the Source-Grounded Verification Mandate?</h3>
+          <p class="qa-answer">
+            Code often refines field names, flags, or error codes during implementation. Documenting from training memory or early specifications produces broken code examples. The agent must inspect actual repository code before documenting.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>The generated document belongs strictly to 1 Diátaxis quadrant or operational delivery format.</li>
+          <li>All CLI flags, DTO fields, and parameter tables match actual source code verified on disk.</li>
+          <li>All code snippets are complete and copy-paste runnable, with zero lazy placeholders (<code>// ... setup here</code>).</li>
+          <li>Never exposes real API keys or secrets, utilizing clearly marked dummy placeholders.</li>
+          <li>It modifies zero application code in <code>/src</code> or <code>/lib</code>.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-docs</code> is Phase 6 in the main idea-to-ship pipeline:
+        </p>
+        <pre class="flow-spine">/to-explore → /to-prd → /to-spec → /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → 📚 /to-docs</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It is invoked after <code>/to-review</code> issues a verdict <code>GO</code>. Once user and developer documentation is published, it offers to save the milestone to persistent memory via <code>/to-memory</code>.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-fix.html" class="handoff-link">
+            <span class="handoff-label">← Previous Phase</span>
+            <span class="handoff-target">/to-fix (First-Principles Remediation)</span>
+          </a>
+          <a href="to-memory.html" class="handoff-link next">
+            <span class="handoff-label">Next Utility →</span>
+            <span class="handoff-target">/to-memory (Persistent Project Memory)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

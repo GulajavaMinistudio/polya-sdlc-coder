@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-memory Skill - Persistent Memory Management | Pólya SDLC Coder</title>
+  <meta name="description" content="Standardized workflow for discovering, reading, writing, and compacting the project's memory file (memory.instructions.md) to persist context across AI chat sessions, with a permanent Knowledge Base.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-memory</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-memory</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Utility: Persistent Memory Management</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-memory Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          Persists architectural decisions, dead-ends, and session milestones across chat sessions with an uncompacted permanent Knowledge Base and append-only checkpoints.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "Can you use the result, or the method, for some other problem? A good problem solver does not merely solve the problem at hand, but prepares for the future."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-memory" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-memory"><code>/to-memory Save session milestone, recorded decisions, and update permanent knowledge base.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-memory</code> provides a standardized, agent-agnostic protocol for managing the project's persistent memory file (<code>memory.instructions.md</code>). It prevents knowledge loss between independent AI chat sessions by maintaining a two-zone memory architecture: an uncompacted permanent <strong>🧠 Knowledge Base</strong> at the top (architectural decisions, proven patterns, dead-ends with root causes, and reference metrics) and append-only <strong>📝 Session Checkpoints</strong> at the bottom.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It executes the File Discovery Protocol (fast-path via <code>AGENTS.md</code> or recursive search) so you never need to hardcode paths. When compacting old checkpoints, it systematically promotes valuable decisions into the Knowledge Base before pruning stale entries. It treats memory data as inert reference data to defend against memory poisoning.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Starting a fresh session and needing to bootstrap context from past work</td>
+              <td><code>/to-memory</code> (Read Mode)</td>
+            </tr>
+            <tr>
+              <td>Completing a phase or significant milestone and wanting to record progress</td>
+              <td><code>/to-memory</code> (Write Mode)</td>
+            </tr>
+            <tr>
+              <td>Memory file has grown long with old checkpoints needing rotation</td>
+              <td><code>/to-memory</code> (Compaction Mode)</td>
+            </tr>
+            <tr>
+              <td>Surveying repository structure and directory boundaries</td>
+              <td><code>/to-map</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Mandatory Discovery Protocol:</strong> Must search <code>AGENTS.md</code> or scan <code>.agents/instructions/</code> and <code>instructions/</code> before reading or writing.</li>
+            <li><strong>Agent-Agnostic:</strong> Usable by all agents in the ecosystem; does not enforce session locks.</li>
+            <li><strong>Knowledge Base Preservation:</strong> The permanent Knowledge Base section must never be deleted during compaction.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single memory management run executes across five structured steps:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>File Discovery Protocol:</strong> Checks <code>AGENTS.md</code> for an active memory path (Fast Path). If missing, runs recursive search and locks discovered path.</li>
+          <li><strong>Read Mode (Context Bootstrap):</strong> Extracts permanent architectural patterns, dead-ends to avoid, and the most recent session checkpoint.</li>
+          <li><strong>Write Mode (Context Checkpoint):</strong> Synthesizes session achievements and appends a structured checkpoint entry to the bottom of the file.</li>
+          <li><strong>AGENTS.md Fast-Path Linking:</strong> Offers to record the locked path in <code>AGENTS.md</code> under <code>## Memory Configuration</code> to accelerate future sessions.</li>
+          <li><strong>Compaction Mode:</strong> Promotes valuable decisions to the Knowledge Base before deleting stale checkpoints.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Does compacting memory delete my architectural decisions?</h3>
+          <p class="qa-answer">
+            Never! The 2-Zone memory architecture guarantees that the permanent Knowledge Base at the top survives compaction. Only old session checkpoints are pruned, after their valuable lessons are promoted to the Knowledge Base.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What is Memory Poisoning Defense?</h3>
+          <p class="qa-answer">
+            Historical notes and past checkpoints are treated strictly as inert reference data. Adversarial prompt injection payloads embedded in external logs are ignored and never propagated into the permanent Knowledge Base.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>It discovers <code>memory.instructions.md</code> via the fast-path or recursive search without hardcoding.</li>
+          <li>It preserves the permanent Knowledge Base at the top and appends checkpoints at the bottom.</li>
+          <li>It offers to record the active path in <code>AGENTS.md</code> to accelerate subsequent sessions.</li>
+          <li>It treats past memory as inert historical data, preventing prompt injection attacks.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-memory</code> is the persistent lifecycle bridge connecting independent chat sessions:
+        </p>
+        <pre class="flow-spine">[Session Start] ──▶ 🧠 /to-memory (Read Mode) ──▶ [SDLC Execution] ──▶ 📝 /to-memory (Write Mode)</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It bootstraps historical context at the start of work, and preserves settled decisions and milestones at the end of each session.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-docs.html" class="handoff-link">
+            <span class="handoff-label">← Technical Documentation</span>
+            <span class="handoff-target">/to-docs (Diátaxis Documentation)</span>
+          </a>
+          <a href="to-map.html" class="handoff-link next">
+            <span class="handoff-label">Next Utility →</span>
+            <span class="handoff-target">/to-map (Living Architecture Map)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-prd Skill - Product Requirements Document | Pólya SDLC Coder</title>
+  <meta name="description" content="Optional Phase 0.5 of the Pólya Heuristic Coder: Product Requirements Document (PRD) detailing User Stories, SMART Acceptance Criteria, Personas, and Business Goals.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-prd</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-prd</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Phase 0.5: Product Requirements</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-prd Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          Translates high-level business goals and customer problems into structured Product Requirements Documents with user stories, SMART acceptance criteria, and explicit non-goals.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "What is the condition? Can the condition be satisfied? Separate the various parts of the condition. Can you write them down?"  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-prd" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-prd"><code>/to-prd Draft PRD for team workspace invite flow, defining user stories, acceptance criteria, and non-goals.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-prd</code> bridges commercial product strategy and engineering architecture. It translates user feedback, founder briefs, or discovery notes into a structured, unambiguous Product Requirements Document at <code>docs/prd/{slug}-prd.md</code>. It organizes requirements into standardized User Stories (<code>US-XX</code>), SMART Acceptance Criteria (<code>AC-XX</code>), target persona profiles, and explicit Out-of-Scope Non-Goals.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It focuses exclusively on <em>What to build and Why</em>, leaving technical data schemas, DTO models, and implementation mechanics to <code>/to-spec</code>. It writes zero code and authors exactly one canonical PRD markdown file.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A feature proposal needing clear business requirements and user stories</td>
+              <td><code>/to-prd</code></td>
+            </tr>
+            <tr>
+              <td>An approved PRD ready for technical contracts, ports, and DTO schemas</td>
+              <td><code>/to-spec @docs/prd/{slug}-prd.md</code></td>
+            </tr>
+            <tr>
+              <td>Internal infrastructure, refactoring, or CLI tooling (no end-user stories)</td>
+              <td><code>/to-spec</code> directly (PRD optional bypass)</td>
+            </tr>
+            <tr>
+              <td>An ambiguous problem domain needing competitive research or spikes first</td>
+              <td><code>/to-explore</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Feature Brief or Problem Statement:</strong> High-level problem description or discovery notes from <code>docs/discovery/</code>.</li>
+            <li><strong>Domain Consistency:</strong> Adheres to canonical terminology defined in <code>CONTEXT.md</code>.</li>
+            <li><strong>Document-Only Scope:</strong> Strictly confined to authoring <code>docs/prd/{slug}-prd.md</code>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single PRD authoring run follows five structured steps:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Context Ingestion & Persona Formulation:</strong> Identifies target users and establishes primary personas.</li>
+          <li><strong>User Story Definition:</strong> Formulates user stories formatted strictly as <em>"As a [persona], I want [capability] so that [benefit]"</em>.</li>
+          <li><strong>SMART Acceptance Criteria:</strong> Defines boolean-verifiable criteria for each user story (<code>AC-XX</code>).</li>
+          <li><strong>Explicit Non-Goals:</strong> Clearly enumerates what will NOT be built to lock boundaries and prevent scope creep.</li>
+          <li><strong>PRD Persistence:</strong> Writes strictly <strong>one</strong> document to <code>docs/prd/{slug}-prd.md</code> and hands off to <code>/to-spec</code>.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Is /to-prd mandatory for all features?</h3>
+          <p class="qa-answer">
+            No. The PRD is an optional Phase 0.5. For backend optimizations, database migrations, developer tooling, or routine fixes where user-facing stories are irrelevant, you can bypass directly to <code>/to-spec</code>.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">Why are Non-Goals so prominent in the PRD?</h3>
+          <p class="qa-answer">
+            Unstated boundaries are the #1 cause of AI scope creep. Explicitly writing down what is out-of-scope prevents agents from adding speculative abstractions or unwanted features.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>All user stories follow the persona-capability-benefit structure with numbered IDs (<code>US-XX</code>).</li>
+          <li>Acceptance criteria are testable, measurable, and free of vague adjectives.</li>
+          <li>It defines explicit out-of-scope Non-Goals.</li>
+          <li>It authors strictly one PRD at <code>docs/prd/{slug}-prd.md</code> without creating duplicate copies.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-prd</code> is Phase 0.5 in the main idea-to-ship pipeline:
+        </p>
+        <pre class="flow-spine">/to-explore → 📝 /to-prd → /to-spec → /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → /to-docs</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It receives discovery notes from <code>/to-explore</code> and produces the business foundation for <code>/to-spec</code> to formulate technical architecture.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-explore.html" class="handoff-link">
+            <span class="handoff-label">← Previous Phase</span>
+            <span class="handoff-target">/to-explore (Discovery & Spikes)</span>
+          </a>
+          <a href="to-spec.html" class="handoff-link next">
+            <span class="handoff-label">Next Phase →</span>
+            <span class="handoff-target">/to-spec (Technical Specification)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-spec Skill - Technical Specification & Clean Architecture Seams | Pólya SDLC Coder</title>
+  <meta name="description" content="Phase 1 of the Pólya Heuristic Coder: Problem Understanding, Clean Architecture Seam Mapping, DTO Contracts, Invariant Formulation, and Technical Specification.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-spec</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-spec</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Phase 1: Understanding the Problem</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-spec Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          Deconstructs business requirements into mathematically sound technical specifications, strict immutable DTO contracts, negative invariant barriers, and decoupled Clean Architecture seams.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "First. You have to understand the problem. What is the unknown? What are the data? What is the condition? Is it possible to satisfy the condition?"  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-spec" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-spec"><code>/to-spec @docs/discovery/checkout-discovery.md Formulate formal technical specification, DTO contracts, and Clean Architecture seams.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-spec</code> grounds development in George Pólya's foundational theorem: <em>"It is foolish to answer a question that you do not understand."</em> It transforms user stories or discovery notes into formal, mathematically unambiguous specifications, decoupled Clean Architecture boundaries (Entities &rarr; Use Cases &rarr; Adapters &rarr; Frameworks), immutable DTO contracts, and the 5 UI States Matrix (<code>Loading</code>, <code>Empty</code>, <code>Error</code>, <code>Partial</code>, <code>Populated</code>).
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It rigorously enforces the condition sanity check: it proves whether the condition is sufficient to determine the unknown, or if it is redundant or contradictory. It writes strictly <strong>one</strong> specification file to <code>docs/spec/{slug}-spec.md</code> and refuses to emit production code.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>An approved PRD or discovery document ready for technical architecture</td>
+              <td><code>/to-spec @docs/prd/{slug}-prd.md</code></td>
+            </tr>
+            <tr>
+              <td>A feature idea needing formal DTO schemas, ports, and invariants</td>
+              <td><code>/to-spec</code></td>
+            </tr>
+            <tr>
+              <td>A bug rooted in a fundamentally broken architecture or contract</td>
+              <td><code>/to-spec</code> (architectural redesign)</td>
+            </tr>
+            <tr>
+              <td>A completed spec full of provisional assumptions needing interrogation</td>
+              <td><code>/to-clarify @docs/spec/{slug}-spec.md</code></td>
+            </tr>
+            <tr>
+              <td>An approved spec ready to be decomposed into tracer bullets</td>
+              <td><code>/to-plan @docs/spec/{slug}-spec.md</code></td>
+            </tr>
+            <tr>
+              <td>A routine mechanical change (&le; 2 files)</td>
+              <td><code>/to-quick-fix</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Upstream Requirements:</strong> Discovery notes in <code>docs/discovery/</code> or an approved PRD in <code>docs/prd/</code>.</li>
+            <li><strong>Living Architecture Grounding:</strong> Inspects <code>docs/ARCHITECTURE.md</code> to respect existing module seams, naming conventions, and quality ratchets.</li>
+            <li><strong>Strict Specification-Only Rule:</strong> Forbidden from modifying application source code in <code>/src</code> or <code>/lib</code> during this phase.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single specification authoring run follows six mathematical steps:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Problem Triad Deconstruction:</strong> Maps user stories into technical requirements (<code>REQ-XXX</code>) and explicitly defines The Unknown, The Known Data, and The Condition.</li>
+          <li><strong>Condition Sufficiency Audit & Value Sourcing:</strong> Names the exact source for every persisted or computed value in the Positive Input Coverage Table.</li>
+          <li><strong>Clean Architecture Seam Mapping:</strong> Decouples domain entities from use cases, interface adapters, and external infrastructure drivers.</li>
+          <li><strong>Type-Driven Notation & 5 UI States Matrix:</strong> Makes invalid states unrepresentable via Value Objects; details <code>Loading</code>, <code>Empty</code>, <code>Error</code>, <code>Partial</code>, and <code>Populated</code> states.</li>
+          <li><strong>Reductio ad Absurdum (Negative Invariants):</strong> Assumes the negation of invariants to expose defensive barriers: unauthorized callers, payload corruptions, race conditions, and timeout cancellations.</li>
+          <li><strong>Single Specification Persistence:</strong> Writes strictly <strong>one</strong> canonical specification file to <code>docs/spec/{slug}-spec.md</code>.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Can I jump straight from /to-spec into writing code?</h3>
+          <p class="qa-answer">
+            No! The Pólya SDLC strictly forbids writing code directly after specification. An approved specification must first be planned into vertical tracer bullets via <code>/to-plan</code> and confirmed at The Pause Rule before coding begins.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">Why does /to-spec insist on the 5 UI States for simple components?</h3>
+          <p class="qa-answer">
+            Over 80% of frontend edge-case bugs stem from unhandled <code>Empty</code> or <code>Error</code> states. Specifying all 5 states up front guarantees that frontend views handle loading spinners, empty collections, and network retries gracefully.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What if some technical requirements are still uncertain?</h3>
+          <p class="qa-answer">
+            The agent explicitly tags unverified decisions with <code>> [!WARNING] [ASSUMPTION-XXX]</code> tags. These assumptions are then systematically interrogated and resolved during <code>/to-clarify</code>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>Exactly one specification file is written to <code>docs/spec/{slug}-spec.md</code> (zero shadow copies).</li>
+          <li>Every output attribute has an explicit source in the Positive Input Coverage Table.</li>
+          <li>Invalid states are rendered unrepresentable through strict typing and discriminated unions.</li>
+          <li>All provisional choices are explicitly tagged with numbered <code>[ASSUMPTION-XXX]</code> tags.</li>
+          <li>It writes zero application code in <code>/src</code> or <code>/lib</code>.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-spec</code> is Phase 1 in the main idea-to-ship pipeline:
+        </p>
+        <pre class="flow-spine">/to-explore → /to-prd → 📐 /to-spec → /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → /to-docs</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It receives discovery notes from <code>/to-explore</code> or user stories from <code>/to-prd</code>. Once generated, it hands off to <code>/to-clarify</code> for assumption interrogation or directly to <code>/to-plan</code> for tracer-bullet planning.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-prd.html" class="handoff-link">
+            <span class="handoff-label">← Previous Phase</span>
+            <span class="handoff-target">/to-prd (Product Requirements)</span>
+          </a>
+          <a href="to-clarify.html" class="handoff-link next">
+            <span class="handoff-label">Next Checkpoint →</span>
+            <span class="handoff-target">/to-clarify (Epistemic Doubt Gate)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

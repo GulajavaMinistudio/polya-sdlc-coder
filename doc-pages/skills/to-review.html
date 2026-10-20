@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-review Skill - Looking Back & SOLID Quality Audit | Pólya SDLC Coder</title>
+  <meta name="description" content="Phase 4 of the Pólya Heuristic Coder: Looking Back, 5 SOLID Principles Audit, Boundary Specialization, Defensive Security Audit, Test by Dimension, 30s Visual Topology, and Two Golden Questions.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-review</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-review</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Phase 4: Looking Back</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-review Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          Conducts an unsparing post-implementation audit across the 5 SOLID principles, boundary specialization, mutation checks, defensive security, and release readiness.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "Fourth. Examine the solution obtained. Can you check the result? Can you check the argument? Can you derive the result differently? Can you see it at a glance? Can you use the result, or the method, for some other problem?"  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-review" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-review"><code>/to-review @docs/spec/checkout-spec.md @docs/plan/checkout-plan.md Audit code against 5 SOLID principles, defensive security, and issue release GO/NO-GO verdict.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-review</code> executes Phase 4 (Looking Back) of George Pólya's heuristic framework. It performs an unsparing quality audit of completed code modifications against Robert C. Martin's 5 SOLID design principles, boundary specialization ($0, 1, \text{null}$, max payloads), and defensive security invariants (OWASP Top 10, SSRF IP allowlisting, destructive path containment, zero hardcoded secrets).
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It verifies tests first through mutation experimentation, enforces the 4 Anti-Fabrication Rules (No Evidence = No PASS), inspects the git diff for cheating moves (suppressions or skipped tests), synthesizes a 30-second visual ASCII topology, answers Pólya's Two Golden Questions, and issues a definitive <code>GO | NO-GO</code> release verdict in <code>docs/reviews/{slug}-review.md</code>. It refuses to modify production code directly.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Implementation completed and green tests passed</td>
+              <td><code>/to-review @docs/spec/{slug}-spec.md @docs/plan/{slug}-plan.md</code></td>
+            </tr>
+            <tr>
+              <td>High-risk one-way doors (auth, payments, concurrency locks, DB migrations)</td>
+              <td><code>/to-review</code> (mandatory adversarial doubt cycle)</td>
+            </tr>
+            <tr>
+              <td>A pure refactoring task claiming zero behavioral change</td>
+              <td><code>/to-review</code> (runs before/after diffing to prove parity)</td>
+            </tr>
+            <tr>
+              <td>Audit completed with defects or invariant breakages</td>
+              <td><code>/to-fix</code> (for First-Principles bug remediation) or <code>/to-code</code></td>
+            </tr>
+            <tr>
+              <td>Audit approved with verdict GO, ready for public technical docs</td>
+              <td><code>/to-docs @docs/spec/{slug}-spec.md</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Completed Implementation:</strong> Source code must be committed or staged on the active branch with tests green.</li>
+            <li><strong>Upstream Specification & Plan:</strong> Target <code>docs/spec/{slug}-spec.md</code> and <code>docs/plan/{slug}-plan.md</code> must be available to evaluate conformance.</li>
+            <li><strong>Runtime Evidence Mandate:</strong> Requires actual test runner output, terminal logs, or HTTP status codes. Static code reading alone can never grant a <code>PASS</code>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single comprehensive quality review run follows eight rigorous phases:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Resilience Hierarchy Priority:</strong> Evaluates code strictly in order: Correct &rarr; Safe &rarr; Holds under load &rarr; Tested &rarr; Fast &rarr; Lean.</li>
+          <li><strong>Verify the Tests First (Mutation Check):</strong> Proves test integrity by static assertion auditing or temporary worktree inversion, ensuring tests turn RED if the condition is inverted.</li>
+          <li><strong>Adversarial Doubt Cycle:</strong> Reviews with an adversarial mindset (prompted to disprove rather than validate: <em>"Find what will break in production"</em>).</li>
+          <li><strong>Runtime Evidence Gate & 4-State Taxonomy:</strong> Evaluates every acceptance criterion across 4 states: <code>MET ✅</code>, <code>SPECCED BUT MISSING 🚫</code>, <code>SPECCED BUT NOT APPLIED ⚠️</code>, or <code>BLOCKED ⚠️</code>.</li>
+          <li><strong>The 5 SOLID Principles & Floor-Guard Diff Audit:</strong> Audits SRP, OCP, LSP, ISP, and DIP. Audits diff against cheating moves (suppressions, skipped tests, stubs).</li>
+          <li><strong>Defensive Security & Hardening:</strong> Audits against OWASP Top 10, SSRF IP allowlists, path traversal, and secrets leaks.</li>
+          <li><strong>30-Second Visual Topology & The Two Golden Questions:</strong> Synthesizes data flow into an ASCII topology and answers: <em>Can you use the result? Can you use the method?</em></li>
+          <li><strong>Release Readiness Gate:</strong> Authors <code>docs/reviews/{slug}-review.md</code>, issues definitive <code>GO | NO-GO</code> verdict, and documents timed rollback triggers.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">All unit tests passed, why did /to-review issue a NO-GO verdict?</h3>
+          <p class="qa-answer">
+            Passing tests prove nothing if they do not assert the right boundary or were weakened. Under the 4 Anti-Fabrication Rules, any Floor-Guard violation (such as adding <code>@ts-ignore</code>, skipping tests, or lowering quality ratchets in config files) triggers an automatic, non-negotiable <code>NO-GO</code> verdict.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">Why doesn't the review agent fix the production code directly?</h3>
+          <p class="qa-answer">
+            Separation of concerns. When an auditor edits production code, it creates confirmation bias and bypasses test boundaries. The auditor documents findings using the 4-part structure (What this is &rarr; Problem &rarr; Fix &rarr; If skipped) and hands off to <code>/to-code</code> for surgical execution.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What is the Keep-or-Revert Gate for performance optimizations?</h3>
+          <p class="qa-answer">
+            Any optimization whose measured benchmark impact is within noise (neutral) is flagged for deletion. Speculative complexity without measurable gain is technical debt and must be reverted.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>It audits test assertion strength and runs mutation checks before trusting a green test suite.</li>
+          <li>Every <code>PASS</code> / <code>MET</code> claim in the report cites concrete test execution or runtime evidence.</li>
+          <li>All reported issues follow the standardized 4-part finding structure.</li>
+          <li>It generates an intuitive 30-second ASCII topology diagram of the implemented system.</li>
+          <li>It never modifies application source code directly during the review.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-review</code> is Phase 4 in the main idea-to-ship pipeline:
+        </p>
+        <pre class="flow-spine">/to-explore → /to-prd → /to-spec → /to-clarify → /to-plan → 🛑 PAUSE → /to-code → 🔍 /to-review → /to-docs</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It receives the completed code implementation from <code>/to-code</code>. If approved (<code>Verdict: GO</code>), it hands off directly to <code>/to-docs</code> for user and API documentation. If defects are found (<code>Verdict: NO-GO</code>), it hands off to <code>/to-fix</code> or <code>/to-code</code>.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-code.html" class="handoff-link">
+            <span class="handoff-label">← Previous Phase</span>
+            <span class="handoff-target">/to-code (Clean Code Implementation)</span>
+          </a>
+          <a href="to-fix.html" class="handoff-link next">
+            <span class="handoff-label">Remediation Path →</span>
+            <span class="handoff-target">/to-fix (First-Principles Remediation)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

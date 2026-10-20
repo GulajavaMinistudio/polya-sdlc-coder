@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-clarify Skill - Epistemic Doubt & Ambiguity Interrogation | Pólya SDLC Coder</title>
+  <meta name="description" content="Recurring Checkpoint of the Pólya Heuristic Coder: Condition Sanity Check, 5-Axis Assumptions Interrogation, Epistemic Doubt, Grill-Me Protocol with concrete A/B options, and Readiness Scoring (0-100).">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-clarify</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-clarify</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Checkpoint: Epistemic Doubt & Quality Gate</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-clarify Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          A relentless interview to eliminate assumptions, challenge condition sufficiency, sharpen domain vocabulary, and score readiness (0–100) before planning or coding.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "Examine your guess. Is it possible to satisfy the condition? Is the condition sufficient to determine the unknown? Or insufficient? Or redundant? Or contradictory?"  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-clarify" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-clarify"><code>/to-clarify @docs/spec/checkout-spec.md Interrogate assumptions, test condition sufficiency, and calculate readiness score.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-clarify</code> is a stateful ambiguity interrogation skill. It reads your existing codebase and subjects your target specification or plan (<code>docs/spec/</code>, <code>docs/prd/</code>, or <code>docs/plan/</code>) to an unsparing Socratic grilling session. It isolates unverified assumptions (<code>[ASSUMPTION-XXX]</code>), audits condition sufficiency across 5 analytical axes (Goal & Premise, 5 UI States, Sad Paths, Seams, Scope Boundaries), challenges fuzzy adjectives, and calculates an objective Readiness Score (0–100).
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It writes real documentation into your repo as it goes: resolved domain terminology is immediately recorded into <code>CONTEXT.md</code>, hard-to-reverse architectural decisions are persisted into <code>docs/adr/</code>, and the complete audit trial is saved to <code>docs/audit/{slug}-{phase}-clarification.md</code>. It refuses to write application source code; its sole purpose is to guarantee that the condition is fully determined before a single line of code is written.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the work currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A freshly drafted Technical Specification with provisional assumptions</td>
+              <td><code>/to-clarify @docs/spec/{slug}-spec.md</code> (grill assumptions before planning)</td>
+            </tr>
+            <tr>
+              <td>An Implementation Plan ready for sanity checking</td>
+              <td><code>/to-clarify @docs/plan/{slug}-plan.md</code> (verify seams & tracer bullets before coding)</td>
+            </tr>
+            <tr>
+              <td>Requirements full of fuzzy adjectives ("fast", "scalable", "user-friendly")</td>
+              <td><code>/to-clarify</code> to force quantitative thresholds and measurable types</td>
+            </tr>
+            <tr>
+              <td>An open-ended greenfield idea with no codebase yet</td>
+              <td><code>/to-explore</code></td>
+            </tr>
+            <tr>
+              <td>Formal architecture, schema, and API contract design</td>
+              <td><code>/to-spec</code></td>
+            </tr>
+            <tr>
+              <td>Decomposing an approved specification into tracer bullets</td>
+              <td><code>/to-plan</code></td>
+            </tr>
+            <tr>
+              <td>Writing functional application code</td>
+              <td><code>/to-code</code> (clarify strictly forbids coding)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Target Document in Context:</strong> Must provide the path to a PRD (<code>docs/prd/</code>), Spec (<code>docs/spec/</code>), or Plan (<code>docs/plan/</code>).</li>
+            <li><strong>Proactive Codebase Discovery:</strong> The agent MUST inspect your repository files and <code>docs/ARCHITECTURE.md</code> before asking questions. It never asks what code can answer.</li>
+            <li><strong>Safe Documentation Seams:</strong> Writes strictly to <code>docs/audit/</code>, updates <code>CONTEXT.md</code>, and creates ADRs in <code>docs/adr/</code>. Application source code remains untouched.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. The Paper Trail (Where It Lands)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          The paper trail
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Three distinct artifacts emerge from an interrogation session:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>What resolved</th>
+              <th>Where it lands</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>A domain term:</strong> the project's canonical word for an entity or concept</td>
+              <td><code>CONTEXT.md</code>, inline, the exact moment it resolves (with rejected terms under <em>_Avoid_</em>)</td>
+            </tr>
+            <tr>
+              <td><strong>An architectural trade-off:</strong> hard to reverse, surprising without context, and high impact</td>
+              <td>An Architecture Decision Record under <code>docs/adr/NNNN-{slug}.md</code></td>
+            </tr>
+            <tr>
+              <td><strong>Audit Findings & Readiness Score:</strong> 0–100 score with assumption mitigations</td>
+              <td><code>docs/audit/{slug}-{phase}-clarification.md</code> (increments iteration headers)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           6. What one run does: The "Grill Me" Protocol
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A clarification run executes the disciplined <strong>"Grill Me" Protocol</strong> to de-risk requirements without causing cognitive fatigue:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Autonomous Codebase Reconnaissance:</strong> Inspects repository files, schemas, and <code>docs/ARCHITECTURE.md</code> first. It never asks questions that existing code can already answer.</li>
+          <li><strong>One Question Only:</strong> Never bombards you with a list of 5+ questions. Asks exactly <strong>ONE</strong> sharp, focused question per response.</li>
+          <li><strong>Concrete A/B Options:</strong> Proposes 2–3 concrete technical alternatives (Option A vs. Option B) grounded directly in existing repository patterns.</li>
+          <li><strong>Senior Principal Recommendation:</strong> Clearly indicates which option is recommended from a Clean Architecture and long-term maintainability perspective, explaining why.</li>
+          <li><strong>Continuous Artifact Settling:</strong> Updates <code>CONTEXT.md</code> immediately as domain terms resolve, drafts ADRs in <code>docs/adr/</code> for irreversible trade-offs, and scores readiness in <code>docs/audit/</code>.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           7. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">It ran, but no ADRs appeared. Is something broken?</h3>
+          <p class="qa-answer">
+            No, that is working as designed. An Architecture Decision Record requires meeting three conditions simultaneously: it must be hard to reverse, surprising without context, and a genuine trade-off. Most clarifications refine existing requirements or settle domain terminology (which go straight to <code>CONTEXT.md</code>). A clarification session with zero ADRs is completely normal.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">Why does the agent only ask one question at a time instead of giving me a full questionnaire?</h3>
+          <p class="qa-answer">
+            Multi-question lists cause cognitive overload, leading to hurried, shallow responses. By focusing on one architectural frontier at a time with concrete A/B choices, each decision builds upon the previous one without ambiguity drift.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What happens when the Readiness Score reaches &ge; 80/100?</h3>
+          <p class="qa-answer">
+            The agent pauses and presents the <strong>Good Enough Quality Gate</strong>: choose <code>PROCEED</code> (the agent automatically resolves remaining 20% minor details with its recommended defaults and finalizes the report) or <code>REFINE</code> (continues drilling the remaining secondary questions).
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           8. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li><code>CONTEXT.md</code> changes during the session, term by term, rather than appearing in one lump at the end.</li>
+          <li>Questions the codebase can answer get answered by inspecting existing code, not asked of you.</li>
+          <li>Every question presents concrete technical options (Option A vs. Option B) with a clear Senior Principal recommendation.</li>
+          <li>It challenges unmeasurable adjectives ("fast", "scalable") and proposes quantitative thresholds or strict types.</li>
+          <li>It never asks you to write code or offers to patch production files itself.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           9. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-clarify</code> is the recurring quality gate across the Pólya SDLC pipeline:
+        </p>
+        <pre class="flow-spine">/to-explore → /to-prd → /to-spec → 🔍 /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → /to-docs</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          It is invoked after <code>/to-spec</code> (to eliminate spec ambiguity) or after <code>/to-plan</code> (to stress-test tracer bullets). Once the Readiness Score passes the &ge; 80 threshold, it hands off to <code>/to-plan</code> or <code>/to-code</code>.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-spec.html" class="handoff-link">
+            <span class="handoff-label">← Previous Phase</span>
+            <span class="handoff-target">/to-spec (Technical Specification)</span>
+          </a>
+          <a href="to-plan.html" class="handoff-link next">
+            <span class="handoff-label">Next Phase →</span>
+            <span class="handoff-target">/to-plan (Devising a Plan)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

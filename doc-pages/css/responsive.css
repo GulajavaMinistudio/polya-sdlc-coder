@@ -1,0 +1,309 @@
+/**
+ * Pólya SDLC Coder - Responsive Media Queries
+ * Source: DESIGN.md:286-308 (8 Canonical Apple Breakpoints)
+ */
+
+/* ==========================================================================
+   1. Wide Desktop (>= 1441px)
+   ========================================================================== */
+@media (min-width: 1441px) {
+  .tile-container,
+  .global-nav-container,
+  .sub-nav-container {
+    max-width: var(--container-showcase-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ==========================================================================
+   2. Desktop (1069px - 1440px)
+   ========================================================================== */
+@media (max-width: 1440px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   3. Small Desktop (1024px - 1068px)
+   ========================================================================== */
+@media (max-width: 1068px) {
+  .hero-headline {
+    font-size: 40px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .footer-directory-grid {
+    gap: var(--spacing-xl);
+  }
+}
+
+/* ==========================================================================
+   4. Tablet Landscape (834px - 1023px)
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .triad-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .sticky-install-container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* ==========================================================================
+   5. Tablet Portrait (736px - 833px) - Global Nav Collapse
+   ========================================================================== */
+@media (max-width: 834px) {
+  .nav-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .global-nav-links {
+    display: none;
+    position: fixed;
+    top: var(--height-global-nav);
+    left: 0;
+    right: 0;
+    background-color: var(--color-canvas-black);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md) var(--spacing-xl) var(--spacing-lg);
+    gap: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 1000;
+  }
+
+  .global-nav-links.nav-open {
+    display: flex;
+  }
+
+  .global-nav-links a {
+    font-size: 15px;
+    display: block;
+    width: 100%;
+    padding: var(--spacing-xs) 0;
+  }
+
+  /* Sub-nav collapses category links, keeps primary CTA */
+  .sub-nav-menu li:not(:last-child) {
+    display: none;
+  }
+
+  .hero-tile {
+    padding: var(--spacing-xxl) var(--spacing-md);
+  }
+
+  .skills-catalog-section {
+    padding: var(--spacing-xxl) var(--spacing-md);
+  }
+
+  .skill-detail-article {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .sticky-install-container {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   6. Large Phone (641px - 735px)
+   ========================================================================== */
+@media (max-width: 735px) {
+  .hero-tile {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .skills-catalog-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-chips-row {
+    gap: 6px;
+  }
+
+  .filter-chip {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  .platform-segmented-control {
+    gap: 4px;
+  }
+
+  .platform-segment {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .handoff-nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .handoff-link.next {
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   7. Phone (420px - 640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .hero-headline {
+    font-size: 34px;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-subhead {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .skill-detail-title {
+    font-size: 28px;
+  }
+
+  .skill-detail-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .prompt-box-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .prompt-box-header .btn-copy {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-directory-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* Horizontal table scrolling protection */
+  .docs-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .search-input-wrapper {
+    max-width: 100%;
+  }
+
+  .store-utility-card {
+    padding: var(--spacing-lg);
+  }
+
+  .terminal-command-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+
+  .terminal-command-box .btn-copy {
+    align-self: flex-start;
+  }
+
+  .install-step-card {
+    padding: var(--spacing-md);
+  }
+
+  .install-method-switcher {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .method-tab {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .footer-bottom-bar {
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   8. Small Phone (<= 419px)
+   ========================================================================== */
+@media (max-width: 419px) {
+  .hero-headline {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .hero-subhead {
+    font-size: 16px;
+  }
+
+  .skill-detail-title {
+    font-size: 24px;
+  }
+
+  .breadcrumb-trail {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .btn-capsule,
+  .btn-utility {
+    min-height: 44px;
+    padding: 10px 18px;
+  }
+
+  .filter-chip {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .platform-segment {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .pause-rule-banner {
+    flex-direction: column;
+    padding: var(--spacing-md);
+  }
+
+  .pause-rule-icon {
+    font-size: 22px;
+  }
+}

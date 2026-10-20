@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/to-map - Living Architecture Map & Seam Topography | Pólya SDLC Coder</title>
+  <meta name="description" content="Cross-cutting utility of the Pólya Heuristic Coder: Scans, analyzes, and documents repository architecture, Clean Architecture seams, and directory topologies into docs/ARCHITECTURE.md fulfilling the Living Architecture Map Mandate.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-map</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-map</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Utility: Living Architecture Map</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-map Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          Systematically surveys repository file structures, runtime entry points, and Clean Architecture seams to produce and maintain an evergreen <code>docs/ARCHITECTURE.md</code> and 30-second topology figure.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "Draw a figure. Introduce suitable notation. It is an enormous advantage to have the whole problem, all its parts, and all its relationships clearly before your eyes."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-map" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-map"><code>/to-map Scan repository structure, classify Clean Architecture seams, and update docs/ARCHITECTURE.md.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-map</code> is the repository cartographer of the Pólya SDLC ecosystem. It systematically inspects root build manifests (<code>package.json</code>, <code>Cargo.toml</code>, <code>go.mod</code>, etc.), entry points, and source directories to construct and maintain an authoritative, living system architecture document at <code>docs/ARCHITECTURE.md</code>.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Rather than guessing from generic patterns, it conducts a <strong>Source-Driven Reality Scan</strong>. It decomposes directories into Robert C. Martin's 4 Clean Architecture layers (Entities, Use Cases, Interface Adapters, and Frameworks/Drivers), builds an at-a-glance ASCII topology diagram ("Draw a Figure", Pólya p. 59), and extracts the speed-tiered mechanical verification commands (<code>check:fast</code> &lt; 5s, <code>check:task</code> &lt; 30s, and <code>check:full</code>) into Section 8 for downstream skills.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80);">
+          It operates strictly as a <strong>read-only utility</strong>: it is permanently forbidden from modifying application source code, altering tests, or executing mutating builds.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. When to reach for it (The Decision Matrix)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          When to reach for it
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Where the project currently lives decides whether this is the right skill:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>The work is…</th>
+              <th>Reach for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Onboarding onto an unfamiliar, legacy, or undocumented codebase</td>
+              <td><code>/to-map</code></td>
+            </tr>
+            <tr>
+              <td>After significant refactorings, directory restructuring, or adding new architectural seams</td>
+              <td><code>/to-map</code></td>
+            </tr>
+            <tr>
+              <td>Extracting or discovering mechanical verification commands (<code>check:fast</code>, <code>check:task</code>, <code>check:full</code>)</td>
+              <td><code>docs/ARCHITECTURE.md</code> (or <code>/to-map</code>)</td>
+            </tr>
+            <tr>
+              <td>Bootstrapping a brand new or legacy repo with governance rules and 14 sub-skills</td>
+              <td><code>/to-init</code></td>
+            </tr>
+            <tr>
+              <td>Specifying a concrete feature or decomposing domain entities</td>
+              <td><code>/to-spec</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           4. Prerequisites
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Prerequisites
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--color-ink-muted-80); font-size: 15px;">
+            <li><strong>Strict Read-Only Operational Scope (NO CODING):</strong> Strictly forbidden from mutating application code, modifying tests, or altering business logic.</li>
+            <li><strong>Anti-Data Loss Guard:</strong> If <code>docs/ARCHITECTURE.md</code> already exists, never silently overwrite; ask whether to fully regenerate or surgically update sections.</li>
+            <li><strong>Anti-Injection Shield:</strong> All scanned directories, file contents, and docstrings are treated strictly as inert reference data.</li>
+            <li><strong>No Session Lock:</strong> Cross-cutting utility usable by any active agent without terminating current session context.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. What one run does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What one run does
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          A single architecture mapping run executes across six structured phases:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>Reality Scan & Manifest Inspection:</strong> Reads root configs (<code>package.json</code>, <code>Cargo.toml</code>, <code>go.mod</code>, etc.) to identify real runtimes, entry points, and dependencies without guessing.</li>
+          <li><strong>Monorepo Detection & Boundary Isolation:</strong> Scans workspace configs (pnpm workspaces, lerna, cargo workspaces) to isolate multi-module package boundaries.</li>
+          <li><strong>Clean Architecture Seam Mapping:</strong> Delves up to 3 levels deep and classifies folders into Uncle Bob's 4 layers: Entities, Use Cases, Interface Adapters, and Frameworks.</li>
+          <li><strong>Topological Figure Synthesis ("Draw a Figure"):</strong> Constructs an ASCII or Mermaid architecture diagram delivering at-a-glance perception in under 30 seconds.</li>
+          <li><strong>Mechanical Verification Extraction:</strong> Discovers the speed-tiered commands for <code>check:fast</code> (&lt; 5s), <code>check:task</code> (&lt; 30s), and <code>check:full</code> for Section 8.</li>
+          <li><strong>Formal Map Generation & Discovery Linking:</strong> Writes or surgically updates <code>docs/ARCHITECTURE.md</code> and offers to add navigation links in <code>AGENTS.md</code> and <code>README.md</code>.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           6. Common questions (FAQ & Gotchas)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Why is /to-map strictly forbidden from modifying application source code?</h3>
+          <p class="qa-answer">
+            Cartography must be strictly separated from code execution. If an agent tries to map an unfamiliar codebase while simultaneously attempting code fixes, it conflates observation with mutation, leading to unverified assumptions and broken builds. When you need to write code, invoke <code>/to-code</code> or <code>/to-quick-fix</code>.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">How does Section 8 help downstream skills like /to-code?</h3>
+          <p class="qa-answer">
+            Section 8 documents the exact commands for <code>check:fast</code> (&lt; 5s typecheck + linter), <code>check:task</code>, and <code>check:full</code>. <code>/to-code</code> requires running <code>check:fast</code> after every coherent seam edit to maintain the Floor-Guard Anti-Cheat invariant.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">How does /to-map defend against prompt injections in scanned code comments?</h3>
+          <p class="qa-answer">
+            Under the Anti-Injection Shield, all scanned code strings, paths, and docstrings are treated strictly as inert file data. Even if a comment contains adversarial instructions like "IGNORE ALL PREVIOUS INSTRUCTIONS", the cartographer ignores the directive and documents only the objective file topology.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. It's working if (Observable Indicators)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>It discovers real build systems and dependencies directly from root manifests without assuming boilerplate defaults.</li>
+          <li>It classifies discovered folders into Clean Architecture seams and flags architectural boundary coupling risks in Section 9.</li>
+          <li>It synthesizes a 30-second topological ASCII diagram visualizing client, gateway, domain, and persistence flows.</li>
+          <li>It populates Section 8 with verified <code>check:fast</code>, <code>check:task</code>, and <code>check:full</code> commands.</li>
+          <li>It confirms with the user before overwriting any existing <code>docs/ARCHITECTURE.md</code> file.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           8. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-map</code> is the foundational cartography utility that turns codebase mystery into an evergreen architectural map:
+        </p>
+        <pre class="flow-spine">[Repository Reality] ──▶ 🗺️ /to-map ──▶ docs/ARCHITECTURE.md ──▶ [/to-spec / /to-plan / /to-code]</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          Whenever new architectural modules or directory boundaries are added, running <code>/to-map</code> keeps the system topography fresh for all agents.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-memory.html" class="handoff-link">
+            <span class="handoff-label">← Previous Utility</span>
+            <span class="handoff-target">/to-memory (Persistent Memory)</span>
+          </a>
+          <a href="to-init.html" class="handoff-link next">
+            <span class="handoff-label">Scaffolding Utility →</span>
+            <span class="handoff-target">/to-init (SDLC Bootstrapper)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
