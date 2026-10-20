@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pólya SDLC Coder - Mathematical Problem-Solving Meets Clean Architecture</title>
+  <meta name="description" content="A disciplined 6-stage SDLC and 14 modular agent skills bridging George Pólya's 1945 mathematical heuristics with Uncle Bob's Clean Architecture for AI coding agents.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Design Tokens & Component Styles -->
+  <link rel="stylesheet" href="doc-pages/css/design-tokens.css">
+  <link rel="stylesheet" href="doc-pages/css/components.css">
+  <link rel="stylesheet" href="doc-pages/css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation (44px Global Nav + 52px Frosted Sub-Nav)
+       ======================================================================== -->
+  <header>
+    <!-- 44px Pure Black Global Nav -->
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="index.html" class="global-nav-brand">
+          <span class="monogram">∑⚡</span>
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#pipeline">Pipeline</a></li>
+          <li><a href="#skills-catalog">Skills Catalog</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Frosted Sub-Nav -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <a href="index.html" class="sub-nav-title">Pólya SDLC Coder</a>
+        <div class="sub-nav-menu">
+          <a href="#skills-catalog">14 Skills</a>
+          <a href="#pipeline">6-Phase Pipeline</a>
+          <a href="#install" class="btn-primary" style="padding: 7px 18px; font-size: 13px; color: #ffffff;">Get Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         2. Hero Section Tile (Pure White Surface)
+         ====================================================================== -->
+    <section class="product-tile product-tile-light" id="overview">
+      <div class="tile-container">
+        <div class="hero-stack">
+          <h1 class="hero-headline">Mathematical Problem-Solving Meets Clean Architecture.</h1>
+          <p class="hero-lead">
+            Pólya SDLC Coder prevents AI coding agents from prematurely emitting code by enforcing George Pólya's 1945 mathematical heuristics, Uncle Bob's Clean Architecture seams, and <strong>The Mandatory Pause Rule</strong>.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#skills-catalog" class="btn-primary">Explore 14 Skills ➔</a>
+            <a href="#install" class="btn-secondary">Quick Install</a>
+          </div>
+        </div>
+
+        <!-- Platform Configurator (AI Hero Pattern) -->
+        <div class="configurator-section" id="install">
+          <div class="configurator-header">
+            <div>
+              <span class="configurator-title" style="display: block; margin-bottom: 4px;">Install Pólya SDLC Coder</span>
+              <span style="font-size: 13px; color: var(--color-body-muted);">Choose your preferred installation pathway:</span>
+            </div>
+            <div class="install-method-switcher" role="tablist" aria-label="Installation Methods">
+              <button type="button" class="method-tab active" id="tab-method-agentic" role="tab" aria-selected="true" aria-controls="method-panel-agentic">
+                ⚡ Agentic (npx skills)
+              </button>
+              <button type="button" class="method-tab" id="tab-method-script" role="tab" aria-selected="false" aria-controls="method-panel-script">
+                🖥️ One-Liner Script (curl / irm)
+              </button>
+            </div>
+          </div>
+
+          <!-- Panel 1: Agentic Installation (npx skills + /to-init) -->
+          <div id="method-panel-agentic" role="tabpanel" aria-labelledby="tab-method-agentic">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="font-size: 13px; font-weight: 600; color: #ffffff;">Target Agent Runtime:</span>
+              <span style="font-size: 12px; color: var(--color-primary-on-dark);">Universal Agent Support</span>
+            </div>
+
+            <div class="configurator-chips" id="platform-chips" role="tablist" aria-label="Target AI Platforms">
+              <!-- Rendered dynamically by catalog.js -->
+            </div>
+
+            <div class="install-steps-container">
+              <!-- Step 1: Install Skills via CLI -->
+              <div class="install-step-card">
+                <div class="install-step-header">
+                  <span class="install-step-badge">STEP 1: CLI INSTALL</span>
+                  <span class="install-step-title">Add the 14 Skills to your project</span>
+                </div>
+                <div class="terminal-command-box">
+                  <div style="display: flex; align-items: center; overflow: hidden;">
+                    <span class="terminal-prompt-symbol">$</span>
+                    <code class="terminal-code" id="platform-command">npx skills add GulajavaMinistudio/polya-sdlc-coder -y</code>
+                  </div>
+                  <button type="button" class="btn-copy" id="platform-copy-btn" data-copy-text="npx skills add GulajavaMinistudio/polya-sdlc-coder -y" aria-label="Copy terminal install command">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy CLI
+                  </button>
+                </div>
+                <p id="platform-notes" class="install-step-note">
+                  Installs directly into your repository .agents/ directory for GitHub Copilot Workspace and VS Code.
+                </p>
+              </div>
+
+              <!-- Step 2: Bootstrap Governance, AGENTS.md & Rules via AI Chat -->
+              <div class="install-step-card" style="border-color: rgba(41, 151, 255, 0.35);">
+                <div class="install-step-header">
+                  <span class="install-step-badge install-step-badge-chat">STEP 2: BOOTSTRAP IN CHAT</span>
+                  <span class="install-step-title">Generate AGENTS.md, rules, standards & instructions</span>
+                </div>
+                <div class="terminal-command-box" style="background-color: var(--color-surface-tile-3); border-color: rgba(41, 151, 255, 0.35);">
+                  <div style="display: flex; align-items: center; overflow: hidden;">
+                    <span class="terminal-prompt-symbol" style="color: var(--color-primary-on-dark); font-weight: 700;">&gt;</span>
+                    <code class="terminal-code" style="color: #ffffff;">/to-init setup this project</code>
+                  </div>
+                  <button type="button" class="btn-copy" data-copy-text="/to-init setup this project" aria-label="Copy /to-init prompt">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy Prompt
+                  </button>
+                </div>
+                <p class="install-step-note">
+                  Prompt your AI coding agent with <code>/to-init</code>. This automatically scaffolds <code>AGENTS.md</code> in your project root, configures <code>.agents/rules/</code> (including <code>PolyaOrchestrator.md</code>), establishes <code>.agents/standards/</code> (ADR & glossary formats), and initializes <code>.agents/instructions/</code> with zero data loss. <a href="doc-pages/skills/to-init.html" style="color: var(--color-primary-on-dark); text-decoration: underline; margin-left: 4px;">Explore /to-init guide ➔</a>
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-top: var(--spacing-md); text-align: left; font-size: 13px; color: var(--color-body-muted);">
+              Prefer an automated terminal script without npm? <button type="button" id="link-switch-to-script" style="background:none; border:none; color: var(--color-primary-on-dark); text-decoration: underline; cursor: pointer; font-size: 13px; padding: 0;">Switch to One-Liner Script (install.sh / install.ps1) ➔</button>
+            </p>
+          </div>
+
+          <!-- Panel 2: One-Liner Script (install.sh / install.ps1) -->
+          <div id="method-panel-script" role="tabpanel" aria-labelledby="tab-method-script" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="font-size: 13px; font-weight: 600; color: #ffffff;">Select Your Operating System:</span>
+              <span style="font-size: 12px; color: #4ade80;">Full All-in-One Automated Setup</span>
+            </div>
+
+            <div class="configurator-chips" role="tablist" aria-label="Target Operating Systems">
+              <button type="button" class="configurator-chip active" id="chip-os-unix">
+                🐧 macOS & Linux (curl | bash)
+              </button>
+              <button type="button" class="configurator-chip" id="chip-os-win">
+                🪟 Windows (irm | iex)
+              </button>
+            </div>
+
+            <div class="install-steps-container">
+              <div class="install-step-card" style="border-color: rgba(74, 222, 128, 0.35);">
+                <div class="install-step-header">
+                  <span class="install-step-badge" style="background-color: rgba(74, 222, 128, 0.15); color: #4ade80; border-color: rgba(74, 222, 128, 0.35);">ONE-SHOT SCRIPT</span>
+                  <span class="install-step-title">Run in your target project terminal root</span>
+                </div>
+                <div class="terminal-command-box">
+                  <div style="display: flex; align-items: center; overflow: hidden;">
+                    <span class="terminal-prompt-symbol" id="script-prompt-symbol">$</span>
+                    <code class="terminal-code" id="script-command">curl -fsSL https://raw.githubusercontent.com/GulajavaMinistudio/polya-sdlc-coder/main/install.sh | bash</code>
+                  </div>
+                  <button type="button" class="btn-copy" id="script-copy-btn" data-copy-text="curl -fsSL https://raw.githubusercontent.com/GulajavaMinistudio/polya-sdlc-coder/main/install.sh | bash" aria-label="Copy terminal install script">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy Script
+                  </button>
+                </div>
+                <p id="script-notes" class="install-step-note">
+                  Runs the automated interactive installer for <strong>macOS</strong> (Terminal / Zsh) and <strong>Linux</strong>. Asks which platform directories to configure (<code>.agents/</code>, <code>.claude/</code>, or <code>.cursor/</code>) and safely merges existing rules.
+                </p>
+              </div>
+
+              <!-- Script Features Benefits Grid -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-sm); margin-top: var(--spacing-xs);">
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--color-hairline-dark); border-radius: var(--radius-sm); padding: var(--spacing-sm) var(--spacing-md); text-align: left;">
+                  <div style="font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 2px;">⚡ All-in-One</div>
+                  <div style="font-size: 12px; color: var(--color-body-muted);">Scaffolds <code>AGENTS.md</code>, rules, standards & skills in one execution.</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--color-hairline-dark); border-radius: var(--radius-sm); padding: var(--spacing-sm) var(--spacing-md); text-align: left;">
+                  <div style="font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 2px;">🛡️ Safe Backup</div>
+                  <div style="font-size: 12px; color: var(--color-body-muted);">Preserves pre-existing <code>memory.instructions.md</code> and custom instructions.</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--color-hairline-dark); border-radius: var(--radius-sm); padding: var(--spacing-sm) var(--spacing-md); text-align: left;">
+                  <div style="font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 2px;">🌐 Multi-Platform</div>
+                  <div style="font-size: 12px; color: var(--color-body-muted);">Choose <code>.agents/</code>, <code>.claude/</code>, <code>.cursor/</code>, or all platforms.</div>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: var(--spacing-md); text-align: left; font-size: 13px; color: var(--color-body-muted);">
+              Prefer package manager installation? <button type="button" id="link-switch-to-agentic" style="background:none; border:none; color: var(--color-primary-on-dark); text-decoration: underline; cursor: pointer; font-size: 13px; padding: 0;">Switch to Agentic (npx skills) ➔</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. The 6-Phase Pipeline Stepper (Parchment Tile)
+         ====================================================================== -->
+    <section class="product-tile product-tile-parchment" id="pipeline">
+      <div class="tile-container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xxl) auto;">
+          <h2 style="font-family: var(--font-display); font-size: var(--type-display-md-size); font-weight: 600; letter-spacing: -0.02em; margin-bottom: var(--spacing-sm);">
+            The Canonical 6-Phase Lifecycle
+          </h2>
+          <p style="font-size: 16px; color: var(--color-ink-muted-80);">
+            Over 90% of AI-generated bugs stem not from syntactic errors, but from premature coding on misunderstood requirements. Pólya SDLC Coder guarantees disciplined progression before writing application code.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg); margin-bottom: var(--spacing-xxl);">
+          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 0</div>
+            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Discovery & Spikes</h3>
+            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Explore problem feasibility, critique tech debt, and challenge premature premises.</p>
+            <code style="font-size: 12px; color: var(--color-ink);">/to-explore, /to-prd</code>
+          </div>
+
+          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 1</div>
+            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Understand & Specify</h3>
+            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Deconstruct Unknown, Data, Condition into DTO contracts and Clean Architecture seams.</p>
+            <code style="font-size: 12px; color: var(--color-ink);">/to-spec, /to-clarify</code>
+          </div>
+
+          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 2</div>
+            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Devise Plan & Gate</h3>
+            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Slice into vertical tracer bullets with Plan B contingencies and halt at The Pause Rule.</p>
+            <code style="font-size: 12px; color: var(--color-ink);">/to-plan ➔ 🛑 PAUSE</code>
+          </div>
+
+          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 3–6</div>
+            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Carry Out & Review</h3>
+            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Clean code implementation, 5 SOLID audit, bisection bugfix, and Diátaxis documentation.</p>
+            <code style="font-size: 12px; color: var(--color-ink);">/to-code, /to-review</code>
+          </div>
+        </div>
+
+        <!-- The Pause Rule Highlight Banner -->
+        <div class="pause-rule-banner" style="max-width: 900px; margin: 0 auto;">
+          <div class="pause-rule-title">
+            <span style="font-size: 24px;">🛑</span>
+            <span>The Mandatory Pause Rule Gate</span>
+          </div>
+          <p class="pause-rule-desc">
+            Unlike greedy autonomous agents that immediately write messy boilerplate, Pólya SDLC Coder enforces an unskippable governance gate after Phase 2 (Planning). The agent is strictly forbidden from writing functional application code until you review the vertical tracer bullets and explicitly grant approval.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. Interactive Skills Catalog Hub (AI Hero Benchmark)
+         ====================================================================== -->
+    <section class="product-tile product-tile-light" id="skills-catalog">
+      <div class="tile-container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xl) auto;">
+          <h2 style="font-family: var(--font-display); font-size: var(--type-display-md-size); font-weight: 600; letter-spacing: -0.02em; margin-bottom: var(--spacing-xs);">
+            The 14 Modular Agent Skills
+          </h2>
+          <p style="font-size: 16px; color: var(--color-ink-muted-80);">
+            Portable markdown specifications executed directly by Claude Code, Copilot, Cursor, Antigravity, and Codex.
+          </p>
+        </div>
+
+        <!-- Catalog Filter & Search Controls -->
+        <div class="catalog-controls">
+          <!-- Search Input -->
+          <div class="search-wrapper" role="search">
+            <svg class="search-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="search-input" 
+              class="search-input-field" 
+              placeholder="Search skills by command (/to-spec), keyword, or phase..." 
+              aria-label="Search skills by command or keyword"
+              autocomplete="off"
+            >
+            <button type="button" id="search-clear" class="search-clear-btn" aria-label="Clear search input">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Phase Category Pills -->
+          <div class="category-filter-chips" role="tablist" aria-label="Filter skills by SDLC stage">
+            <button type="button" class="filter-pill active" data-category="all">All (14)</button>
+            <button type="button" class="filter-pill" data-category="discovery">Phase 0: Discovery</button>
+            <button type="button" class="filter-pill" data-category="specification">Phase 1: Spec & Clarify</button>
+            <button type="button" class="filter-pill" data-category="planning">Phase 2: Plan & Gate</button>
+            <button type="button" class="filter-pill" data-category="code">Phase 3: Code Execution</button>
+            <button type="button" class="filter-pill" data-category="review">Phase 4: Review & Audit</button>
+            <button type="button" class="filter-pill" data-category="fix">Phase 5: Remediation</button>
+            <button type="button" class="filter-pill" data-category="docs">Phase 6: Documentation</button>
+            <button type="button" class="filter-pill" data-category="utility">Utilities & Tools</button>
+          </div>
+
+          <!-- Live Results Announcement Strip -->
+          <div class="results-meta-strip">
+            <span id="results-count" aria-live="polite">Showing 14 of 14 skills</span>
+            <span>Zero-build pure vanilla web stack</span>
+          </div>
+        </div>
+
+        <!-- 3-Column Responsive Skill Card Grid -->
+        <div class="skills-grid" id="skills-grid">
+          <!-- Rendered dynamically by catalog.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       5. Floating Sticky Bottom Install Bar
+       ======================================================================== -->
+  <aside class="sticky-install-bar" id="sticky-install-bar" aria-label="Quick installation bar">
+    <div class="sticky-bar-container">
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <span style="font-weight: 600; font-size: 14px;">1. CLI:</span>
+        <code class="sticky-bar-command">npx skills add GulajavaMinistudio/polya-sdlc-coder -y</code>
+        <span style="font-size: 13px; color: var(--color-ink-muted-80);">➔ 2. In chat: <code>/to-init setup this project</code></span>
+      </div>
+      <button type="button" class="btn-primary" style="padding: 7px 18px; font-size: 13px;" data-copy-text="npx skills add GulajavaMinistudio/polya-sdlc-coder -y">
+        Copy CLI
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       6. Scannable 4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="doc-pages/skills/to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="doc-pages/skills/to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="doc-pages/skills/to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="doc-pages/skills/to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="doc-pages/skills/to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution & Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="doc-pages/skills/to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="doc-pages/skills/to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="doc-pages/skills/to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="doc-pages/skills/to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="doc-pages/skills/to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities & Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="doc-pages/skills/to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="doc-pages/skills/to-map.html">Living Architecture Map</a></li>
+            <li><a href="doc-pages/skills/to-memory.html">Persistent Memory</a></li>
+            <li><a href="doc-pages/skills/to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance & Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Data Seam ➔ DOM Adapters ➔ Catalog Controller -->
+  <script src="doc-pages/js/skills-data.js"></script>
+  <script src="doc-pages/js/main.js"></script>
+  <script src="doc-pages/js/catalog.js"></script>
+</body>
+</html>

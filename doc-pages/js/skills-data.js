@@ -65,7 +65,7 @@
       description: 'Deconstructs fuzzy user intent into Unknown, Data, and Condition. Inspects the codebase autonomously and routes to the optimal Pólya sub-skill.',
       inputs: ['Natural task prompt', 'Codebase manifests', 'docs/ARCHITECTURE.md'],
       outputs: ['Pólya Socratic Triage Card', 'Recommended /to-* sub-skill route'],
-      detailUrl: 'skills/to-ask-help.html',
+      detailUrl: 'doc-pages/skills/to-ask-help.html',
       tags: ['triage', 'router', 'intent', 'reconnaissance', 'orchestrator', 'help', 'ask']
     },
     {
@@ -79,7 +79,7 @@
       description: 'Surveys the problem landscape before committing to code. Challenges over-complicated premises, evaluates trade-offs, and authors disposable spikes.',
       inputs: ['Feature concept', 'docs/ARCHITECTURE.md', 'Source seams'],
       outputs: ['docs/discovery/{slug}-discovery.md', 'Spike prototypes'],
-      detailUrl: 'skills/to-explore.html',
+      detailUrl: 'doc-pages/skills/to-explore.html',
       tags: ['discovery', 'exploration', 'spikes', 'architecture', 'trade-offs', 'feasibility']
     },
     {
@@ -93,7 +93,7 @@
       description: 'Bridges discovery with engineering by translating business requirements into formal User Stories (US-XX), functional constraints, and SMART acceptance criteria.',
       inputs: ['docs/discovery/{slug}-discovery.md', 'User requirements'],
       outputs: ['docs/prd/{slug}-prd.md'],
-      detailUrl: 'skills/to-prd.html',
+      detailUrl: 'doc-pages/skills/to-prd.html',
       tags: ['prd', 'requirements', 'user-stories', 'acceptance-criteria', 'scope', 'product']
     },
     {
@@ -107,7 +107,7 @@
       description: 'Deconstructs the Problem Triad into formal mathematical contracts. Enforces Type-Driven Design, 4-layer Clean Architecture boundaries, and negative invariants.',
       inputs: ['docs/discovery/{slug}-discovery.md or docs/prd/{slug}-prd.md'],
       outputs: ['docs/spec/{slug}-spec.md', 'docs/adr/NNNN-slug.md'],
-      detailUrl: 'skills/to-spec.html',
+      detailUrl: 'doc-pages/skills/to-spec.html',
       tags: ['spec', 'clean-architecture', 'dtos', 'contracts', 'invariants', 'seams', 'architecture']
     },
     {
@@ -121,7 +121,7 @@
       description: 'Recurring quality gate eliminating ambiguity. Interrogates assumptions, evaluates the 5 UI states and sad paths, and calculates an objective 0–100 Readiness Score.',
       inputs: ['docs/spec/{slug}-spec.md or docs/plan/{slug}-plan.md'],
       outputs: ['docs/audit/{slug}-{phase}-clarification.md', 'CONTEXT.md updates'],
-      detailUrl: 'skills/to-clarify.html',
+      detailUrl: 'doc-pages/skills/to-clarify.html',
       tags: ['clarify', 'audit', 'grill-me', 'assumptions', 'readiness-score', 'checkpoint']
     },
     {
@@ -135,7 +135,7 @@
       description: 'Breaks the approved specification into vertical tracer bullets (DB to UI). Enforces task sizing bounds, Plan B contingencies, and halts at The Mandatory Pause Rule.',
       inputs: ['docs/spec/{slug}-spec.md'],
       outputs: ['docs/plan/{slug}-plan.md'],
-      detailUrl: 'skills/to-plan.html',
+      detailUrl: 'doc-pages/skills/to-plan.html',
       tags: ['plan', 'tracer-bullets', 'pause-rule', 'vertical-slicing', 'contingency', 'planning']
     },
     {
@@ -149,7 +149,7 @@
       description: 'Executes vertical slices ticket by ticket. Enforces functions under 25 lines, intention-revealing names, two-layer testing, and zero tolerance for cheat moves.',
       inputs: ['docs/plan/{slug}-plan.md'],
       outputs: ['Production source code', 'Automated test suite', 'Atomic conventional commits'],
-      detailUrl: 'skills/to-code.html',
+      detailUrl: 'doc-pages/skills/to-code.html',
       tags: ['code', 'clean-code', 'tdd', 'floor-guard', 'implementation', 'boy-scout']
     },
     {
@@ -163,7 +163,7 @@
       description: 'Applies Pólya\'s Pedantry vs. Mastery distinction. Bypasses heavy 6-phase ceremony for routine mechanical fixes, small refactors, or config adjustments with minimal diffs.',
       inputs: ['Specific defect description', 'Target files (<= 2)'],
       outputs: ['Surgical code patch', 'Atomic conventional commit'],
-      detailUrl: 'skills/to-quick-fix.html',
+      detailUrl: 'doc-pages/skills/to-quick-fix.html',
       tags: ['quick-fix', 'surgical', 'one-shot', 'fast-track', 'patch', 'minimal-diff']
     },
     {
@@ -177,7 +177,7 @@
       description: 'Examines the solution from first principles. Audits Single Responsibility, Open-Closed, Liskov, Interface Segregation, and Dependency Inversion, synthesizing a 30s mental model.',
       inputs: ['docs/spec/{slug}-spec.md', 'docs/plan/{slug}-plan.md', 'Git diff'],
       outputs: ['docs/reviews/{slug}-review.md'],
-      detailUrl: 'skills/to-review.html',
+      detailUrl: 'doc-pages/skills/to-review.html',
       tags: ['review', 'solid', 'audit', 'looking-back', 'security', 'verification']
     },
     {
@@ -191,7 +191,7 @@
       description: 'Resolves broken invariants and defects via first principles. Traces broken seams from symptoms to root cause, authors a failing test before touching code, and verifies clean remediation.',
       inputs: ['Defect report', 'Stack trace', 'Failing invariants'],
       outputs: ['docs/bug-reports/{slug}-bugfix.md', 'Green reproduction test'],
-      detailUrl: 'skills/to-fix.html',
+      detailUrl: 'doc-pages/skills/to-fix.html',
       tags: ['fix', 'bugfix', 'bisection', 'reproduction-test', 'root-cause', 'debugging']
     },
     {
@@ -205,7 +205,7 @@
       description: 'Transforms verified code into pedagogical technical documentation organized into the 4 Diátaxis quadrants: tutorials, how-to guides, reference manuals, and architecture explanations.',
       inputs: ['docs/spec/{slug}-spec.md', 'docs/reviews/{slug}-review.md'],
       outputs: ['docs/{tutorials,how-to,reference,explanation}/{slug}.md'],
-      detailUrl: 'skills/to-docs.html',
+      detailUrl: 'doc-pages/skills/to-docs.html',
       tags: ['docs', 'diataxis', 'tutorials', 'how-to', 'reference', 'explanation']
     },
     {
@@ -219,7 +219,7 @@
       description: 'Scans and reverse-engineers repository topography, mapping Clean Architecture seams (Entities, Use Cases, Adapters, Frameworks) into a living architecture blueprint.',
       inputs: ['Workspace codebase directory', 'Package manifests'],
       outputs: ['docs/ARCHITECTURE.md'],
-      detailUrl: 'skills/to-map.html',
+      detailUrl: 'doc-pages/skills/to-map.html',
       tags: ['map', 'architecture', 'topography', 'seams', 'living-doc']
     },
     {
@@ -233,7 +233,7 @@
       description: 'Maintains cross-session project memory. Discovers, updates, and compacts permanent lessons learned, key decisions, and developer preferences to prevent context amnesia.',
       inputs: ['Session learnings', 'Architectural decisions', 'Project conventions'],
       outputs: ['memory.instructions.md'],
-      detailUrl: 'skills/to-memory.html',
+      detailUrl: 'doc-pages/skills/to-memory.html',
       tags: ['memory', 'context', 'persistence', 'instructions', 'cross-session']
     },
     {
@@ -247,7 +247,7 @@
       description: 'Bootstraps fresh projects into the Pólya SDLC Coder ecosystem. Scaffolds AGENTS.md, orchestrator rules, and installs the 14 modular skills in seconds without manual copying.',
       inputs: ['Target workspace directory'],
       outputs: ['AGENTS.md', '.agents/skills/*', '.agents/rules/*'],
-      detailUrl: 'skills/to-init.html',
+      detailUrl: 'doc-pages/skills/to-init.html',
       tags: ['init', 'setup', 'scaffolding', 'bootstrapper', 'install']
     }
   ];
