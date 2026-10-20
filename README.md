@@ -32,6 +32,67 @@ When given an ambiguous prompt, agents hallucinate assumptions, skip edge cases,
 
 ---
 
+## 📚 The Origin Story: Why George Pólya?
+
+<p align="center">
+  <img src="polya-books-cats.jpg" alt="George Pólya - How to Solve It" width="680">
+</p>
+
+### The Fundamental Flaw of Modern AI Coding
+
+Large Language Models are, by their architectural nature, **greedy token generators**. When given a prompt like *"Build me an authentication service with Redis"*, an AI agent immediately begins emitting lines of code.
+
+It plunges straight into writing implementation details without pausing to ask:
+- *What are the precise invariants and boundaries of the problem?*
+- *What data models already exist in the codebase?*
+- *What edge cases will cause silent failures in production?*
+
+The result is painfully familiar to anyone using AI assistants: hallucinated libraries, premature horizontal coding, broken architectural seams, and brittle patches that fall apart on the first edge case. **Over 90% of AI-generated bugs stem not from syntactic errors, but from premature implementation on top of misunderstood requirements.**
+
+### George Pólya's 1945 Discovery (*How to Solve It*)
+
+In 1945, Hungarian mathematician **George Pólya** (1887–1985) published *How to Solve It*, a foundational treatise on heuristics and mathematical problem-solving that went on to sell over a million copies worldwide.
+
+Pólya demonstrated that human breakthroughs in mathematics and engineering do not occur by rushing into calculations or blind trial-and-error. Instead, they require a disciplined mental framework consisting of **Four Invariant Stages**:
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                   GEORGE PÓLYA'S 4-STAGE HEURISTIC (1945)              │
+├────────────────────────────────────────────────────────────────────────┤
+│ 1. UNDERSTAND THE PROBLEM  ➔  What is the unknown? What are the data?  │
+│                               What is the condition? Can it be met?    │
+│ 2. DEVISE A PLAN           ➔  Find connections between data & unknown. │
+│                               Isolate auxiliary problems. Restate it.  │
+│ 3. CARRY OUT THE PLAN      ➔  Check each step. Can you prove that each │
+│                               individual step is sound and correct?    │
+│ 4. LOOK BACK (EXAMINE)     ➔  Check the result. Derive it differently. │
+│                               Promote reusable patterns to memory.     │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+> *"It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."*  
+> — **George Pólya**, *How to Solve It (1945)*
+
+### Bridging Mathematics, Uncle Bob's Clean Architecture & AI Agents
+
+**Pólya SDLC Coder** was born from a simple realization: **AI coding agents need Pólya's mental discipline more than human developers do.**
+
+By mapping Pólya's 1945 mathematical framework directly onto **Robert C. Martin's ("Uncle Bob") Clean Architecture** and modular agent skills, we transform unpredictable AI assistants into disciplined, principal-level engineering partners:
+
+| George Pólya's Heuristic (1945) | Software Craftsmanship Seam | Pólya SDLC Agent Skill |
+| :--- | :--- | :--- |
+| **"Understanding the Problem"** | Domain Boundaries, DTOs & Contracts | [`/to-spec`](skills/to-spec) & [`/to-explore`](skills/to-explore) |
+| **"Interrogating the Condition"** | Edge-Case Invariants & Assumption Auditing | [`/to-clarify`](skills/to-clarify) |
+| **"Devising a Plan & Auxiliary Problems"** | Vertical Tracer Bullets & Plan B | [`/to-plan`](skills/to-plan) |
+| **"The Hesitation Before Calculating"** | Explicit Human Alignment Gate | **🛑 The Pause Rule Gate** |
+| **"Carrying Out the Plan"** | Uncle Bob's Clean Code & Micro-TDD | [`/to-code`](skills/to-code) & [`/to-quick-fix`](skills/to-quick-fix) |
+| **"Looking Back & Examining the Result"** | 5 SOLID Principles Audit & Diátaxis Docs | [`/to-review`](skills/to-review) & [`/to-docs`](skills/to-docs) |
+| **"The Two Golden Questions (Memory)"** | Cross-Session Architectural Knowledge | [`/to-memory`](skills/to-memory) |
+
+This system prevents the agent from writing a single line of application code until the problem is fully deconstructed, assumptions are verified, and you have personally given explicit approval at **The Pause Rule**.
+
+---
+
 ## 🚀 Quick Start & Installation
 
 You can install **Pólya SDLC Coder** into your project using any of the three methods below:
@@ -250,17 +311,50 @@ The navigator conducts autonomous reconnaissance of your codebase, evaluates Unk
 | The Data      : Order entity, Redis Pub/Sub adapter, React UI hook    |
 | The Condition : Sub-100ms latency, automatic reconnection, JWT auth   |
 | Seams Found   : Domain (Order), Adapters (RedisStream), UI (Hook)     |
-| Recommended   : /to-spec @docs/spec/order-tracking-spec.md            |
+| Recommended   : /to-explore or /to-spec @docs/spec/...                |
 +-----------------------------------------------------------------------+
 ```
 
 ---
 
-### 2. Specify & Map Architectural Seams (`/to-spec`)
+### 2. Problem Discovery & Architectural Spikes (`/to-explore`)
+
+Before locking in schemas or code, explore feasibility, technology tradeoffs, and repository topology:
 
 ```text
-/to-spec Design the order tracking event stream and Clean Architecture seams
+/to-explore Investigate architecture options for real-time order tracking (WebSockets vs SSE vs Polling)
 ```
+
+The agent surveys the codebase, benchmarks options against existing dependencies, and outputs `docs/discovery/order-tracking-discovery.md`:
+- **Repository Topography Critique**: Evaluates existing state management, HTTP layers, and message buses.
+- **Trade-Off Analysis (*The Inventor's Paradox*)**: Weighs WebSockets vs SSE vs Long-Polling across complexity, latency, and infrastructure cost.
+- **Architectural Spikes**: Outlines minimal prototype verification without cluttering production seams.
+
+---
+
+### 3. (Optional) Define Business Requirements & User Stories (`/to-prd`)
+
+When a feature requires deep product alignment, user stories, and business acceptance criteria:
+
+```text
+/to-prd @docs/discovery/order-tracking-discovery.md
+```
+
+The agent frames the business perspective and generates `docs/prd/order-tracking-prd.md`:
+- **User Personas & Stories**: Formulates *As a customer, I want to track my delivery rider in real time...*
+- **SMART Acceptance Criteria**: Defines observable metrics (e.g., location updates arrive within $\le 2$ seconds).
+- **Explicit Non-Goals**: Enforces strict boundaries (e.g., in-app rider chat is out of scope for V1).
+
+---
+
+### 4. Specify & Map Architectural Seams (`/to-spec`)
+
+Transform product requirements or discovery findings into a formal technical blueprint:
+
+```text
+/to-spec @docs/prd/order-tracking-prd.md
+```
+*(Or directly from discovery: `/to-spec @docs/discovery/order-tracking-discovery.md`)*
 
 The agent creates `docs/spec/order-tracking-spec.md`, defining:
 - **Clean Architecture Boundaries**: Entities ➔ Use Cases ➔ Interface Adapters ➔ Infrastructure.
@@ -270,7 +364,7 @@ The agent creates `docs/spec/order-tracking-spec.md`, defining:
 
 ---
 
-### 3. Interrogate & Stress-Test (`/to-clarify`)
+### 5. Interrogate & Stress-Test (`/to-clarify`)
 
 ```text
 /to-clarify @docs/spec/order-tracking-spec.md
@@ -283,7 +377,7 @@ The agent triggers the **Grill-Me Protocol**:
 
 ---
 
-### 4. Create Vertical Tracer Bullets (`/to-plan`)
+### 6. Create Vertical Tracer Bullets (`/to-plan`)
 
 ```text
 /to-plan @docs/spec/order-tracking-spec.md
@@ -297,7 +391,7 @@ The agent creates `docs/plan/order-tracking-plan.md`, slicing implementation int
 
 ---
 
-### 5. 🛑 The Pause Rule Gate
+### 7. 🛑 The Pause Rule Gate
 
 > [!CAUTION]
 > **The Pause Rule**: The agent stops automatically after generating the plan. No code may be written until the developer reviews and confirms:
@@ -306,13 +400,13 @@ The agent creates `docs/plan/order-tracking-plan.md`, slicing implementation int
 
 ---
 
-### 6. Implement with Clean Code Discipline (`/to-code`)
+### 8. Implement with Clean Code Discipline (`/to-code`)
 
 ```text
-/to-code
+/to-code @docs/plan/order-tracking-plan.md @docs/spec/order-tracking-spec.md
 ```
 
-The agent implements Task 1 with strict engineering discipline:
+The agent ingests the approved Implementation Plan and Technical Specification, executing Task 1 (Tracer Bullet 1) with strict engineering discipline:
 - **Uncle Bob's Clean Code**: Functions under 25 lines, single level of abstraction, intention-revealing names.
 - **Boy Scout Rule**: Leaves touched files cleaner than found.
 - **Two-Layer Testing Mandate**: Runs fast typechecks (`check:fast`) and vertical slice tests (`check:task`) before completing each task.
@@ -320,17 +414,17 @@ The agent implements Task 1 with strict engineering discipline:
 
 ---
 
-### 7. Review, Audit & Transfer Knowledge (`/to-review` & `/to-docs`)
+### 9. Review, Audit & Transfer Knowledge (`/to-review` & `/to-docs`)
 
 ```text
-/to-review
+/to-review @docs/plan/order-tracking-plan.md @docs/spec/order-tracking-spec.md
 ```
-Audits against the 5 SOLID principles (SRP, OCP, LSP, ISP, DIP), verifies defensive invariants, and outputs `docs/reviews/order-tracking-review.md`.
+Audits the implemented code directly against the requirements in the Specification and tasks in the Plan. Verifies the 5 SOLID principles (SRP, OCP, LSP, ISP, DIP), boundary invariants, and outputs `docs/reviews/order-tracking-review.md`.
 
 ```text
-/to-docs
+/to-docs @docs/spec/order-tracking-spec.md @docs/plan/order-tracking-plan.md
 ```
-Generates clear documentation following the **Diátaxis Framework** (Tutorial, How-To Guide, Reference, or Architectural Explanation) inside `docs/`.
+Generates clear documentation grounded in the verified contracts from the Specification and Plan, structured according to the **Diátaxis Framework** (Tutorial, How-To Guide, Reference, or Architectural Explanation) inside `docs/`.
 
 ---
 
