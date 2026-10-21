@@ -1366,6 +1366,40 @@
   line-height: 1.2;
 }
 
+/* Standardized Section Header Block & Spacing Rhythm */
+.section-header-block {
+  margin-bottom: var(--spacing-xxl); /* 48px comfortable breathing room */
+}
+
+.section-kicker {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  line-height: 1.25;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.section-subtitle {
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.6;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+  max-width: 760px;
+}
+
 /* Editorial Hero Header */
 .editorial-hero {
   padding: var(--spacing-section) 0 var(--spacing-xl) 0;
@@ -1564,6 +1598,145 @@
   color: var(--color-primary-blue-muted, #7dd3fc);
   position: relative;
   z-index: 1;
+}
+
+/* Historical Influence Section (Wikipedia: Minsky, Dromey, Schoenfeld) */
+.influence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.influence-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.influence-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.influence-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.influence-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.influence-domain {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-ink-muted-48);
+}
+
+.influence-author {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.influence-work {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+}
+
+.influence-quote {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-ink);
+  background-color: var(--color-canvas-parchment);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  margin: 4px 0;
+}
+
+.influence-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+}
+
+/* Dictionary of Heuristic Banner */
+.dictionary-showcase {
+  background-color: var(--color-canvas-parchment);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl) var(--spacing-xxl);
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.dictionary-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-blue);
+}
+
+.dictionary-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.dictionary-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+}
+
+.dictionary-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--spacing-xs);
+}
+
+.dictionary-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 /* Problem Space Editorial Spotlight (George Pólya & Cats) */

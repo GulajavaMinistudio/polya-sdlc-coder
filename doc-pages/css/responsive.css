@@ -71,6 +71,11 @@
     text-align: center;
   }
 
+  .influence-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
   .pathology-grid {
     grid-template-columns: 1fr;
   }
@@ -153,6 +158,10 @@
 
   .skill-detail-article {
     padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .section-header-block {
+    margin-bottom: var(--spacing-xl);
   }
 
   .sticky-install-container {
