@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The /to-grill-me Skill - Socratic Sparring & Stress-Testing | Pólya SDLC Coder</title>
+  <meta name="description" content="Interactive Socratic Sparring Partner & Stress-Tester: Conducts turn-by-turn design interviews, pressure-tests assumptions across PRD, Spec, and Plan phases, forces concrete A/B technical decisions with senior engineering recommendations, and produces an actionable Decisions Log.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <!-- Relative CSS paths from skills/ subfolder -->
+  <link rel="stylesheet" href="../css/design-tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation Seam with Breadcrumbs
+       ======================================================================== -->
+  <header>
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../../index.html" class="global-nav-brand">
+          <img src="../assets/logo.svg" alt="Pólya SDLC" class="nav-brand-logo" width="24" height="24">
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="../why-polya.html">Why Pólya?</a></li>
+          <li><a href="../../index.html#overview">Overview</a></li>
+          <li><a href="../../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../../index.html#skills-catalog" class="active">Skills Catalog</a></li>
+          <li><a href="../../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Sub-Nav with Breadcrumbs -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../../index.html#skills-catalog">Skills</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">/to-grill-me</span>
+        </nav>
+        <div class="sub-nav-menu">
+          <a href="../../index.html#skills-catalog" class="btn-utility">All Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="skill-detail-article">
+      <!-- ====================================================================
+           1. Header & Hero Command Pill
+           ==================================================================== -->
+      <header class="skill-detail-header">
+        <div class="skill-detail-meta">
+          <span class="skill-command-badge" style="font-size: 14px; padding: 6px 14px;">/to-grill-me</span>
+          <span class="skill-phase-tag" style="font-size: 13px;">Sparring: Turn-by-Turn Socratic Design Interview</span>
+        </div>
+        <h1 class="skill-detail-title">The /to-grill-me Skill</h1>
+        <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
+          A relentless Socratic sparring partner and devil's advocate. Pressure-tests assumptions, exposes failure modes, and forces concrete technical A/B trade-offs one question at a time before bad assumptions harden into technical debt.
+        </p>
+        <blockquote class="skill-detail-quote">
+          "To apply a rule to the letter, rigidly, unquestioningly... is pedantry. To apply a rule with natural ease, with judgment, noticing the cases where it fits... is mastery. Always use your own brains first."  
+          — <strong>George Pólya</strong>, <em>Pedantry and Mastery</em> (1945)
+        </blockquote>
+      </header>
+
+      <!-- Quick Invocation Box -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>TERMINAL OR CHAT PROMPT</span>
+            <button type="button" class="btn-copy" data-copy-target="#prompt-to-grill-me" aria-label="Copy prompt example">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
+          <pre class="prompt-content" id="prompt-to-grill-me"><code>/to-grill-me @docs/spec/checkout-spec.md Spar on payment failure domains, sad paths, and concurrency race conditions.</code></pre>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. What it does
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          What it does
+        </h2>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>/to-grill-me</code> (with alias <code>/grill-me</code>) acts as your battle-tested <strong>Senior Principal Sparring Partner</strong> and devil's advocate. Its core mission is to actively challenge premises, force trade-offs, expose hidden failure modes, and sharpen architectural clarity <em>before</em> code is written.
+        </p>
+        <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Unlike passive LLM assistants that simply agree with whatever you type (*"the yes-man antipattern"*), <code>/to-grill-me</code> pushes back with rigorous mathematical discipline. It conducts turn-by-turn dialogue, presenting exactly <strong>one sharp question</strong> with concrete <strong>Option A vs. Option B</strong> choices and an opinionated engineering recommendation.
+        </p>
+        <div style="background-color: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-md); padding: var(--spacing-md); color: #991b1b; font-size: 14px; line-height: 1.5;">
+          <strong>🛑 Mandatory Pushback Rule (Strictly NO CODING):</strong> If you ask <code>/to-grill-me</code> to write application code, implement database migrations, or run test suites, it will politely refuse. Its sole purpose is to pressure-test design decisions and trade-offs until alignment is reached.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. The 6 Golden Rules of Socratic Sparring
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          The 6 Golden Rules of Socratic Sparring
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Every sparring session follows strict cognitive-load guardrails:
+        </p>
+        <ol class="run-step-list">
+          <li><strong>The 1-Question Rule (Cognitive Load Guard):</strong> Never bombards you with a massive list or 10-bullet questionnaire. Asks exactly <strong>ONE</strong> sharp, high-leverage question per turn.</li>
+          <li><strong>Do the Heavy Lifting (Concrete A/B Trade-offs):</strong> Never asks lazy open-ended questions (*"What database should we use?"*). Formulates 2–3 concrete, technically grounded options derived from codebase reality.</li>
+          <li><strong>The Opinionated Senior Recommendation:</strong> For every question presented, explicitly declares: <em>"I recommend (Option A) because..."</em> based on Clean Architecture, SOLID, and blast-radius control.</li>
+          <li><strong>Proactive Codebase Reconnaissance:</strong> Inspects repository files, existing models, APIs, and <code>docs/ARCHITECTURE.md</code> first. Never asks questions that existing code already answers.</li>
+          <li><strong>Challenge Fuzzy Language:</strong> Counters unmeasurable adjectives (*"fast"*, *"scalable"*, *"user-friendly"*) with quantitative SLAs (*"&lt; 150ms p95 latency for 50KB payload"*), memory ceilings, or strict state enums.</li>
+          <li><strong>Anti-Bailout & Decisive Closure:</strong> If you say *"I'm not sure"*, it does not stall. It explains the real-world consequence of each alternative and recommends the pragmatic default to keep momentum.</li>
+        </ol>
+      </section>
+
+      <!-- ====================================================================
+           4. Phase-Adaptive Grilling Lenses
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Phase-Adaptive Grilling Lenses
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          <code>to-grill-me</code> adapts its interrogation angle dynamically based on the current phase:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>Target Phase</th>
+              <th>Pólya Interrogation Lens</th>
+              <th>Critical Probing Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Phase 0: Idea &amp; Greenfield</strong><br><code>/to-grill-me [idea]</code></td>
+              <td>Understanding the Problem &amp; Challenging Premises</td>
+              <td>Root problem vs. symptom, premise doubt (*what if the premise is false?*), unfair constraints, zero-code feasibility.</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 0.5: Product Requirements</strong><br><code>/to-grill-me prd</code></td>
+              <td>Separating the Condition &amp; Edge Personas</td>
+              <td>Persona edge cases, malicious misuse, the 5 mandatory UI states, blast radius, non-goals, measurable success metrics.</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 1: Technical Specification</strong><br><code>/to-grill-me spec</code></td>
+              <td>Setting Up Equations &amp; Seam Decoupling</td>
+              <td>Clean Architecture boundaries, sad paths, 3rd-party timeout rollbacks, schema idempotency, concurrency race conditions.</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 2: Implementation Planning</strong><br><code>/to-grill-me plan</code></td>
+              <td>Working Backwards &amp; Vertical Slicing</td>
+              <td>Vertical tracer bullets (DB to UI), Expand-Contract migration ordering, Plan B fallback contingencies, blast-radius limits.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           5. Synergy Matrix: /to-grill-me vs. /to-clarify
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Synergy Matrix: /to-grill-me vs. /to-clarify
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          Understanding how the two quality engines complement each other in your workflow:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>/to-grill-me (Sparring Partner)</th>
+              <th>/to-clarify (Gatekeeper &amp; Auditor)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Role</strong></td>
+              <td>Dynamic Socratic sparring &amp; decision extractor</td>
+              <td>Static condition audit &amp; readiness scoring gate</td>
+            </tr>
+            <tr>
+              <td><strong>Interaction Style</strong></td>
+              <td>Turn-by-turn interactive dialogue, 1 question at a time</td>
+              <td>Structured static audit across 5-axis rubric</td>
+            </tr>
+            <tr>
+              <td><strong>Target Input</strong></td>
+              <td>Raw idea concept, draft PRD, draft Spec, or draft Plan</td>
+              <td>Formally drafted document artifact in <code>docs/</code></td>
+            </tr>
+            <tr>
+              <td><strong>Readiness Scoring</strong></td>
+              <td>None (focuses on resolving load-bearing trade-offs)</td>
+              <td>Objective 0–100 Readiness Score with veto conditions</td>
+            </tr>
+            <tr>
+              <td><strong>Primary Output</strong></td>
+              <td>Pólya Grilling Alignment Log, Architecture Decision Record</td>
+              <td>Clarification Report (<code>docs/audit/*-clarification.md</code>)</td>
+            </tr>
+            <tr>
+              <td><strong>When to Reach For</strong></td>
+              <td>When exploring trade-offs or resolving difficult design tensions</td>
+              <td>When verifying if a spec or plan is officially ready for the next phase</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           6. What one run does: Practical Dialogue Example
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Practical dialogue walkthrough
+        </h2>
+        <div style="background-color: var(--color-canvas-parchment); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg); font-size: 14.5px; line-height: 1.6; color: var(--color-ink);">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--color-primary); font-weight: 600; margin-bottom: 4px;">TURN 1: SPARRING ON FAILURE DOMAIN</div>
+          <p style="margin-bottom: 12px;"><strong>Agent:</strong> <em>"In <code>docs/spec/checkout-spec.md</code>, payment gateway communication currently assumes a synchronous 200 OK. What happens when the payment provider times out after 4.5 seconds or returns HTTP 504?"</em></p>
+          <ul style="padding-left: 20px; margin-bottom: 12px; color: var(--color-ink-muted-80);">
+            <li><strong>[Option A]: Webhook with Idempotency Key (Asynchronous Settlement)</strong> — Mark order as <code>PENDING_PAYMENT</code>, release thread, and reconcile via signed webhook event with redis idempotency lock.</li>
+            <li><strong>[Option B]: Blocking Retry Loop with Exponential Backoff</strong> — Keep the user waiting on a loader for up to 15 seconds with 3 retries.</li>
+          </ul>
+          <p style="margin-bottom: 0;"><strong>Agent Recommendation:</strong> <em>"I recommend <strong>Option A</strong> because Option B locks HTTP worker threads under high load and causes duplicate charges if the client refreshes. Which approach aligns with your SLA?"</em></p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. The Paper Trail (Where It Lands)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          The paper trail
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+          When the sparring session wraps up, the agreed decisions crystallize into durable repository artifacts:
+        </p>
+        <table class="docs-table decision-matrix">
+          <thead>
+            <tr>
+              <th>What resolved</th>
+              <th>Where it lands</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Agreed Decisions &amp; Trade-offs:</strong> Concrete choices made during sparring</td>
+              <td>Synthesized in chat as the <strong>Pólya Grilling Alignment Log</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Irreversible Architectural Trade-off:</strong> High impact or surprising context</td>
+              <td>Drafted as an Architecture Decision Record under <code>docs/adr/NNNN-{slug}.md</code></td>
+            </tr>
+            <tr>
+              <td><strong>Canonical Domain Terminology:</strong> Accepted nouns and rejected terms</td>
+              <td>Persisted straight into <code>CONTEXT.md</code> to prevent context amnesia</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================================================================
+           8. Common questions
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Common questions
+        </h2>
+        <div class="qa-block">
+          <h3 class="qa-question">Can I invoke /to-grill-me without any existing documents?</h3>
+          <p class="qa-answer">
+            Yes! Running <code>/to-grill-me [idea]</code> activates Lens 1 (Greenfield Ideation). It challenges your premise, explores whether code is even needed, and sharpens your problem framing before you author a PRD or Spec.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">Why does /to-grill-me refuse to write application code?</h3>
+          <p class="qa-answer">
+            Premature coding on unaligned assumptions is the #1 cause of software failure and AI hallucinated architecture. Socratic sparring requires an adversarial, objective mindset. Once decisions are logged, hand off to <code>/to-spec</code>, <code>/to-plan</code>, or <code>/to-code</code> to implement.
+          </p>
+        </div>
+        <div class="qa-block">
+          <h3 class="qa-question">What is the difference between /to-grill-me and /to-clarify?</h3>
+          <p class="qa-answer">
+            Think of <code>/to-grill-me</code> as the interactive sparring partner you talk to in order to debate difficult trade-offs and explore options. Think of <code>/to-clarify</code> as the formal quality inspector with a clipboard that scores your written document (0–100) before passing the planning gate.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           9. It's working if
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          It's working if
+        </h2>
+        <ul class="indicators-list">
+          <li>The agent asks exactly ONE question at a time and never floods you with long questionnaires.</li>
+          <li>Every question presents concrete technical options (Option A vs. Option B) with real-world trade-offs.</li>
+          <li>The agent provides an opinionated recommendation explaining <em>why</em> one option is superior.</li>
+          <li>It challenges fuzzy adjectives ("fast", "scalable") and forces quantifiable bounds.</li>
+          <li>At session end, it produces a clear Alignment Log summarizing all resolved trade-offs.</li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           10. Where it fits (Pipeline Spine & Handoffs)
+           ==================================================================== -->
+      <section style="margin-bottom: var(--spacing-xxl);">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--spacing-md);">
+          Where it fits
+        </h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
+          <code>to-grill-me</code> is the interactive sparring partner across the entire Pólya SDLC pipeline:
+        </p>
+        <pre class="flow-spine">/to-explore → /to-prd → /to-spec → 🥊 /to-grill-me → 🔍 /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → /to-docs</pre>
+        <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
+          Use it before finalizing documents to resolve architectural tension. Once aligned, pass your refined document to <code>/to-clarify</code> to score Readiness and proceed to planning.
+        </p>
+
+        <nav class="handoff-nav" aria-label="SDLC Handoff">
+          <a href="to-spec.html" class="handoff-link">
+            <span class="handoff-label">← Upstream Phase</span>
+            <span class="handoff-target">/to-spec (Technical Specification)</span>
+          </a>
+          <a href="to-clarify.html" class="handoff-link next">
+            <span class="handoff-label">Downstream Gate →</span>
+            <span class="handoff-target">/to-clarify (Quality Checkpoint)</span>
+          </a>
+        </nav>
+      </section>
+    </article>
+  </main>
+
+  <!-- ========================================================================
+       4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Pólya Pipeline</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-grill-me.html">Sparring: Grill-Me</a></li>
+            <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution &amp; Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities &amp; Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="to-map.html">Living Architecture Map</a></li>
+            <li><a href="to-memory.html">Persistent Memory</a></li>
+            <li><a href="to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance &amp; Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="../why-polya.html" style="color: var(--color-primary-blue); font-weight: 600;">Why Pólya? (1945 Heuristic)</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

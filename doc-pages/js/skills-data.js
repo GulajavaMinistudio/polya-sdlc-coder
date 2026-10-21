@@ -14,42 +14,42 @@
       name: 'GitHub Copilot',
       command: 'npx skills add GulajavaMinistudio/polya-sdlc-coder -y',
       configDir: '.agents/',
-      notes: 'Installs the 14 skills into your .agents/skills/ directory for GitHub Copilot Workspace and VS Code.'
+      notes: 'Installs the 15 skills into your .agents/skills/ directory for GitHub Copilot Workspace and VS Code.'
     },
     {
       id: 'antigravity',
       name: 'Google Antigravity',
       command: 'npx skills add GulajavaMinistudio/polya-sdlc-coder -y',
       configDir: '.agents/skills/',
-      notes: 'Installs the 14 skills into .agents/skills/ for Antigravity IDE and CLI.'
+      notes: 'Installs the 15 skills into .agents/skills/ for Antigravity IDE and CLI.'
     },
     {
       id: 'cursor',
       name: 'Cursor',
       command: 'npx skills add GulajavaMinistudio/polya-sdlc-coder -y',
       configDir: '.cursor/skills/',
-      notes: 'Installs the 14 skills into .cursor/skills/ for Cursor Composer multi-file workflows.'
+      notes: 'Installs the 15 skills into .cursor/skills/ for Cursor Composer multi-file workflows.'
     },
     {
       id: 'claude',
       name: 'Claude Code',
       command: 'npx skills add GulajavaMinistudio/polya-sdlc-coder -y -g',
       configDir: '~/.claude/skills/',
-      notes: 'Global installation of the 14 skills for terminal-based Claude Code agent workflows.'
+      notes: 'Global installation of the 15 skills for terminal-based Claude Code agent workflows.'
     },
     {
       id: 'codex',
       name: 'Codex / OpenCode',
       command: 'npx skills add GulajavaMinistudio/polya-sdlc-coder -y',
       configDir: '.agents/skills/',
-      notes: 'Installs the 14 skills for OpenAI Codex and OpenCode terminal agents.'
+      notes: 'Installs the 15 skills for OpenAI Codex and OpenCode terminal agents.'
     },
     {
       id: 'pi',
       name: 'Pi Dev',
       command: 'npx skills add GulajavaMinistudio/polya-sdlc-coder -y',
       configDir: '.agents/skills/',
-      notes: 'Installs the 14 skills for autonomous Pi agent environments.'
+      notes: 'Installs the 15 skills for autonomous Pi agent environments.'
     }
   ];
 
@@ -109,6 +109,20 @@
       outputs: ['docs/spec/{slug}-spec.md', 'docs/adr/NNNN-slug.md'],
       detailUrl: 'doc-pages/skills/to-spec.html',
       tags: ['spec', 'clean-architecture', 'dtos', 'contracts', 'invariants', 'seams', 'architecture']
+    },
+    {
+      slug: 'to-grill-me',
+      command: '/to-grill-me',
+      name: 'Socratic Sparring & Stress-Tester',
+      phase: 'Sparring: Socratic Design Interview',
+      phaseCategory: 'specification',
+      polyaStage: '1.5. Socratic Dialogue',
+      tagline: 'Turn-by-turn design interview, devil\'s advocate & concrete A/B trade-offs',
+      description: 'Conducts turn-by-turn design interviews, pressure-testing premises and hidden failure modes across Idea, PRD, Spec, or Plan. Enforces the 1-Question Rule with concrete technical A/B trade-offs.',
+      inputs: ['Target PRD, Spec, Plan, or raw idea concept', 'Source code & manifests'],
+      outputs: ['Pólya Grilling Alignment Log in chat', 'Optional ADR in docs/adr/'],
+      detailUrl: 'doc-pages/skills/to-grill-me.html',
+      tags: ['grill-me', 'sparring', 'socratic', 'interview', 'trade-offs', 'devil-advocate', 'decisions', 'ab-testing']
     },
     {
       slug: 'to-clarify',

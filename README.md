@@ -24,11 +24,12 @@ When given an ambiguous prompt, agents hallucinate assumptions, skip edge cases,
 **Pólya SDLC Coder** equips your AI coding agent with a battle-tested, disciplined engineering system:
 
 1. **First, Understand the Problem (`/to-spec`)**: Deconstruct *The Unknown*, *The Data*, and *The Condition*. Define Type-Driven contracts and map Clean Architecture seams before writing a single line of application code.
-2. **Stress-Test Assumptions (`/to-clarify`)**: Interrogate ambiguities with an interactive 5-axis Grill-Me interview and quantify readiness before committing engineering resources.
-3. **Devise a Modular Plan (`/to-plan`)**: Break the feature into vertical tracer bullets (DB to UI) with Plan B contingencies.
-4. **🛑 The Pause Rule Gate**: The agent **MUST** halt and receive explicit human verification before writing functional code.
-5. **Carry Out the Plan (`/to-code`)**: Enforce Uncle Bob's Clean Code, the Boy Scout Rule, and a Two-Layer Testing Mandate with zero tolerance for cheating or suppressions.
-6. **Look Back (`/to-review` & `/to-docs`)**: Audit 5 SOLID principles, test boundary invariants, and author structured Diátaxis documentation.
+2. **Socratic Sparring & Stress-Testing (`/to-grill-me`)**: Pressure-test assumptions, explore sad paths, and force concrete A/B technical choices through turn-by-turn interview rounds with senior recommendations.
+3. **Audit Condition & Readiness (`/to-clarify`)**: Interrogate ambiguities with a 5-axis sanity check and quantify an objective 0–100 Readiness Score before allocating implementation resources.
+4. **Devise a Modular Plan (`/to-plan`)**: Break the feature into vertical tracer bullets (DB to UI) with Plan B contingencies.
+5. **🛑 The Pause Rule Gate**: The agent **MUST** halt and receive explicit human verification before writing functional code.
+6. **Carry Out the Plan (`/to-code`)**: Enforce Uncle Bob's Clean Code, the Boy Scout Rule, and a Two-Layer Testing Mandate with zero tolerance for cheating or suppressions.
+7. **Look Back (`/to-review` & `/to-docs`)**: Audit 5 SOLID principles, test boundary invariants, and author structured Diátaxis documentation.
 
 ---
 
@@ -82,6 +83,7 @@ By mapping Pólya's 1945 mathematical framework directly onto **Robert C. Martin
 | George Pólya's Heuristic (1945) | Software Craftsmanship Seam | Pólya SDLC Agent Skill |
 | :--- | :--- | :--- |
 | **"Understanding the Problem"** | Domain Boundaries, DTOs & Contracts | [`/to-spec`](skills/to-spec) & [`/to-explore`](skills/to-explore) |
+| **"Socratic Sparring & Challenging Premises"** | Adversarial Design Interview & A/B Trade-Offs | [`/to-grill-me`](skills/to-grill-me) |
 | **"Interrogating the Condition"** | Edge-Case Invariants & Assumption Auditing | [`/to-clarify`](skills/to-clarify) |
 | **"Devising a Plan & Auxiliary Problems"** | Vertical Tracer Bullets & Plan B | [`/to-plan`](skills/to-plan) |
 | **"The Hesitation Before Calculating"** | Explicit Human Alignment Gate | **🛑 The Pause Rule Gate** |
@@ -123,7 +125,7 @@ The bootstrapper will autonomously configure project governance (`AGENTS.md`), o
 
 #### Option B: Install All Skills Directly
 
-If you prefer to install the entire 14-skill suite directly into your project:
+If you prefer to install the entire 15-skill suite directly into your project:
 
 ```bash
 # Add all skills from this repository
@@ -214,12 +216,16 @@ Pólya SDLC follows a strict, disciplined pipeline designed to eliminate ambigui
 │ /to-spec                      │ ──▶ [ docs/spec/ & docs/adr/ ] ──▶ ( Sanity Check & Equation Mapping )
 └───────────────────────────────┘
       │
-      ▼
-┌───────────────────────────────┐
-│ /to-clarify                   │ ──▶ [ docs/audit/ ] ──▶ ( Interrogate Assumptions, Grill-Me A/B, Readiness Score )
-└───────────────────────────────┘
-      │
-      ▼
+      ├─────────────────────────────────────────────────┐
+      │ (Turn-by-turn design sparring)                  │ (Formal condition sanity check)
+      ▼                                                 ▼
+┌───────────────────────────────┐               ┌───────────────────────────────┐
+│ /to-grill-me                  │               │ /to-clarify                   │ ──▶ [ docs/audit/ ]
+└───────────────────────────────┘               └───────────────────────────────┘
+      │ (Decisions Log & ADRs)                          │ (Readiness Score >= 80)
+      └─────────────────────────┬───────────────────────┘
+                                │
+                                ▼
 [ Phase 2: PLANNING ] (Pólya Phase 2: Devising a Plan)
       │
       ▼
@@ -227,12 +233,16 @@ Pólya SDLC follows a strict, disciplined pipeline designed to eliminate ambigui
 │ /to-plan                      │ ──▶ [ docs/plan/ ] ──▶ ( Land & Expand / Tracer Bullets )
 └───────────────────────────────┘
       │
-      ▼
-┌───────────────────────────────┐
-│ /to-clarify                   │ ──▶ ( Optional Plan Interrogation & Stress-Test )
-└───────────────────────────────┘
-      │
-      ▼
+      ├─────────────────────────────────────────────────┐
+      │ (Plan Stress-Testing & Plan B)                  │ (Plan Readiness Gate)
+      ▼                                                 ▼
+┌───────────────────────────────┐               ┌───────────────────────────────┐
+│ /to-grill-me                  │               │ /to-clarify                   │
+└───────────────────────────────┘               └───────────────────────────────┘
+      │                                                 │
+      └─────────────────────────┬───────────────────────┘
+                                │
+                                ▼
 🛑 MANDATORY GATE: THE PAUSE RULE
 (Halt execution! Await explicit user confirmation before writing functional code)
       │
@@ -259,6 +269,7 @@ Pólya SDLC follows a strict, disciplined pipeline designed to eliminate ambigui
 
 ════════════════════════════════════════════════════════════════════════════
 [ AUTONOMOUS HUB / TRIAGE ]     ──▶ /to-ask-help   (Autonomous intent reconnaissance & diagnostic)
+[ SOCRATIC SPARRING ]          ──▶ /to-grill-me   (Turn-by-turn design interview & stress-test)
 [ FAST-TRACK BYPASS ]           ──▶ /to-quick-fix  (Routine, XS/S, One-Shot Fixes)
 [ ARCHITECTURE TOPOGRAPHY ]     ──▶ /to-map        (Traverse, Seams, docs/ARCHITECTURE.md)
 [ PERSISTENT MEMORY ]           ──▶ /to-memory     (Checkpoint to memory.instructions.md)
@@ -278,7 +289,8 @@ Each skill in Pólya SDLC is modular, standalone, and focused on a single respon
 | **`/to-explore`** | [`to-explore`](skills/to-explore) | **Phase 0: Discovery** | Problem framing, repository topography critique, architectural trade-offs (*Inventor's Paradox*), and spikes. | `docs/discovery/{slug}-discovery.md` |
 | **`/to-prd`** | [`to-prd`](skills/to-prd) | **Phase 0.5: PRD** | Business problem framing, SMART user stories, and acceptance boundaries (*Optional branch*). | `docs/prd/{slug}-prd.md` |
 | **`/to-spec`** | [`to-spec`](skills/to-spec) | **Phase 1: Spec** | Deconstruct *Unknown, Data, Condition*, *Setting Up Equations* (DTOs), and map Clean Architecture seams. | `docs/spec/{slug}-spec.md` + `docs/adr/` |
-| **`/to-clarify`** | [`to-clarify`](skills/to-clarify) | **Checkpoint: Clarify** | Interrogate ambiguities, `[ASSUMPTION]` tags, Condition Sanity Check, Grill-Me protocol, and Readiness Score. | `docs/audit/{slug}-clarification.md` |
+| **`/to-grill-me`** | [`to-grill-me`](skills/to-grill-me) | **Sparring: Socratic Interview** | Turn-by-turn design interview, Devil's Advocate, 1-question A/B trade-offs, and stress-testing. | Decisions Log & ADR Proposal |
+| **`/to-clarify`** | [`to-clarify`](skills/to-clarify) | **Checkpoint: Clarify** | Interrogate ambiguities, `[ASSUMPTION]` tags, Condition Sanity Check, and Readiness Score (0–100). | `docs/audit/{slug}-clarification.md` |
 | **`/to-plan`** | [`to-plan`](skills/to-plan) | **Phase 2: Plan** | *Working Backwards*, *Auxiliary Problems*, Land & Expand (Tracer Bullets), Plan B, and **The Pause Rule**. | `docs/plan/{slug}-plan.md` |
 | **`/to-code`** | [`to-code`](skills/to-code) | **Phase 3: Implement** | Clean Code execution, single-responsibility small functions, and *Boy Scout Rule* compliance. | Production Source Code & Tests |
 | **`/to-review`** | [`to-review`](skills/to-review) | **Phase 4: Review** | Audit 5 SOLID principles (SRP, OCP, LSP, ISP, DIP), boundary specialization, and test by dimension. | `docs/reviews/{slug}-review.md` |
@@ -364,20 +376,39 @@ The agent creates `docs/spec/order-tracking-spec.md`, defining:
 
 ---
 
-### 5. Interrogate & Stress-Test (`/to-clarify`)
+### 5. Socratic Sparring & Design Interview (`/to-grill-me`)
+
+Before locking in plans or when facing tough architectural trade-offs, put your design through an adversarial turn-by-turn design interview:
+
+```text
+/to-grill-me spec @docs/spec/order-tracking-spec.md
+```
+
+The agent assumes the role of **Pólya Socratic Sparring Partner (The Devil's Advocate)**:
+- **1-Question Rule:** Never overwhelms you with a barrage of questions; asks exactly **ONE** sharp question per turn.
+- **Do the Heavy Lifting:** Proposes 2–3 concrete, technically grounded options (Option A vs. Option B) derived from your repository.
+- **Opinionated Senior Recommendation:** Always recommends the cleanest architectural choice with practical rationale.
+- **Phase-Adaptive Versatility:** Can be summoned for raw ideas (`/to-grill-me "idea"`), PRDs (`/to-grill-me prd`), Specs (`/to-grill-me spec`), or execution plans (`/to-grill-me plan`).
+- **Decisions Log:** Synthesizes settled choices into actionable document diffs or emits an ADR into `docs/adr/`.
+
+---
+
+### 6. Audit Condition & Readiness Gate (`/to-clarify`)
+
+When the specification is drafted and design tensions are resolved, conduct a formal quality gate audit:
 
 ```text
 /to-clarify @docs/spec/order-tracking-spec.md
 ```
 
-The agent triggers the **Grill-Me Protocol**:
-- Tests boundary conditions (*What happens when Redis connection drops mid-order?*).
-- Presents concrete A/B choices instead of open-ended queries.
-- Calculates an objective **Readiness Score (0–100)**. If score $< 80$, the plan does not proceed.
+The agent acts as a relentless **Pólya Clarification Analyst**:
+- **5-Axis Sanity Check:** Verifies Goal/Premise, User Flows & 5 UI States, Sad Paths, Seams, and Scope Boundaries.
+- **Epistemic Doubt:** Evaluates `> [!WARNING] [ASSUMPTION-XXX]` tags and hunts for unaddressed edge cases.
+- **Readiness Score (0–100):** Evaluates Completeness (40%), Clarity (30%), and Alignment (30%). If the score is $< 80$, the feature cannot proceed to planning.
 
 ---
 
-### 6. Create Vertical Tracer Bullets (`/to-plan`)
+### 7. Create Vertical Tracer Bullets (`/to-plan`)
 
 ```text
 /to-plan @docs/spec/order-tracking-spec.md
@@ -391,7 +422,7 @@ The agent creates `docs/plan/order-tracking-plan.md`, slicing implementation int
 
 ---
 
-### 7. 🛑 The Pause Rule Gate
+### 8. 🛑 The Pause Rule Gate
 
 > [!CAUTION]
 > **The Pause Rule**: The agent stops automatically after generating the plan. No code may be written until the developer reviews and confirms:
@@ -400,7 +431,7 @@ The agent creates `docs/plan/order-tracking-plan.md`, slicing implementation int
 
 ---
 
-### 8. Implement with Clean Code Discipline (`/to-code`)
+### 9. Implement with Clean Code Discipline (`/to-code`)
 
 ```text
 /to-code @docs/plan/order-tracking-plan.md @docs/spec/order-tracking-spec.md
@@ -414,7 +445,7 @@ The agent ingests the approved Implementation Plan and Technical Specification, 
 
 ---
 
-### 9. Review, Audit & Transfer Knowledge (`/to-review` & `/to-docs`)
+### 10. Review, Audit & Transfer Knowledge (`/to-review` & `/to-docs`)
 
 ```text
 /to-review @docs/plan/order-tracking-plan.md @docs/spec/order-tracking-spec.md

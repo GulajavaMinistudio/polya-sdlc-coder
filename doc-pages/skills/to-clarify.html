@@ -298,15 +298,15 @@
         <p style="font-size: 15px; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-xs);">
           <code>to-clarify</code> is the recurring quality gate across the Pólya SDLC pipeline:
         </p>
-        <pre class="flow-spine">/to-explore → /to-prd → /to-spec → 🔍 /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → /to-docs</pre>
+        <pre class="flow-spine">/to-explore → /to-prd → /to-spec → 🥊 /to-grill-me → 🔍 /to-clarify → /to-plan → 🛑 PAUSE → /to-code → /to-review → /to-docs</pre>
         <p style="font-size: 15px; color: var(--color-ink-muted-80); line-height: 1.6;">
-          It is invoked after <code>/to-spec</code> (to eliminate spec ambiguity) or after <code>/to-plan</code> (to stress-test tracer bullets). Once the Readiness Score passes the &ge; 80 threshold, it hands off to <code>/to-plan</code> or <code>/to-code</code>.
+          It is invoked after <code>/to-spec</code> or <code>/to-grill-me</code> (to formalize decisions and eliminate spec ambiguity) or after <code>/to-plan</code> (to stress-test tracer bullets). Once the Readiness Score passes the &ge; 80 threshold, it hands off to <code>/to-plan</code> or <code>/to-code</code>.
         </p>
 
         <nav class="handoff-nav" aria-label="SDLC Handoff">
-          <a href="to-spec.html" class="handoff-link">
-            <span class="handoff-label">← Previous Phase</span>
-            <span class="handoff-target">/to-spec (Technical Specification)</span>
+          <a href="to-grill-me.html" class="handoff-link">
+            <span class="handoff-label">← Socratic Sparring</span>
+            <span class="handoff-target">/to-grill-me (Sparring &amp; Stress-Testing)</span>
           </a>
           <a href="to-plan.html" class="handoff-link next">
             <span class="handoff-label">Next Phase →</span>
@@ -329,6 +329,7 @@
             <li><a href="to-explore.html">Phase 0: Discovery</a></li>
             <li><a href="to-prd.html">Phase 0.5: PRD</a></li>
             <li><a href="to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="to-grill-me.html">Sparring: Grill-Me</a></li>
             <li><a href="to-clarify.html">Checkpoint: Clarify</a></li>
             <li><a href="to-plan.html">Phase 2: Planning</a></li>
           </ul>

@@ -218,12 +218,16 @@ The development lifecycle follows a disciplined 6-phase progression based on Geo
 │ /to-spec                      │ ──▶ [ docs/spec/ & docs/adr/ ] ──▶ ( Sanity Check & Equation Mapping )
 └───────────────────────────────┘
       │
-      ▼
-┌───────────────────────────────┐
-│ /to-clarify                   │ ──▶ [ docs/audit/ ] ──▶ ( Interrogate Assumptions, Grill-Me A/B, Readiness Score )
-└───────────────────────────────┘
-      │
-      ▼
+      ├─────────────────────────────────────────────────┐
+      │ (Turn-by-turn design sparring)                  │ (Formal condition sanity check)
+      ▼                                                 ▼
+┌───────────────────────────────┐               ┌───────────────────────────────┐
+│ /to-grill-me                  │               │ /to-clarify                   │ ──▶ [ docs/audit/ ]
+└───────────────────────────────┘               └───────────────────────────────┘
+      │ (Decisions Log & ADRs)                          │ (Readiness Score >= 80)
+      └─────────────────────────┬───────────────────────┘
+                                │
+                                ▼
 [ Phase 2: PLANNING ] (Pólya Phase 2: Devising a Plan)
       │
       ▼
@@ -231,12 +235,16 @@ The development lifecycle follows a disciplined 6-phase progression based on Geo
 │ /to-plan                      │ ──▶ [ docs/plan/ ] ──▶ ( Land & Expand / Tracer Bullets )
 └───────────────────────────────┘
       │
-      ▼
-┌───────────────────────────────┐
-│ /to-clarify                   │ ──▶ ( Optional Plan Interrogation & Stress-Test )
-└───────────────────────────────┘
-      │
-      ▼
+      ├─────────────────────────────────────────────────┐
+      │ (Plan Stress-Testing & Plan B)                  │ (Plan Readiness Gate)
+      ▼                                                 ▼
+┌───────────────────────────────┐               ┌───────────────────────────────┐
+│ /to-grill-me                  │               │ /to-clarify                   │
+└───────────────────────────────┘               └───────────────────────────────┘
+      │                                                 │
+      └─────────────────────────┬───────────────────────┘
+                                │
+                                ▼
 🛑 MANDATORY GATE: THE PAUSE RULE
 (Halt execution! Await explicit user confirmation before writing functional code)
       │
