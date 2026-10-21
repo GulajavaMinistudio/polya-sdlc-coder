@@ -56,6 +56,24 @@
     grid-template-columns: 1fr;
   }
 
+  .polya-book-showcase {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+
+  .polya-book-badges {
+    justify-content: center;
+  }
+
+  .pathology-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-deepdive-grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer-directory-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-xl);
@@ -105,7 +123,8 @@
   }
 
   /* Sub-nav collapses category links, keeps primary CTA */
-  .sub-nav-menu li:not(:last-child) {
+  .sub-nav-menu li:not(:last-child),
+  .sub-nav-menu a:not(.btn-primary):not(.btn-utility) {
     display: none;
   }
 
@@ -280,6 +299,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .sub-nav-breadcrumb-tag {
+    display: none;
   }
 
   .btn-capsule,

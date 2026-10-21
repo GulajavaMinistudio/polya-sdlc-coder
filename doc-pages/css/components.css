@@ -1311,3 +1311,482 @@
   font-style: italic;
   color: var(--color-ink-muted-80);
 }
+
+/* ==========================================================================
+   9. Why Pólya? Specialized Heuristic & Editorial Components
+   ========================================================================== */
+
+/* Specialized Editorial Sub-Nav Breadcrumb (Single-Line Horizontal) */
+.sub-nav-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  height: 100%;
+}
+
+.sub-nav-breadcrumb-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-ink-muted-80);
+  text-decoration: none;
+  transition: color var(--transition-fade);
+}
+
+.sub-nav-breadcrumb-link:hover {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+}
+
+.sub-nav-breadcrumb-sep {
+  color: var(--color-hairline-solid);
+  font-size: 13px;
+  user-select: none;
+}
+
+.sub-nav-breadcrumb-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  line-height: 1;
+}
+
+.sub-nav-breadcrumb-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background-color: rgba(0, 113, 227, 0.08);
+  color: var(--color-primary-blue);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* Editorial Hero Header */
+.editorial-hero {
+  padding: var(--spacing-section) 0 var(--spacing-xl) 0;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.editorial-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-blue);
+  margin-bottom: var(--spacing-md);
+}
+
+.editorial-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-lg);
+}
+
+.editorial-lead {
+  font-size: clamp(17px, 2.2vw, 20px);
+  line-height: 1.6;
+  color: var(--color-ink-muted-80);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Book Showcase Card */
+.polya-book-showcase {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl);
+  margin: var(--spacing-xxl) 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.polya-book-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.polya-book-images-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.polya-book-images-pair .polya-book-image {
+  max-width: 48%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.polya-book-images-pair .secondary-cover {
+  max-height: 260px;
+}
+
+.polya-book-image {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.polya-book-image:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.polya-book-caption {
+  margin-top: var(--spacing-md);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-ink-muted-48);
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+.polya-book-caption code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  color: var(--color-ink);
+  font-size: 12px;
+}
+
+.polya-book-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.polya-book-tagline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.polya-book-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.polya-book-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 var(--spacing-xs) 0;
+}
+
+.polya-book-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background-color: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill); /* 9999px - true geometric capsule pill */
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-ink);
+  line-height: 1.3;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.polya-book-badge:hover {
+  background-color: #ededef;
+  border-color: rgba(0, 0, 0, 0.14);
+  transform: translateY(-1px);
+}
+
+.polya-book-badge .badge-icon {
+  color: var(--color-primary-blue, #0071e3);
+  flex-shrink: 0;
+}
+
+.polya-book-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+}
+
+/* Quote Callout Banner */
+.polya-quote-banner {
+  background-color: var(--color-surface-black);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl);
+  margin: var(--spacing-xxl) 0;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.polya-quote-banner::before {
+  content: "“";
+  position: absolute;
+  top: -20px;
+  left: 24px;
+  font-size: 160px;
+  font-family: Georgia, serif;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.polya-quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-style: italic;
+  line-height: 1.5;
+  color: #f1f5f9;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.polya-quote-author {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-primary-blue-muted, #7dd3fc);
+  position: relative;
+  z-index: 1;
+}
+
+/* Pathology Grid: AI Failure Mode vs Pólya Cure */
+.pathology-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0 var(--spacing-xxl) 0;
+}
+
+.pathology-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pathology-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.pathology-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.pathology-number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-ink-muted-48);
+}
+
+.pathology-mode-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pathology-mode-tag.failure {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.pathology-mode-tag.cure {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.pathology-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.pathology-body {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+}
+
+.pathology-resolution {
+  background-color: var(--color-canvas-parchment);
+  border-left: 3px solid var(--color-primary-blue);
+  padding: var(--spacing-md);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.pathology-resolution-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pathology-resolution-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-ink-muted-80);
+  margin: 0;
+}
+
+/* Stage Deep-Dive Grid */
+.stage-deepdive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0 var(--spacing-xxl) 0;
+}
+
+.stage-deepdive-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.stage-card-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(0, 113, 227, 0.08);
+  color: var(--color-primary-blue);
+}
+
+.stage-card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.stage-card-quote {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-ink-muted-80);
+  border-left: 2px solid var(--color-hairline);
+  padding-left: var(--spacing-sm);
+  margin: 0;
+}
+
+.stage-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stage-card-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-ink-muted-80);
+}
+
+.stage-card-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-primary-blue);
+  font-weight: 700;
+}
+
+.stage-card-skills {
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-hairline);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stage-skill-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background-color: var(--color-canvas-parchment);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.stage-skill-pill:hover {
+  background-color: var(--color-primary-blue);
+  color: #ffffff;
+  text-decoration: none;
+}
+

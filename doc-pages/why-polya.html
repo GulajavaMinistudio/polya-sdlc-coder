@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Pólya? How a 1945 Math Book Fixes Modern AI Reasoning - Pólya SDLC Coder</title>
+  <meta name="description" content="Discover the history of George Pólya's 1945 mathematical masterpiece 'How to Solve It' and why its heuristic problem-solving framework solves the critical failure modes of modern Large Language Models and AI coding agents.">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Core Design Tokens & Component Styles -->
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- WCAG 2.1 AA Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========================================================================
+       1. Two-Row Navigation (44px Global Nav + 52px Frosted Sub-Nav)
+       ======================================================================== -->
+  <header>
+    <!-- 44px Pure Black Global Nav -->
+    <nav class="global-nav" aria-label="Global Navigation">
+      <div class="global-nav-container">
+        <a href="../index.html" class="global-nav-brand">
+          <img src="assets/logo.svg" alt="Pólya SDLC" class="nav-brand-logo" width="24" height="24">
+          <span>Pólya SDLC</span>
+        </a>
+
+        <ul class="global-nav-links" id="global-nav-links">
+          <li><a href="why-polya.html" class="active">Why Pólya?</a></li>
+          <li><a href="../index.html#overview">Overview</a></li>
+          <li><a href="../index.html#pipeline">Pipeline</a></li>
+          <li><a href="../index.html#skills-catalog">Skills Catalog</a></li>
+          <li><a href="../index.html#install">Install</a></li>
+          <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+
+        <div class="global-nav-actions">
+          <button type="button" class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="global-nav-links" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 52px Frosted Sub-Nav with Breadcrumb -->
+    <div class="sub-nav-frosted">
+      <div class="sub-nav-container">
+        <nav class="sub-nav-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html" class="sub-nav-breadcrumb-link">Home</a>
+          <span class="sub-nav-breadcrumb-sep">/</span>
+          <span class="sub-nav-breadcrumb-title">Why Pólya?</span>
+          <span class="sub-nav-breadcrumb-tag">1945 Origins</span>
+        </nav>
+
+        <div class="sub-nav-menu">
+          <a href="#history">The 1945 Origins</a>
+          <a href="#failure-modes">Why AI Fails</a>
+          <a href="#four-stages">The 4 Stages</a>
+          <a href="#heuristics">Heuristic Arsenal</a>
+          <a href="../index.html#skills-catalog" class="btn-primary" style="padding: 7px 18px; font-size: 13px; color: #ffffff;">Explore Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         2. Editorial Hero Banner
+         ====================================================================== -->
+    <section class="product-tile product-tile-light" style="padding-bottom: var(--spacing-xxl);">
+      <div class="tile-container">
+        <div class="editorial-hero">
+          <span class="editorial-eyebrow">ORIGINS &amp; HEURISTIC ALIGNMENT • 1945 MATHEMATICAL FOUNDATIONS</span>
+          <h1 class="editorial-title">Why a 1945 Math Book Is the Ultimate Antidote to AI Hallucination</h1>
+          <p class="editorial-lead">
+            Eight decades ago, Stanford mathematician George Pólya codified the universal psychology of problem-solving. Today, his four-stage heuristic framework provides the exact cognitive scaffolding needed to cure the autoregressive myopia of Large Language Models.
+          </p>
+        </div>
+
+        <!-- Book Showcase Card -->
+        <div class="polya-book-showcase" id="history">
+          <figure class="polya-book-figure">
+            <div class="polya-book-images-pair">
+              <img src="assets/polya-books-cats.jpg" alt="George Pólya - How to Solve It" class="polya-book-image" onerror="this.src='../polya-books-cats.jpg'">
+              <img src="assets/HowToSolveIt.jpg" alt="How to Solve It - Book Cover" class="polya-book-image secondary-cover" onerror="this.src='../HowToSolveIt.jpg'">
+            </div>
+            <figcaption class="polya-book-caption">
+              Artifact references: <code>polya-books-cats.jpg</code> &amp; <code>HowToSolveIt.jpg</code><br>
+              George Pólya &amp; the Princeton University Press landmark treatise
+            </figcaption>
+          </figure>
+
+          <div class="polya-book-content">
+            <span class="polya-book-tagline">Historical Foundation • Stanford, 1945</span>
+            <h2 class="polya-book-title">George Pólya & <em>How to Solve It</em></h2>
+            
+            <div class="polya-book-badges">
+              <span class="polya-book-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>Princeton University Press (1945)</span>
+              </span>
+              <span class="polya-book-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <span>&gt; 1,000,000 Copies Sold</span>
+              </span>
+              <span class="polya-book-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>17+ Language Translations</span>
+              </span>
+              <span class="polya-book-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <span>Stanford Department of Mathematics</span>
+              </span>
+            </div>
+
+            <p class="polya-book-desc">
+              <strong>George Pólya (1887–1985)</strong> was a Hungarian-American mathematician who held professorships at ETH Zürich and Stanford University. Renowned for fundamental contributions across probability theory, complex analysis, combinatorics, and geometry, Pólya made his most enduring impact on human thought in 1945 when he published a compact, 250-page volume entitled <strong><em>How to Solve It: A New Aspect of Mathematical Method</em></strong>.
+            </p>
+
+            <p class="polya-book-desc">
+              While conventional mathematical education focused strictly on formal deductive proofs (showing <em>that</em> a theorem is true after the fact), Pólya investigated the messy, inductive, and psychological process of <strong>discovery itself</strong>: how mathematicians stumble upon an idea, how they navigate uncertainty, and how they decompose overwhelming problems into solvable components.
+            </p>
+
+            <p class="polya-book-desc">
+              Drawing upon the intellectual heritage of <strong>René Descartes</strong> (<em>Rules for the Direction of the Mind</em>, 1628), <strong>Gottfried Wilhelm Leibniz</strong> (<em>Ars Inveniendi</em>, 1666), and <strong>Leonhard Euler</strong>, Pólya revived the forgotten discipline of <strong>Heuristic</strong>: the study of methods and rules of invention.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. Quote Callout Banner (The Pólya Core Philosophy)
+         ====================================================================== -->
+    <section class="tile-container">
+      <div class="polya-quote-banner">
+        <blockquote class="polya-quote-text">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."
+        </blockquote>
+        <div class="polya-quote-author">
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (Princeton University Press, 1945)
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. The Cognitive Pathology of Modern AI Coding Agents
+         ====================================================================== -->
+    <section class="product-tile product-tile-light" id="failure-modes">
+      <div class="tile-container">
+        <div class="section-header-block">
+          <span class="section-kicker">THE PROBLEM SPACE</span>
+          <h2 class="section-title">The Cognitive Pathology of LLM Coding Agents</h2>
+          <p class="section-subtitle">
+            Modern Large Language Models (LLMs) possess vast syntactic fluency, yet they routinely produce catastrophic bugs, hallucinated dependencies, and architectural chaos. Why?
+          </p>
+        </div>
+
+        <div class="pathology-grid">
+          <!-- Pathology 1 -->
+          <article class="pathology-card">
+            <div class="pathology-header">
+              <span class="pathology-number">01 / AUTOREGRESSIVE MYOPIA</span>
+              <span class="pathology-mode-tag failure">AI Failure Mode</span>
+            </div>
+            <h3 class="pathology-title">Token-by-Token Greediness</h3>
+            <p class="pathology-body">
+              LLMs operate on next-token prediction: \(P(w_{t} \mid w_{1}, \dots, w_{t-1})\). Without explicit external scaffolding, the model is compelled to start emitting code characters immediately. It commits to syntactic structures and variable names before computing the dependency graph or transaction boundaries.
+            </p>
+            <div class="pathology-resolution">
+              <div class="pathology-resolution-title">Pólya Heuristic Cure</div>
+              <p class="pathology-resolution-desc">
+                <strong>The Mandatory Pause Rule &amp; Stage 1 Decomposition:</strong> The agent is forbidden from emitting functional code tokens until it has formally segregated the Unknown, the Data, and the Condition.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pathology 2 -->
+          <article class="pathology-card">
+            <div class="pathology-header">
+              <span class="pathology-number">02 / PREMATURE CODING</span>
+              <span class="pathology-mode-tag failure">AI Failure Mode</span>
+            </div>
+            <h3 class="pathology-title">The Hallucination of Immediate Competence</h3>
+            <p class="pathology-body">
+              When asked to "build feature X", an AI agent instinctively begins writing code in the presentation or database layer. Because it has not verified existing imports or schema types, it hallucinates convenient library methods, invents phantom database columns, and breaks existing caller contracts.
+            </p>
+            <div class="pathology-resolution">
+              <div class="pathology-resolution-title">Pólya Heuristic Cure</div>
+              <p class="pathology-resolution-desc">
+                <strong>Seam Mapping &amp; Type-Driven Contracts:</strong> Phase 1 (<code>/to-spec</code>) requires mapping DTO boundaries, Value Objects, and abstract ports before any concrete implementation is drafted.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pathology 3 -->
+          <article class="pathology-card">
+            <div class="pathology-header">
+              <span class="pathology-number">03 / BLIND ALLEY SUNK COST</span>
+              <span class="pathology-mode-tag failure">AI Failure Mode</span>
+            </div>
+            <h3 class="pathology-title">The Nested Hack Death Spiral</h3>
+            <p class="pathology-body">
+              When an AI agent's initial code fails a test or compiler check, its default reflex is to patch the error with nested <code>try/catch</code> blocks, arbitrary type assertions (<code>as any</code>), or conditional band-aids, burying the foundational mistake beneath layers of cognitive debt.
+            </p>
+            <div class="pathology-resolution">
+              <div class="pathology-resolution-title">Pólya Heuristic Cure</div>
+              <p class="pathology-resolution-desc">
+                <strong>Respice Finem &amp; Trajectory Monitoring (Pólya p. 178):</strong> Recognizing warning signs of a blind alley. When a patch causes secondary breaks, the agent turns back to first principles (<code>/to-fix</code>) using bisection rather than stacking hacks.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pathology 4 -->
+          <article class="pathology-card">
+            <div class="pathology-header">
+              <span class="pathology-number">04 / ARCHITECTURAL EXTREMISM</span>
+              <span class="pathology-mode-tag failure">AI Failure Mode</span>
+            </div>
+            <h3 class="pathology-title">The Pedantry vs. Spaghetti Polarity</h3>
+            <p class="pathology-body">
+              Unconstrained AI models oscillate violently between two extremes: either generating 400 lines of unmaintainable monolithic spaghetti, or building ridiculous over-engineered enterprise abstractions with 8 nested interface layers for a simple 5-line string transform.
+            </p>
+            <div class="pathology-resolution">
+              <div class="pathology-resolution-title">Pólya Heuristic Cure</div>
+              <p class="pathology-resolution-desc">
+                <strong>Pedantry vs. Mastery (Pólya p. 148):</strong> Enforcing Uncle Bob's Clean Architecture where business invariants reside, while providing surgical fast-track modes (<code>/to-quick-fix</code>) for routine maintenance.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. The 4 Pólya Stages Applied to Software Engineering
+         ====================================================================== -->
+    <section class="product-tile product-tile-dark" id="four-stages" style="background-color: var(--color-surface-black); color: #ffffff;">
+      <div class="tile-container">
+        <div class="section-header-block" style="text-align: center;">
+          <span class="section-kicker" style="color: #38bdf8;">ARCHITECTURAL TRANSLATION</span>
+          <h2 class="section-title" style="color: #ffffff;">The Four Stages of Mathematical Problem-Solving</h2>
+          <p class="section-subtitle" style="color: #94a3b8; max-width: 720px; margin: 0 auto;">
+            Pólya formulated four universal steps on the inside cover of <em>How to Solve It</em>. Here is how each mathematical stage maps directly to the modern software engineering lifecycle.
+          </p>
+        </div>
+
+        <div class="stage-deepdive-grid">
+          <!-- Stage 1 -->
+          <div class="stage-deepdive-card" style="background-color: #111827; border-color: rgba(255, 255, 255, 0.1);">
+            <span class="stage-card-badge" style="background-color: rgba(56, 189, 248, 0.15); color: #38bdf8;">Stage 1 • Understanding</span>
+            <h3 class="stage-card-title" style="color: #ffffff;">1. Understanding the Problem</h3>
+            <p class="stage-card-quote" style="color: #94a3b8; border-color: rgba(56, 189, 248, 0.4);">
+              "What is the unknown? What are the data? What is the condition? Is it possible to satisfy the condition?"
+            </p>
+            <ul class="stage-card-list">
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">The Problem Triad:</strong> Isolate the exact output (The Unknown), the incoming payloads and database states (The Data), and business invariants/SLAs (The Condition).</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Introduce Suitable Notation:</strong> Model schemas using Type-Driven Design, DTO contracts, and Discriminated Unions before implementation.</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Clause Separation:</strong> Break compound requirements into testable, numbered invariants (<code>REQ-001</code>, <code>CON-001</code>).</li>
+            </ul>
+            <div class="stage-card-skills" style="border-color: rgba(255, 255, 255, 0.1);">
+              <span style="font-size: 11px; color: #94a3b8; margin-right: 4px;">Skills:</span>
+              <a href="skills/to-explore.html" class="stage-skill-pill">/to-explore</a>
+              <a href="skills/to-prd.html" class="stage-skill-pill">/to-prd</a>
+              <a href="skills/to-spec.html" class="stage-skill-pill">/to-spec</a>
+              <a href="skills/to-clarify.html" class="stage-skill-pill">/to-clarify</a>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="stage-deepdive-card" style="background-color: #111827; border-color: rgba(255, 255, 255, 0.1);">
+            <span class="stage-card-badge" style="background-color: rgba(168, 85, 247, 0.15); color: #c084fc;">Stage 2 • Planning</span>
+            <h3 class="stage-card-title" style="color: #ffffff;">2. Devising a Plan</h3>
+            <p class="stage-card-quote" style="color: #94a3b8; border-color: rgba(168, 85, 247, 0.4);">
+              "Find the connection between the data and the unknown. Consider auxiliary problems if an immediate connection cannot be found."
+            </p>
+            <ul class="stage-card-list">
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Auxiliary Problems:</strong> If the full feature is too complex, solve a simplified sub-problem first (e.g. pure synchronous state machine before distributed cache).</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">The Inventor's Paradox:</strong> Sometimes the more general architectural abstraction is easier to implement cleanly than a specialized one-off patch.</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Vertical Tracer Bullets:</strong> Plan end-to-end thin slices connecting DB to UI that are demoable, rather than horizontal layer-by-layer work.</li>
+            </ul>
+            <div class="stage-card-skills" style="border-color: rgba(255, 255, 255, 0.1);">
+              <span style="font-size: 11px; color: #94a3b8; margin-right: 4px;">Skills:</span>
+              <a href="skills/to-plan.html" class="stage-skill-pill">/to-plan</a>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="stage-deepdive-card" style="background-color: #111827; border-color: rgba(255, 255, 255, 0.1);">
+            <span class="stage-card-badge" style="background-color: rgba(34, 197, 94, 0.15); color: #4ade80;">Stage 3 • Execution</span>
+            <h3 class="stage-card-title" style="color: #ffffff;">3. Carrying Out the Plan</h3>
+            <p class="stage-card-quote" style="color: #94a3b8; border-color: rgba(34, 197, 94, 0.4);">
+              "Carrying out your plan of the solution, check each step. Can you see clearly that the step is correct? Can you prove that it is correct?"
+            </p>
+            <ul class="stage-card-list">
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">The Mandatory Pause Rule:</strong> Halt execution after planning. Await explicit human validation before generating production code.</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Respice Finem ("Look to the End"):</strong> Anchor on the Unknown. Prevent the agent from wandering into gratuitous refactorings or unrequested dependencies.</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Inductive Verification:</strong> Verify algorithms across base cases (\(n=0, n=1\)) and inductive transitions (\(n \to n+1\)).</li>
+            </ul>
+            <div class="stage-card-skills" style="border-color: rgba(255, 255, 255, 0.1);">
+              <span style="font-size: 11px; color: #94a3b8; margin-right: 4px;">Skills:</span>
+              <a href="skills/to-code.html" class="stage-skill-pill">/to-code</a>
+              <a href="skills/to-quick-fix.html" class="stage-skill-pill">/to-quick-fix</a>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="stage-deepdive-card" style="background-color: #111827; border-color: rgba(255, 255, 255, 0.1);">
+            <span class="stage-card-badge" style="background-color: rgba(245, 158, 11, 0.15); color: #fbbf24;">Stage 4 • Looking Back</span>
+            <h3 class="stage-card-title" style="color: #ffffff;">4. Looking Back</h3>
+            <p class="stage-card-quote" style="color: #94a3b8; border-color: rgba(245, 158, 11, 0.4);">
+              "Can you check the result? Can you check the argument? Can you derive the result differently? Can you see it at a glance?"
+            </p>
+            <ul class="stage-card-list">
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">The Two Golden Questions:</strong> "Can you use the result? Can you use the method for some other problem?" Persist reusable patterns in memory.</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Boundary Specialization:</strong> Stress-test against extreme boundaries, null payloads, and concurrent race conditions.</li>
+              <li style="color: #cbd5e1;"><strong style="color: #ffffff;">Diátaxis Pedagogical Transfer:</strong> Convert verified solutions into Tutorials, How-To Guides, Reference specs, and Explanations.</li>
+            </ul>
+            <div class="stage-card-skills" style="border-color: rgba(255, 255, 255, 0.1);">
+              <span style="font-size: 11px; color: #94a3b8; margin-right: 4px;">Skills:</span>
+              <a href="skills/to-review.html" class="stage-skill-pill">/to-review</a>
+              <a href="skills/to-fix.html" class="stage-skill-pill">/to-fix</a>
+              <a href="skills/to-docs.html" class="stage-skill-pill">/to-docs</a>
+              <a href="skills/to-memory.html" class="stage-skill-pill">/to-memory</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. Deep-Dive: The Heuristic Arsenal
+         ====================================================================== -->
+    <section class="product-tile product-tile-light" id="heuristics">
+      <div class="tile-container">
+        <div class="section-header-block">
+          <span class="section-kicker">MATHEMATICAL ARSENAL</span>
+          <h2 class="section-title">Key Pólya Concepts Operationalized in Code</h2>
+          <p class="section-subtitle">
+            How Pólya's specific 1945 mathematical techniques are hard-coded into agent system prompts, linters, and verification gates.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: var(--spacing-xxl);">
+          <!-- Concept 1: The Problem Triad -->
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-hairline);">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--color-primary-blue); text-transform: uppercase;">Pólya p. 71–72</span>
+              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">The Problem Triad</h3>
+              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
+                Every genuine mathematical problem consists of three irreducible components. Conflating them guarantees confusion.
+              </p>
+            </div>
+            <div>
+              <table class="docs-table" style="margin-bottom: 0;">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Mathematical Meaning (1945)</th>
+                    <th>AI Software Engineering Meaning</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>The Unknown</strong></td>
+                    <td>What are we seeking to find, construct, or prove?</td>
+                    <td>The target return type, UI component state, or HTTP API response contract.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>The Data</strong></td>
+                    <td>What is given? What numbers, lines, or points exist?</td>
+                    <td>Incoming payloads, database tables, environment secrets, and existing codebase seams.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>The Condition</strong></td>
+                    <td>What relations must hold between the data and unknown?</td>
+                    <td>Business rules, authentication permissions, ACID transactional bounds, and SLA constraints.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Concept 2: The Mandatory Pause Rule -->
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-hairline);">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #dc2626; text-transform: uppercase;">The Cognitive Circuit Breaker</span>
+              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">The Mandatory Pause Rule</h3>
+              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
+                Why pausing execution before coding is the single most effective AI alignment technique in software development.
+              </p>
+            </div>
+            <div>
+              <p style="font-size: 15px; line-height: 1.65; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
+                In raw LLM chats, users ask for a feature, and the agent immediately dumps 300 lines of unverified code. If the architecture is flawed, the entire conversation turns into a grueling game of whack-a-mole.
+              </p>
+              <div class="pause-rule-banner" style="margin-bottom: 0;">
+                <div class="pause-rule-title">🛑 The Mandatory Gate: Halt Before Implementation</div>
+                <div class="pause-rule-desc">
+                  In Pólya SDLC, completing Phase 2 (<code>/to-plan</code>) triggers an absolute halt. The agent is programmatically forbidden from executing Task 1 until the human engineer explicitly verifies the tracer bullets and contingency plans. Hedged answers like <em>"looks okay"</em> are rejected.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Concept 3: The Inventor's Paradox -->
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-hairline);">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--color-primary-blue); text-transform: uppercase;">Pólya p. 121</span>
+              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">The Inventor's Paradox</h3>
+              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
+                <em>"The more ambitious plan may have more chances of success."</em>
+              </p>
+            </div>
+            <div>
+              <p style="font-size: 15px; line-height: 1.65; color: var(--color-ink-muted-80);">
+                When developers attempt to patch a single bespoke edge-case, they often introduce messy special-case conditionals. Pólya noted that stepping back to solve a slightly more general problem—such as formalizing a state machine or extracting a clean Repository port—eliminates the edge case naturally, producing cleaner, less brittle code.
+              </p>
+            </div>
+          </div>
+
+          <!-- Concept 4: Pedantry vs. Mastery -->
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl);">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #16a34a; text-transform: uppercase;">Pólya p. 148, 171</span>
+              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">Pedantry vs. Mastery</h3>
+              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
+                Pragmatic engineering over dogmatic ritual.
+              </p>
+            </div>
+            <div>
+              <blockquote style="font-style: italic; font-size: 15px; line-height: 1.6; color: var(--color-ink); border-left: 3px solid var(--color-primary-blue); padding-left: var(--spacing-md); margin: 0 0 var(--spacing-md) 0;">
+                "To apply a rule to the letter, rigidly, unquestioningly... is pedantry. To apply a rule with natural ease, with judgment, noticing the cases where it fits... is mastery. Always use your own brains first."
+              </blockquote>
+              <p style="font-size: 15px; line-height: 1.65; color: var(--color-ink-muted-80); margin: 0;">
+                We balance Uncle Bob's architectural purity with George Pólya's pragmatism. Mission-critical business workflows require full 4-layer Clean Architecture boundaries. But auxiliary scripts, seeders, or single-line typo fixes must never be burdened with artificial ceremony—they are routed to <code>/to-quick-fix</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. Empirical Comparison Table: Raw Prompting vs Pólya-SDLC
+         ====================================================================== -->
+    <section class="product-tile product-tile-light" style="background-color: var(--color-canvas-parchment);">
+      <div class="tile-container">
+        <div class="section-header-block">
+          <span class="section-kicker">EMPIRICAL COMPARISON</span>
+          <h2 class="section-title">Raw LLM Prompting vs. Pólya SDLC Coder</h2>
+          <p class="section-subtitle">
+            A side-by-side breakdown of agent behavior across every phase of the development lifecycle.
+          </p>
+        </div>
+
+        <div style="overflow-x: auto; background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+          <table class="docs-table" style="margin-bottom: 0;">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Dimension</th>
+                <th style="width: 40%; color: #991b1b;">Raw Unconstrained LLM Prompting</th>
+                <th style="width: 40%; color: #1e40af;">Pólya Heuristic Coder Agent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>First Response</strong></td>
+                <td>Immediately streams hundreds of lines of code into chat.</td>
+                <td>Deconstructs problem into Unknown, Data, Condition; runs codebase reconnaissance.</td>
+              </tr>
+              <tr>
+                <td><strong>Requirement Ambiguity</strong></td>
+                <td>Silently guesses assumptions, often choosing the wrong framework or database idiom.</td>
+                <td>Invokes <code>/to-clarify</code> with Socratic A/B choices and numbered tags (<code>[ASSUMPTION-001]</code>).</td>
+              </tr>
+              <tr>
+                <td><strong>Planning Structure</strong></td>
+                <td>Vague, optimistic narrative without failure modes or vertical slices.</td>
+                <td>Rigorous Vertical Tracer Bullets with Contingency Plan B and anti-hallucination gates.</td>
+              </tr>
+              <tr>
+                <td><strong>Execution Control</strong></td>
+                <td>Rushes into editing 15 files at once; breaks build midway.</td>
+                <td>Halts at <strong>The Pause Rule</strong>; executes one tracer bullet at a time via Micro-TDD.</td>
+              </tr>
+              <tr>
+                <td><strong>Encountering Bugs</strong></td>
+                <td>Adds nested <code>try/catch</code>, suppresses linter, or writes <code>// TODO</code> stubs.</td>
+                <td>First-principles bisection search; failing reproduction test before code edit.</td>
+              </tr>
+              <tr>
+                <td><strong>Task Completion</strong></td>
+                <td>Says "done!" with zero regression testing or architectural reflection.</td>
+                <td>5 SOLID principles review; boundary specialization tests; memory compaction.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. Call to Action Tile (Experience Mathematical Coding)
+         ====================================================================== -->
+    <section class="product-tile product-tile-dark" style="background-color: var(--color-surface-black); text-align: center;">
+      <div class="tile-container">
+        <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: #ffffff; margin-bottom: var(--spacing-md); letter-spacing: -0.02em;">
+          Ready to Elevate Your AI Coding Workflow?
+        </h2>
+        <p style="font-size: 17px; color: #94a3b8; max-width: 640px; margin: 0 auto var(--spacing-xl) auto; line-height: 1.6;">
+          Install all 14 modular skills in seconds or bootstrap your repository with our battle-tested rules and architecture templates.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: var(--spacing-md); flex-wrap: wrap;">
+          <a href="../index.html#install" class="btn-primary" style="padding: 12px 28px; font-size: 15px;">Install via npx skills ➔</a>
+          <a href="../index.html#skills-catalog" class="btn-secondary" style="padding: 12px 28px; font-size: 15px; color: #ffffff; border-color: rgba(255, 255, 255, 0.2);">Browse 14 Skills Catalog</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       9. 4-Column Directory Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="tile-container">
+      <div class="footer-directory-grid">
+        <div>
+          <h4 class="footer-col-title">Discovery &amp; Spec</h4>
+          <ul class="footer-link-list">
+            <li><a href="skills/to-explore.html">Phase 0: Discovery</a></li>
+            <li><a href="skills/to-prd.html">Phase 0.5: PRD</a></li>
+            <li><a href="skills/to-spec.html">Phase 1: Specification</a></li>
+            <li><a href="skills/to-clarify.html">Checkpoint: Clarify</a></li>
+            <li><a href="skills/to-plan.html">Phase 2: Planning</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Execution &amp; Audit</h4>
+          <ul class="footer-link-list">
+            <li><a href="skills/to-code.html">Phase 3: Clean Code</a></li>
+            <li><a href="skills/to-quick-fix.html">Bypass: Surgical Fix</a></li>
+            <li><a href="skills/to-review.html">Phase 4: SOLID Review</a></li>
+            <li><a href="skills/to-fix.html">Phase 5: Remediation</a></li>
+            <li><a href="skills/to-docs.html">Phase 6: Diátaxis Docs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Utilities &amp; Memory</h4>
+          <ul class="footer-link-list">
+            <li><a href="skills/to-ask-help.html">Socratic Triage Mentor</a></li>
+            <li><a href="skills/to-map.html">Living Architecture Map</a></li>
+            <li><a href="skills/to-memory.html">Persistent Memory</a></li>
+            <li><a href="skills/to-init.html">SDLC Bootstrapper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Governance &amp; Origins</h4>
+          <ul class="footer-link-list">
+            <li><a href="why-polya.html" style="color: var(--color-primary-blue); font-weight: 600;">Why Pólya? (1945 Heuristic)</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md Governance ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/DESIGN.md" target="_blank" rel="noopener">Design System Tokens ↗</a></li>
+            <li><a href="https://github.com/GulajavaMinistudio/polya-sdlc-coder/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-quote">
+          "It is foolish to answer a question that you do not understand. It is sad to work for an end that you do not desire."  
+          — <strong>George Pólya</strong>, <em>How to Solve It</em> (1945)
+        </p>
+        <p>
+          Designed with Apple web aesthetics and zero-build vanilla craftsmanship. Hosted directly on GitHub Pages.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOM Controller Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
