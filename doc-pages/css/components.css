@@ -318,31 +318,42 @@
 .btn-copy {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
   background-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-pill);
-  padding: 6px 14px;
+  padding: 8px 18px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
+  line-height: 1.2;
   cursor: pointer;
-  transition: var(--transition-press), background-color var(--transition-fade);
+  user-select: none;
+  transition: var(--transition-press), background-color var(--transition-fade), border-color var(--transition-fade), box-shadow var(--transition-fade);
+}
+
+.btn-copy svg {
+  flex-shrink: 0;
 }
 
 .btn-copy:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-copy:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 .btn-copy.copied {
   background-color: #10b981;
   color: #ffffff;
   border-color: #10b981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
 }
 
 /* ==========================================================================
@@ -536,24 +547,71 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-md);
   background-color: var(--color-surface-tile-3);
   border: 1px solid var(--color-hairline-dark);
   border-radius: var(--radius-md);
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: 14px var(--spacing-lg);
   font-family: var(--font-mono);
   font-size: var(--type-code-default-size);
+}
+
+.terminal-command-box > div,
+.terminal-line {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.terminal-command-box > div::-webkit-scrollbar,
+.terminal-line::-webkit-scrollbar {
+  height: 4px;
+}
+
+.terminal-command-box > div::-webkit-scrollbar-thumb,
+.terminal-line::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+}
+
+.terminal-prompt-symbol {
+  color: #64748b;
+  margin-right: 10px;
+  user-select: none;
+  flex-shrink: 0;
+  font-weight: 600;
 }
 
 .terminal-code {
   color: #a5f3fc;
   overflow-x: auto;
   white-space: nowrap;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
 }
 
-.terminal-prompt-symbol {
-  color: #64748b;
-  margin-right: 8px;
-  user-select: none;
+.terminal-code::-webkit-scrollbar {
+  height: 4px;
+}
+
+.terminal-code::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-code::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+}
+
+.terminal-code::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 /* 2-Step Installation Flow */

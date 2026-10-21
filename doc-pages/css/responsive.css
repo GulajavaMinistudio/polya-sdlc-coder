@@ -647,7 +647,8 @@
     gap: 8px;
   }
 
-  .terminal-command-box > div {
+  .terminal-command-box > div,
+  .terminal-line {
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
