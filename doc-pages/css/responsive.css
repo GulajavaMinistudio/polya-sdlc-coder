@@ -66,12 +66,27 @@
     justify-content: center;
   }
 
+  .problem-space-spotlight {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
   .pathology-grid {
     grid-template-columns: 1fr;
   }
 
   .stage-deepdive-grid {
     grid-template-columns: 1fr;
+  }
+
+  .triad-flow-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .arsenal-triptych {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 
   .footer-directory-grid {

@@ -96,13 +96,10 @@
         <!-- Book Showcase Card -->
         <div class="polya-book-showcase" id="history">
           <figure class="polya-book-figure">
-            <div class="polya-book-images-pair">
-              <img src="assets/polya-books-cats.jpg" alt="George Pólya - How to Solve It" class="polya-book-image" onerror="this.src='../polya-books-cats.jpg'">
-              <img src="assets/HowToSolveIt.jpg" alt="How to Solve It - Book Cover" class="polya-book-image secondary-cover" onerror="this.src='../HowToSolveIt.jpg'">
-            </div>
+            <img src="assets/HowToSolveIt.jpg" alt="George Pólya - How to Solve It" class="polya-book-image" onerror="this.src='../HowToSolveIt.jpg'">
             <figcaption class="polya-book-caption">
-              Artifact references: <code>polya-books-cats.jpg</code> &amp; <code>HowToSolveIt.jpg</code><br>
-              George Pólya &amp; the Princeton University Press landmark treatise
+              Original landmark edition: <code>HowToSolveIt.jpg</code><br>
+              Princeton University Press (1945 Edition)
             </figcaption>
           </figure>
 
@@ -170,6 +167,21 @@
           <p class="section-subtitle">
             Modern Large Language Models (LLMs) possess vast syntactic fluency, yet they routinely produce catastrophic bugs, hallucinated dependencies, and architectural chaos. Why?
           </p>
+        </div>
+
+        <!-- Problem Space Visual Spotlight (George Pólya & Cats) -->
+        <div class="problem-space-spotlight">
+          <div class="problem-spotlight-image-wrap">
+            <img src="assets/polya-books-cats.jpg" alt="George Pólya observing with cats" class="problem-spotlight-image" onerror="this.src='../polya-books-cats.jpg'">
+            <span class="problem-spotlight-caption"><code>polya-books-cats.jpg</code> • George Pólya with his cats at Stanford</span>
+          </div>
+          <div class="problem-spotlight-content">
+            <span class="spotlight-tag">The Psychology of Problem-Solving</span>
+            <h3 class="spotlight-title">"The first rule of discovery is to have brains and good luck. The second rule is to sit tight and wait until you get an idea."</h3>
+            <p class="spotlight-text">
+              George Pólya observed that profound problem-solvers do not rush immediately to final answers. They step back, observe quietly, deconstruct relations, and play with auxiliary models. In contrast, modern AI models suffer from an autoregressive compulsion to emit code tokens immediately—jumping straight into execution without ever establishing mathematical invariants.
+            </p>
+          </div>
         </div>
 
         <div class="pathology-grid">
@@ -357,102 +369,89 @@
           </p>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: var(--spacing-xxl);">
-          <!-- Concept 1: The Problem Triad -->
-          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-hairline);">
-            <div>
-              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--color-primary-blue); text-transform: uppercase;">Pólya p. 71–72</span>
-              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">The Problem Triad</h3>
-              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
-                Every genuine mathematical problem consists of three irreducible components. Conflating them guarantees confusion.
-              </p>
+        <!-- The Problem Triad Topological Blueprint Card -->
+        <article class="triad-blueprint">
+          <div class="triad-blueprint-header">
+            <div class="triad-blueprint-title-wrap">
+              <span class="triad-blueprint-citation">Pólya (1945, p. 71–72) • Structural Axiom</span>
+              <h3 class="triad-blueprint-title">The Problem Triad</h3>
             </div>
-            <div>
-              <table class="docs-table" style="margin-bottom: 0;">
-                <thead>
-                  <tr>
-                    <th>Component</th>
-                    <th>Mathematical Meaning (1945)</th>
-                    <th>AI Software Engineering Meaning</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>The Unknown</strong></td>
-                    <td>What are we seeking to find, construct, or prove?</td>
-                    <td>The target return type, UI component state, or HTTP API response contract.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>The Data</strong></td>
-                    <td>What is given? What numbers, lines, or points exist?</td>
-                    <td>Incoming payloads, database tables, environment secrets, and existing codebase seams.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>The Condition</strong></td>
-                    <td>What relations must hold between the data and unknown?</td>
-                    <td>Business rules, authentication permissions, ACID transactional bounds, and SLA constraints.</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="triad-blueprint-formula">
+              <code>Condition(Data) ➔ Unknown</code>
             </div>
           </div>
 
-          <!-- Concept 2: The Mandatory Pause Rule -->
-          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-hairline);">
-            <div>
-              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #dc2626; text-transform: uppercase;">The Cognitive Circuit Breaker</span>
-              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">The Mandatory Pause Rule</h3>
-              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
-                Why pausing execution before coding is the single most effective AI alignment technique in software development.
-              </p>
-            </div>
-            <div>
-              <p style="font-size: 15px; line-height: 1.65; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
-                In raw LLM chats, users ask for a feature, and the agent immediately dumps 300 lines of unverified code. If the architecture is flawed, the entire conversation turns into a grueling game of whack-a-mole.
-              </p>
-              <div class="pause-rule-banner" style="margin-bottom: 0;">
-                <div class="pause-rule-title">🛑 The Mandatory Gate: Halt Before Implementation</div>
-                <div class="pause-rule-desc">
-                  In Pólya SDLC, completing Phase 2 (<code>/to-plan</code>) triggers an absolute halt. The agent is programmatically forbidden from executing Task 1 until the human engineer explicitly verifies the tracer bullets and contingency plans. Hedged answers like <em>"looks okay"</em> are rejected.
-                </div>
-              </div>
-            </div>
-          </div>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--color-ink-muted-80); margin: 0 0 var(--spacing-xl) 0; max-width: 760px;">
+            Every genuine mathematical problem consists of three irreducible elements. Conflating them is the root cause of AI hallucination, broken invariants, and phantom database columns.
+          </p>
 
-          <!-- Concept 3: The Inventor's Paradox -->
-          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-hairline);">
-            <div>
-              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--color-primary-blue); text-transform: uppercase;">Pólya p. 121</span>
-              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">The Inventor's Paradox</h3>
-              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
-                <em>"The more ambitious plan may have more chances of success."</em>
+          <div class="triad-flow-grid">
+            <div class="triad-stage-col">
+              <span class="triad-stage-number">01 / THE DATA</span>
+              <h4 class="triad-stage-heading">What is given?</h4>
+              <p class="triad-stage-question">Input vectors, points, numbers, and known states.</p>
+              <p class="triad-stage-spec">
+                <strong>Software Seam:</strong> Incoming HTTP request payloads, database tables, environment secrets, and existing codebase seams.
               </p>
             </div>
-            <div>
-              <p style="font-size: 15px; line-height: 1.65; color: var(--color-ink-muted-80);">
-                When developers attempt to patch a single bespoke edge-case, they often introduce messy special-case conditionals. Pólya noted that stepping back to solve a slightly more general problem—such as formalizing a state machine or extracting a clean Repository port—eliminates the edge case naturally, producing cleaner, less brittle code.
-              </p>
-            </div>
-          </div>
 
-          <!-- Concept 4: Pedantry vs. Mastery -->
-          <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl);">
-            <div>
-              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: #16a34a; text-transform: uppercase;">Pólya p. 148, 171</span>
-              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 4px 0 var(--spacing-sm) 0;">Pedantry vs. Mastery</h3>
-              <p style="font-size: 14px; color: var(--color-ink-muted-80); line-height: 1.5;">
-                Pragmatic engineering over dogmatic ritual.
+            <div class="triad-stage-col">
+              <span class="triad-stage-number">02 / THE CONDITION</span>
+              <h4 class="triad-stage-heading">What must hold?</h4>
+              <p class="triad-stage-question">The relations that bind the data to the unknown.</p>
+              <p class="triad-stage-spec">
+                <strong>Software Seam:</strong> Domain business invariants, authentication permissions, ACID transactional bounds, and SLA constraints.
               </p>
             </div>
-            <div>
-              <blockquote style="font-style: italic; font-size: 15px; line-height: 1.6; color: var(--color-ink); border-left: 3px solid var(--color-primary-blue); padding-left: var(--spacing-md); margin: 0 0 var(--spacing-md) 0;">
-                "To apply a rule to the letter, rigidly, unquestioningly... is pedantry. To apply a rule with natural ease, with judgment, noticing the cases where it fits... is mastery. Always use your own brains first."
-              </blockquote>
-              <p style="font-size: 15px; line-height: 1.65; color: var(--color-ink-muted-80); margin: 0;">
-                We balance Uncle Bob's architectural purity with George Pólya's pragmatism. Mission-critical business workflows require full 4-layer Clean Architecture boundaries. But auxiliary scripts, seeders, or single-line typo fixes must never be burdened with artificial ceremony—they are routed to <code>/to-quick-fix</code>.
+
+            <div class="triad-stage-col">
+              <span class="triad-stage-number">03 / THE UNKNOWN</span>
+              <h4 class="triad-stage-heading">What is sought?</h4>
+              <p class="triad-stage-question">The target entity, value, or proof to be constructed.</p>
+              <p class="triad-stage-spec">
+                <strong>Software Seam:</strong> The verified return type, UI component state, or external API wire serialization contract.
               </p>
             </div>
           </div>
+        </article>
+
+        <!-- Editorial Triptych for Concepts 2, 3, and 4 -->
+        <div class="arsenal-triptych">
+          <!-- Item 1: The Mandatory Pause Rule -->
+          <article class="arsenal-triptych-item">
+            <span class="arsenal-item-meta">Phase 2 ➔ Phase 3 Barrier</span>
+            <h3 class="arsenal-item-title">The Mandatory Pause Rule</h3>
+            <p class="arsenal-item-lead">
+              Unconstrained LLMs suffer from autoregressive token greed—instantly dumping hundreds of lines of speculative code. In Pólya SDLC, completing Phase 2 (<code>/to-plan</code>) triggers a programmatic halt. The agent cannot emit production code until a human engineer validates tracer bullets.
+            </p>
+            <div class="arsenal-item-quote">
+              "Never mistake immediate token generation for thoughtful architecture. The Pause Rule protects the blast radius."
+            </div>
+          </article>
+
+          <!-- Item 2: The Inventor's Paradox -->
+          <article class="arsenal-triptych-item">
+            <span class="arsenal-item-meta">Pólya (1945, p. 121)</span>
+            <h3 class="arsenal-item-title">The Inventor's Paradox</h3>
+            <p class="arsenal-item-lead">
+              When developers patch a single bespoke edge-case, they introduce messy nested conditionals. Stepping back to solve a slightly more general problem—such as formalizing a finite state machine, a discriminated union, or a Port—eliminates edge-case bugs by construction.
+            </p>
+            <div class="arsenal-item-quote">
+              "The more ambitious plan may have more chances of success, because it is based on deeper structural relations."
+            </div>
+          </article>
+
+          <!-- Item 3: Pedantry vs. Mastery -->
+          <article class="arsenal-triptych-item">
+            <span class="arsenal-item-meta">Pólya (1945, p. 148, 171)</span>
+            <h3 class="arsenal-item-title">Pedantry vs. Mastery</h3>
+            <p class="arsenal-item-lead">
+              We balance Uncle Bob's architectural purity with George Pólya's pragmatism. Mission-critical business workflows demand 4-layer Clean Architecture boundaries. But auxiliary scripts, seeders, or routine mechanical fixes must bypass ceremony via <code>/to-quick-fix</code>.
+            </p>
+            <div class="arsenal-item-quote">
+              "To apply a rule rigidly is pedantry; to apply it with judgment, noticing where it fits, is mastery. Always use your own brains first."
+            </div>
+          </article>
         </div>
       </div>
     </section>
