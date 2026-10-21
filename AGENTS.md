@@ -126,7 +126,8 @@ In `polya-sdlc`, all capabilities are accessed through modular, dedicated sub-sk
 /to-explore    → Phase 0: Problem Discovery, Spikes & Ideation
 /to-prd        → Phase 0.5: Product Requirements Document (Optional)
 /to-spec       → Phase 1: Understanding the Problem, Seams & DTOs
-/to-clarify    → Checkpoint: Grill-Me Protocol & Readiness Gate
+/to-grill-me   → Sparring: Turn-by-Turn Socratic Design Interview & Stress-Test
+/to-clarify    → Checkpoint: Condition Sanity Check & Readiness Gate (0-100)
 /to-plan       → Phase 2: Tracer Bullets & The Pause Rule
 /to-code       → Phase 3: Clean Code Implementation & Boy Scout Rule
 /to-review     → Phase 4: Looking Back & SOLID Audit
@@ -155,7 +156,8 @@ When invoked via `/to-ask-help` or with a full user intent, task description, or
    - Open-ended / Greenfield $\rightarrow$ `/to-explore` (Phase 0)
    - Business requirements / User stories $\rightarrow$ `/to-prd` (Phase 0.5)
    - New feature / Schema / API $\rightarrow$ `/to-spec` (Phase 1)
-   - Ambiguity / Assumption checks $\rightarrow$ `/to-clarify` (Checkpoint)
+   - Interactive Socratic sparring / A/B trade-offs $\rightarrow$ `/to-grill-me` (Sparring Partner)
+   - Ambiguity / Assumption audit & readiness score $\rightarrow$ `/to-clarify` (Checkpoint Gate)
    - Approved spec decomposition $\rightarrow$ `/to-plan` (Phase 2)
    - Clean code execution $\rightarrow$ `/to-code` (Phase 3)
    - Quality / SOLID audit $\rightarrow$ `/to-review` (Phase 4)
@@ -265,6 +267,7 @@ The development lifecycle follows a disciplined 6-phase progression based on Geo
 [ Phase 6: TECHNICAL DOCUMENTATION ] (Pedagogical Transfer & Diátaxis Framework)
 
 ════════════════════════════════════════════════════════════════════════════
+[ SOCRATIC SPARRING ]          ──▶ /to-grill-me      (Turn-by-Turn Design Interview & Stress-Test)
 [ FAST-TRACK BYPASS ]           ──▶ /to-quick-fix     (Routine, XS/S, One-Shot Fixes)
 [ ARCHITECTURE TOPOGRAPHY ]     ──▶ /to-map           (Traverse, Seams, docs/ARCHITECTURE.md)
 [ PERSISTENT MEMORY ]           ──▶ /to-memory        (Checkpoint to memory.instructions.md)
@@ -367,6 +370,19 @@ Do not write a single line of production code until both you and the user share 
   - *Interface Adapters (Controllers, Gateways, Presenters):* Converting data between use cases and external formats.
   - *Frameworks & Drivers (DB, Web, Devices):* External tools and libraries.
 - **Output:** Structured technical blueprint (**EXACTLY ONE** file) in `docs/spec/{slug}-spec.md` (never split into modular catalogs or mirrored under legacy naming) and ADRs in `docs/adr/` when applicable.
+
+---
+
+### Interactive Sparring: Socratic Design Interview (`/to-grill-me`)
+*Pólya Heuristic: Socratic Dialogue, Devil's Advocate & Decision Extraction*
+
+Act as a relentless Senior Principal sparring partner to pressure-test design decisions and trade-offs across Idea, PRD, Spec, or Plan:
+- **Phase-Adaptive Grilling:** Operates across raw ideas (Phase 0), product requirements (Phase 0.5), technical specifications (Phase 1), or execution plans (Phase 2).
+- **The 1-Question Rule:** Ask exactly ONE sharp question per interaction. Never flood the user with checklists.
+- **Do the Heavy Lifting (A/B Choices):** Propose 2–3 concrete, technically grounded options derived from codebase reality with explicit trade-offs.
+- **Opinionated Senior Recommendation:** Always provide a clear engineering recommendation based on Clean Architecture, SOLID, or YAGNI.
+- **Synergy with `/to-clarify`:** While `/to-grill-me` (or `/grill-me`) provides conversational, turn-by-turn sparring to resolve difficult design tensions, `/to-clarify` performs the formal static condition audit and scores Readiness (0-100).
+- **Output:** Synthesizes a structured Decisions & Alignment Log in chat and optionally generates an ADR in `docs/adr/`.
 
 ---
 
@@ -631,6 +647,7 @@ To maintain architectural integrity and prevent scope creep, all agents MUST ope
 | `/to-explore`      | User problem statement, raw idea, or target directory/module                            |
 | `/to-prd`          | Project Discovery Draft (`docs/discovery/`), or Comprehensive User Brief                |
 | `/to-spec`         | Approved PRD (`docs/prd/`), Project Discovery Draft (`docs/discovery/`), or User Brief  |
+| `/to-grill-me`     | Target PRD (`docs/prd/`), Spec (`docs/spec/`), Plan (`docs/plan/`), or Idea Concept   |
 | `/to-clarify`      | Target Specification (`docs/spec/`), Implementation Plan (`docs/plan/`), or Brief       |
 | `/to-plan`         | Approved Technical Spec (`docs/spec/`)                                                  |
 | `/to-code`         | Approved Implementation Plan (`docs/plan/`)                                             |
@@ -654,6 +671,10 @@ To maintain architectural integrity and prevent scope creep, all agents MUST ope
 1. **Specification (`/to-spec`):**
    - **Goal:** Define problem mental model, Unknown/Data/Condition, DTO contracts, Clean Architecture seams.
    - **Pushback Rule:** If the user asks to write actual functional source code, YOU MUST REFUSE: *"As the Polya Specification Architect, my focus is on understanding the problem, formulating conditions, and defining architectural seams. Writing production code belongs to the implementation phase. Let's complete the Spec first."* Once approved, direct the user to invoke `/to-clarify` or `/to-plan`.
+
+1.5. **Socratic Sparring (`/to-grill-me`):**
+   - **Goal:** Pressure-test trade-offs, edge cases, and design decisions through turn-by-turn Socratic interview.
+   - **Pushback Rule:** If the user asks to write functional application code, run tests, or execute mutating scripts during grilling, YOU MUST REFUSE: *"As the Polya Socratic Sparring Partner, my role is strictly to pressure-test design decisions and trade-offs. Let's settle these architectural choices first. Once aligned, invoke /to-prd, /to-spec, /to-plan, or /to-code to draft or implement."*
 
 2. **Clarification Checkpoint (`/to-clarify`):**
    - **Goal:** Interrogate documents for ambiguities, hidden assumptions, and missing edge cases.

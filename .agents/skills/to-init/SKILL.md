@@ -153,7 +153,7 @@ Check that the following foundational files exist in the root and configuration 
 - `AGENTS.md` (project governance and heuristic rules)
 - `.agents/rules/PolyaOrchestrator.md` (Socratic mentor and orchestrator rule)
 - `.agents/skills/to-shared/` (shared templates and Pólya heuristic arsenal)
-- `.agents/skills/to-*` (14 modular sub-skills: `to-ask-help`, `to-explore`, `to-prd`, `to-spec`, `to-clarify`, `to-plan`, `to-code`, `to-review`, `to-fix`, `to-docs`, `to-quick-fix`, `to-map`, `to-memory`, `to-init`)
+- `.agents/skills/to-*` (15 modular sub-skills: `to-ask-help`, `to-explore`, `to-prd`, `to-spec`, `to-grill-me`, `to-clarify`, `to-plan`, `to-code`, `to-review`, `to-fix`, `to-docs`, `to-quick-fix`, `to-map`, `to-memory`, `to-init`)
 - `.agents/standards/` (`ADR-FORMAT.md`, `CONTEXT-FORMAT.md`)
 
 ---
@@ -169,6 +169,7 @@ Check that the following foundational files exist in the root and configuration 
      - Run `/to-explore` to survey the problem landscape (Phase 0).
      - Run `/to-prd` to formulate product requirements, user stories, and acceptance criteria (Optional Phase 0.5).
      - Run `/to-spec` to understand requirements and map seams (Phase 1).
+     - Run `/to-grill-me` for interactive Socratic design interviews and trade-off sparring.
      - Run `/to-clarify`, `/to-plan`, `/to-code`, `/to-review`, `/to-fix`, `/to-docs`, `/to-quick-fix`, or `/to-map`.
    - **Option B (Natural Intent & Socratic Navigator):**
      - Run `/to-ask-help [your idea, bug description, or task in natural language]` — Pólya will autonomously conduct codebase reconnaissance, classify the intent, and output an interactive **Pólya Triage Card**.

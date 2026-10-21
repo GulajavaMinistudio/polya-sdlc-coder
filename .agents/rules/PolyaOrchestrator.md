@@ -80,7 +80,7 @@ At the **start of every new session**, you MUST perform the following steps in o
 
 ## 🗺️ Polya Heuristic Phase Routing Map
 
-When a user describes what they want to do, use the canonical pipeline defined in `AGENTS.md` (`Phase 0: /to-explore` ➔ `Phase 0.5: /to-prd` ➔ `Phase 1: /to-spec` ➔ `/to-clarify` ➔ `Phase 2: /to-plan` ➔ `🛑 The Pause Rule` ➔ `Phase 3: /to-code` ➔ `Phase 4: /to-review` ➔ `Phase 5: /to-fix` / `Phase 6: /to-docs`) and this routing table to direct them to the correct modular `/to-*` sub-skill:
+When a user describes what they want to do, use the canonical pipeline defined in `AGENTS.md` (`Phase 0: /to-explore` ➔ `Phase 0.5: /to-prd` ➔ `Phase 1: /to-spec` ➔ `/to-grill-me` / `/to-clarify` ➔ `Phase 2: /to-plan` ➔ `🛑 The Pause Rule` ➔ `Phase 3: /to-code` ➔ `Phase 4: /to-review` ➔ `Phase 5: /to-fix` / `Phase 6: /to-docs`) and this routing table to direct them to the correct modular `/to-*` sub-skill:
 
 ### Routing Table
 
@@ -90,7 +90,8 @@ When a user describes what they want to do, use the canonical pipeline defined i
 | "Write user stories" / "Define business requirements" / "Draft PRD" | `/to-prd` | **Phase 0.5: PRD** (Pólya Problem Framing, SMART User Stories, Scope Boundaries) |
 | "I want to build a new feature" / "Let's define requirements" | `/to-spec` | **Phase 1: Spec** (Deconstruct Unknown, Data, Condition, Clean Architecture Seams) |
 | "Design the API contracts and data models" | `/to-spec` | **Phase 1: Spec** (*Setting Up Equations* to DTOs) |
-| "Clarify requirements" / "Check assumptions" / "Grill me" / "Audit ambiguity" | `/to-clarify` | **Checkpoint: Clarify** (5-Axis Condition Sanity Check, Epistemic Doubt, Grill-Me A/B, Readiness Score) |
+| "Design interview" / "Grill me" / "Pressure-test trade-offs" / "Socratic sparring" | `/to-grill-me` | **Sparring:** Socratic Design Interview (1-question A/B choices, stress-test) |
+| "Clarify requirements" / "Check assumptions" / "Audit ambiguity" / "Score readiness" | `/to-clarify` | **Checkpoint: Clarify** (5-Axis Condition Sanity Check, Epistemic Doubt, Readiness Gate 0-100) |
 | "Let's plan the implementation steps" / "Break this into tasks" | `/to-plan` | **Phase 2: Plan** (Land & Expand vertical slices, `check:task` bindings, Plan B, The Pause Rule) |
 | "Let's start coding" / "Implement vertical slice 1" / "Build all tickets" | `/to-code` (or `/to-code auto`) | **Phase 3: Implement** (TDD Red-Green-Refactor-Simplify, 3-Tier Checks, 4 Circuit Breakers) |
 | "Review this code" / "Audit against SOLID principles" / "Release check" | `/to-review` | **Phase 4: Review & Release Gate** (Mutation Check, Epistemic Doubt, SOLID/Security/Perf, `GO \| NO-GO`) |
@@ -124,8 +125,12 @@ When the user's intent is ambiguous, follow this decision tree:
    - No → Route to `/to-spec` (Deconstruct Unknown, Data, Condition).
    - Yes → Continue ↓
 
-3. **Does the Specification contain `[ASSUMPTION]` tags or unverified edge cases?**
-   - Yes → Route to `/to-clarify` (Condition Sanity Check, Grill-Me A/B).
+2.5. **Does the user want interactive Socratic design sparring, A/B trade-off resolution, or stress-testing?**
+   - Yes → Route to `/to-grill-me` (Turn-by-turn design interview, 1 question at a time).
+   - No → Continue ↓
+
+3. **Does the Specification contain `[ASSUMPTION]` tags or unverified edge cases needing formal audit?**
+   - Yes → Route to `/to-clarify` (Condition Sanity Check, Readiness Gate 0-100).
    - No → Continue ↓
 
 4. **Does the project have an approved Implementation Plan (`docs/plan/`)?**
