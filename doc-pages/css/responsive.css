@@ -283,6 +283,10 @@
     padding: var(--spacing-md);
   }
 
+  .dictionary-showcase {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
   .install-method-switcher {
     width: 100%;
     display: flex;
