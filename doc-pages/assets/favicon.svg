@@ -3,7 +3,7 @@
     <!-- Background Dark Gradient -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#2a2a2d"/>
-      <stop offset="100%" stop-color="#151517"/>
+      <stop offset="100%" stop-color="#141416"/>
     </linearGradient>
     
     <!-- Lightning Bolt Energetic Amber-Orange Gradient -->
@@ -15,26 +15,22 @@
 
     <!-- Subtle Top Sheen -->
     <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
     </linearGradient>
-
-    <!-- Drop Shadow for Glyphs -->
-    <filter id="glyph-shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.4"/>
-    </filter>
   </defs>
 
-  <!-- Squircle Base with Border -->
-  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg-grad)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2"/>
+  <!-- Solid Fallback Base & Dark Squircle Container -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#18181a"/>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg-grad)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2"/>
   <rect x="5" y="5" width="118" height="58" rx="26" fill="url(#sheen)"/>
 
-  <!-- Glyphs Group -->
-  <g filter="url(#glyph-shadow)">
+  <!-- Glyphs Group: Mathematical Sigma & Lightning Bolt -->
+  <g>
     <!-- Mathematical Sigma (Pólya Problem-Solving) -->
-    <path d="M 56 34 L 24 34 L 24 43 L 42 64 L 24 85 L 24 94 L 56 94 L 56 84 L 40 84 L 50 72 L 50 56 L 40 44 L 56 44 Z" fill="#ffffff"/>
+    <path d="M 56 32 L 24 32 L 24 42 L 42 64 L 24 86 L 24 96 L 56 96 L 56 85 L 40 85 L 50 72 L 50 56 L 40 43 L 56 43 Z" fill="#ffffff"/>
 
     <!-- Lightning Bolt (Agentic Velocity) -->
-    <path d="M 88 28 L 68 62 L 83 62 L 72 100 L 102 58 L 86 58 L 95 28 Z" fill="url(#bolt-grad)"/>
+    <path d="M 88 26 L 68 62 L 83 62 L 72 102 L 102 58 L 86 58 L 95 26 Z" fill="url(#bolt-grad)"/>
   </g>
 </svg>
