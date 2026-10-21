@@ -98,7 +98,7 @@ Typography is loaded via Google Fonts CDN using `preconnect` hints and `font-dis
 | `{typography.tagline}` | Display | 21px | 600 | 1.19 | 0.231px | Sub-nav title ("Pólya SDLC Coder"), category headers |
 | `{typography.body-strong}` | Body | 17px | 600 | 1.24 | -0.374px | Inline strong emphasis, card titles |
 | `{typography.body}` | Body | 17px | 400 | 1.47 | -0.374px | Default paragraph (17px editorial reading standard) |
-| `{typography.dense-link}` | Body | 17px | 400 | 2.41 | 0 | Footer link stacks (relaxed leading for scannability) |
+| `{typography.dense-link}` | Body | 13px | 400 | 1.40 | -0.13px | Footer link stacks (scannable Apple directory index) |
 | `{typography.code-default}` | Mono | 14px | 400 | 1.55 | 0 | Terminal commands, CLI snippets, ASCII diagrams |
 | `{typography.code-pill}` | Mono | 12px | 500 | 1.40 | 0 | Slash command badges (`/to-spec`, `/to-plan`) |
 | `{typography.caption}` | Body | 14px | 400 | 1.43 | -0.224px | Secondary captions, button text |

@@ -287,6 +287,10 @@
     padding: var(--spacing-lg) var(--spacing-md);
   }
 
+  .editorial-cta-card {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
   .install-method-switcher {
     width: 100%;
     display: flex;

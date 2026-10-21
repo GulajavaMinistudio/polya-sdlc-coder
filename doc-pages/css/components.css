@@ -1257,7 +1257,7 @@
 .site-footer {
   background-color: var(--color-canvas-parchment);
   color: var(--color-ink-muted-80);
-  padding: var(--spacing-section) 0 var(--spacing-xxl) 0;
+  padding: var(--spacing-xxl) 0 var(--spacing-xxl) 0;
   margin-top: auto;
   border-top: 1px solid var(--color-hairline);
 }
@@ -1265,23 +1265,27 @@
 .footer-directory-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-xxl);
-  margin-bottom: var(--spacing-section);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .footer-col-title {
-  font-family: var(--font-display);
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-ink);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .footer-link-list {
   list-style: none;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-link-list a {
@@ -1293,23 +1297,61 @@
 }
 
 .footer-link-list a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-blue, #0071e3);
   text-decoration: none;
 }
 
 .footer-bottom-bar {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  padding-top: var(--spacing-xl);
+  gap: var(--spacing-xs);
+  padding-top: var(--spacing-lg);
   border-top: 1px solid var(--color-hairline);
-  font-size: var(--type-fine-print-size);
+  font-size: 12px;
   color: var(--color-ink-muted-48);
+  line-height: 1.5;
 }
 
 .footer-quote {
   font-style: italic;
   color: var(--color-ink-muted-80);
+}
+
+/* Editorial CTA Card (Contained Rounded Showcase) */
+.editorial-cta-card {
+  background-color: var(--color-surface-black);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editorial-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 var(--spacing-sm) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.editorial-cta-subtitle {
+  font-size: 16px;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 0 var(--spacing-lg) 0;
+  line-height: 1.6;
+}
+
+.editorial-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
 /* ==========================================================================
@@ -1355,11 +1397,12 @@
 .sub-nav-breadcrumb-tag {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
+  padding: 3px 10px;
   background-color: rgba(0, 113, 227, 0.08);
+  border: 1px solid rgba(0, 113, 227, 0.2);
+  border-radius: var(--radius-pill); /* 9999px - true geometric capsule pill */
   color: var(--color-primary-blue);
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.02em;
