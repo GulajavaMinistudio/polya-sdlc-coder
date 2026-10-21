@@ -108,7 +108,7 @@
 
           <!-- Panel 1: Agentic Installation (npx skills + /to-init) -->
           <div id="method-panel-agentic" role="tabpanel" aria-labelledby="tab-method-agentic">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+            <div class="configurator-subhead-row">
               <span style="font-size: 13px; font-weight: 600; color: #ffffff;">Target Agent Runtime:</span>
               <span style="font-size: 12px; color: var(--color-primary-on-dark);">Universal Agent Support</span>
             </div>
@@ -174,7 +174,7 @@
 
           <!-- Panel 2: One-Liner Script (install.sh / install.ps1) -->
           <div id="method-panel-script" role="tabpanel" aria-labelledby="tab-method-script" style="display: none;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+            <div class="configurator-subhead-row">
               <span style="font-size: 13px; font-weight: 600; color: #ffffff;">Select Your Operating System:</span>
               <span style="font-size: 12px; color: #4ade80;">Full All-in-One Automated Setup</span>
             </div>
@@ -213,16 +213,16 @@
               </div>
 
               <!-- Script Features Benefits Grid -->
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-sm); margin-top: var(--spacing-xs);">
-                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--color-hairline-dark); border-radius: var(--radius-sm); padding: var(--spacing-sm) var(--spacing-md); text-align: left;">
+              <div class="script-benefits-grid" style="margin-top: var(--spacing-xs);">
+                <div class="script-benefit-card">
                   <div style="font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 2px;">⚡ All-in-One</div>
                   <div style="font-size: 12px; color: var(--color-body-muted);">Scaffolds <code>AGENTS.md</code>, rules, standards & skills in one execution.</div>
                 </div>
-                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--color-hairline-dark); border-radius: var(--radius-sm); padding: var(--spacing-sm) var(--spacing-md); text-align: left;">
+                <div class="script-benefit-card">
                   <div style="font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 2px;">🛡️ Safe Backup</div>
                   <div style="font-size: 12px; color: var(--color-body-muted);">Preserves pre-existing <code>memory.instructions.md</code> and custom instructions.</div>
                 </div>
-                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--color-hairline-dark); border-radius: var(--radius-sm); padding: var(--spacing-sm) var(--spacing-md); text-align: left;">
+                <div class="script-benefit-card">
                   <div style="font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 2px;">🌐 Multi-Platform</div>
                   <div style="font-size: 12px; color: var(--color-body-muted);">Choose <code>.agents/</code>, <code>.claude/</code>, <code>.cursor/</code>, or all platforms.</div>
                 </div>
@@ -242,42 +242,42 @@
          ====================================================================== -->
     <section class="product-tile product-tile-parchment" id="pipeline">
       <div class="tile-container">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xxl) auto;">
-          <h2 style="font-family: var(--font-display); font-size: var(--type-display-md-size); font-weight: 600; letter-spacing: -0.02em; margin-bottom: var(--spacing-sm);">
+        <div class="pipeline-header">
+          <h2 class="pipeline-title">
             The Canonical 6-Phase Lifecycle
           </h2>
-          <p style="font-size: 16px; color: var(--color-ink-muted-80);">
+          <p class="pipeline-desc">
             Over 90% of AI-generated bugs stem not from syntactic errors, but from premature coding on misunderstood requirements. Pólya SDLC Coder guarantees disciplined progression before writing application code.
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg); margin-bottom: var(--spacing-xxl);">
-          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 0</div>
-            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Discovery & Spikes</h3>
-            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Explore problem feasibility, critique tech debt, and challenge premature premises.</p>
-            <code style="font-size: 12px; color: var(--color-ink);">/to-explore, /to-prd</code>
+        <div class="pipeline-cards-grid">
+          <div class="pipeline-phase-card">
+            <div class="phase-card-eyebrow">PHASE 0</div>
+            <h3 class="phase-card-title">Discovery &amp; Spikes</h3>
+            <p class="phase-card-desc">Explore problem feasibility, critique tech debt, and challenge premature premises.</p>
+            <code class="phase-card-code">/to-explore, /to-prd</code>
           </div>
 
-          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 1</div>
-            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Understand & Specify</h3>
-            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Deconstruct Unknown, Data, Condition into DTO contracts and Clean Architecture seams.</p>
-            <code style="font-size: 12px; color: var(--color-ink);">/to-spec, /to-clarify</code>
+          <div class="pipeline-phase-card">
+            <div class="phase-card-eyebrow">PHASE 1</div>
+            <h3 class="phase-card-title">Understand &amp; Specify</h3>
+            <p class="phase-card-desc">Deconstruct Unknown, Data, Condition into DTO contracts and Clean Architecture seams.</p>
+            <code class="phase-card-code">/to-spec, /to-clarify</code>
           </div>
 
-          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 2</div>
-            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Devise Plan & Gate</h3>
-            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Slice into vertical tracer bullets with Plan B contingencies and halt at The Pause Rule.</p>
-            <code style="font-size: 12px; color: var(--color-ink);">/to-plan ➔ 🛑 PAUSE</code>
+          <div class="pipeline-phase-card">
+            <div class="phase-card-eyebrow">PHASE 2</div>
+            <h3 class="phase-card-title">Devise Plan &amp; Gate</h3>
+            <p class="phase-card-desc">Slice into vertical tracer bullets with Plan B contingencies and halt at The Pause Rule.</p>
+            <code class="phase-card-code">/to-plan ➔ 🛑 PAUSE</code>
           </div>
 
-          <div style="background-color: #ffffff; border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--color-primary); margin-bottom: 6px;">PHASE 3–6</div>
-            <h3 style="font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px;">Carry Out & Review</h3>
-            <p style="font-size: 14px; color: var(--color-ink-muted-80); margin-bottom: 12px;">Clean code implementation, 5 SOLID audit, bisection bugfix, and Diátaxis documentation.</p>
-            <code style="font-size: 12px; color: var(--color-ink);">/to-code, /to-review</code>
+          <div class="pipeline-phase-card">
+            <div class="phase-card-eyebrow">PHASE 3–6</div>
+            <h3 class="phase-card-title">Carry Out &amp; Review</h3>
+            <p class="phase-card-desc">Clean code implementation, 5 SOLID audit, bisection bugfix, and Diátaxis documentation.</p>
+            <code class="phase-card-code">/to-code, /to-review</code>
           </div>
         </div>
 

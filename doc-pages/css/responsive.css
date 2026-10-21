@@ -115,6 +115,11 @@
   .sticky-bar-container {
     padding: 0 var(--spacing-md);
   }
+
+  .pipeline-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
 }
 
 /* ==========================================================================
@@ -372,6 +377,42 @@
   .problem-triad-card {
     padding: var(--spacing-lg) var(--spacing-md);
   }
+
+  /* Platform Configurator Mobile Header Stacking */
+  .configurator-section {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .configurator-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+  }
+
+  .configurator-title {
+    font-size: 18px;
+  }
+
+  /* 6-Phase Pipeline Responsive Layout */
+  .pipeline-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .pipeline-title {
+    font-size: clamp(24px, 5.5vw, 30px);
+  }
+
+  .pipeline-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .pipeline-phase-card {
+    padding: var(--spacing-md);
+  }
 }
 
 /* ==========================================================================
@@ -530,34 +571,110 @@
     justify-content: center;
   }
 
+  /* Platform Configurator Mobile Layout */
   .install-method-switcher {
-    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--radius-md);
+    padding: 5px;
+    gap: 6px;
+    background-color: rgba(0, 0, 0, 0.55);
+    margin-bottom: var(--spacing-md);
   }
 
   .method-tab {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    font-size: 13px;
+    width: 100%;
     min-height: 44px;
-    display: flex;
-    align-items: center;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
     justify-content: center;
+    border-radius: var(--radius-sm);
+    white-space: normal;
   }
 
   .configurator-chips {
-    flex-direction: column;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+    margin-bottom: var(--spacing-md);
+    width: 100%;
   }
 
   .configurator-chip {
     width: 100%;
-    text-align: center;
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    min-height: 42px;
+    text-align: center;
+    line-height: 1.25;
+    border-radius: var(--radius-pill);
+    word-break: break-word;
+  }
+
+  .configurator-chips .configurator-chip:last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+
+  /* Single column for script panel OS chips with longer labels */
+  #method-panel-script .configurator-chips {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  #method-panel-script .configurator-chip {
+    min-height: 44px;
+    font-size: 13px;
+    padding: 10px 14px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .install-step-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .script-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .terminal-command-box > div {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pipeline-cards-grid {
+    gap: 12px;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .pipeline-phase-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .phase-card-title {
+    font-size: 16px;
+  }
+
+  .phase-card-desc {
+    font-size: 13.5px;
+    margin-bottom: 10px;
+  }
+
+  .phase-card-code {
+    font-size: 11.5px;
   }
 }
 
@@ -666,5 +783,61 @@
 
   .pause-rule-icon {
     font-size: 22px;
+  }
+
+  .configurator-section {
+    padding: var(--spacing-md) 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .configurator-title {
+    font-size: 16px;
+  }
+
+  .configurator-chip {
+    font-size: 11px;
+    padding: 7px 6px;
+    min-height: 38px;
+  }
+
+  .install-step-card {
+    padding: 12px;
+  }
+
+  .install-step-title {
+    font-size: 13px;
+  }
+
+  .install-step-note {
+    font-size: 12px;
+  }
+
+  .pipeline-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .pipeline-title {
+    font-size: 22px;
+  }
+
+  .pipeline-desc {
+    font-size: 13.5px;
+  }
+
+  .pipeline-phase-card {
+    padding: 14px 12px;
+  }
+
+  .pause-rule-banner {
+    padding: var(--spacing-md) 14px;
+    margin: var(--spacing-md) 0;
+  }
+
+  .pause-rule-title {
+    font-size: 17px;
+  }
+
+  .pause-rule-desc {
+    font-size: 13px;
   }
 }
