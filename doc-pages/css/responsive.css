@@ -1,6 +1,7 @@
 /**
  * Pólya SDLC Coder - Responsive Media Queries
  * Source: DESIGN.md:286-308 (8 Canonical Apple Breakpoints)
+ * Optimized for Mobile Smartphone Ergonomics & Fluid Scalability
  */
 
 /* ==========================================================================
@@ -60,15 +61,25 @@
     grid-template-columns: 1fr;
     text-align: center;
     padding: var(--spacing-xl);
+    gap: var(--spacing-xl);
+  }
+
+  .polya-book-content {
+    text-align: left;
   }
 
   .polya-book-badges {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .problem-space-spotlight {
     grid-template-columns: 1fr;
-    text-align: center;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-lg);
+  }
+
+  .problem-spotlight-content {
+    text-align: left;
   }
 
   .influence-grid {
@@ -78,10 +89,12 @@
 
   .pathology-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 
   .stage-deepdive-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 
   .triad-flow-grid {
@@ -99,7 +112,7 @@
     gap: var(--spacing-xl);
   }
 
-  .sticky-install-container {
+  .sticky-bar-container {
     padding: 0 var(--spacing-md);
   }
 }
@@ -122,30 +135,77 @@
     top: var(--height-global-nav);
     left: 0;
     right: 0;
-    background-color: var(--color-canvas-black);
+    background-color: rgba(18, 18, 20, 0.98);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     flex-direction: column;
-    align-items: flex-start;
-    padding: var(--spacing-md) var(--spacing-xl) var(--spacing-lg);
-    gap: var(--spacing-md);
+    align-items: stretch;
+    padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    max-height: calc(100vh - var(--height-global-nav));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    list-style: none;
+    margin: 0;
+    gap: 0;
   }
 
   .global-nav-links.nav-open {
     display: flex;
   }
 
-  .global-nav-links a {
-    font-size: 15px;
-    display: block;
+  .global-nav-links li {
     width: 100%;
-    padding: var(--spacing-xs) 0;
+    list-style: none;
+  }
+
+  .global-nav-links a {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 13px 0;
+    min-height: 44px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    transition: color var(--transition-fade);
+  }
+
+  .global-nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .global-nav-links a:hover,
+  .global-nav-links a.active {
+    color: var(--color-primary-on-dark, #2997ff);
   }
 
   /* Sub-nav collapses category links, keeps primary CTA */
   .sub-nav-menu li:not(:last-child),
   .sub-nav-menu a:not(.btn-primary):not(.btn-utility) {
     display: none;
+  }
+
+  .sub-nav-container {
+    gap: var(--spacing-sm);
+  }
+
+  .sub-nav-breadcrumb {
+    max-width: calc(100% - 130px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sub-nav-breadcrumb-title {
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .hero-tile {
@@ -163,37 +223,61 @@
   .section-header-block {
     margin-bottom: var(--spacing-xl);
   }
-
-  .sticky-install-container {
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    text-align: center;
-  }
 }
 
 /* ==========================================================================
    6. Large Phone (641px - 735px)
    ========================================================================== */
 @media (max-width: 735px) {
+  /* Mobile container gutter ergonomics */
+  .tile-container,
+  .tile-container-narrow,
+  .global-nav-container,
+  .sub-nav-container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+
+  /* Section vertical spacing ergonomics */
+  .product-tile {
+    padding: var(--spacing-xl) 0;
+  }
+
   .hero-tile {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-xl) 0;
   }
 
   .skills-catalog-section {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-xl) 0;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 
-  .filter-chips-row {
+  .skill-card {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  /* Search Input: 16px font prevents iOS Safari auto-zoom on focus */
+  .search-input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .filter-chips-row,
+  .category-filter-chips {
     gap: 6px;
   }
 
-  .filter-chip {
+  .filter-chip,
+  .filter-pill {
     font-size: 13px;
-    padding: 6px 14px;
+    padding: 7px 14px;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .platform-segmented-control {
@@ -203,6 +287,7 @@
   .platform-segment {
     font-size: 12px;
     padding: 6px 12px;
+    min-height: 36px;
   }
 
   .handoff-nav {
@@ -213,6 +298,80 @@
   .handoff-link.next {
     text-align: left;
   }
+
+  /* Floating Sticky Install Bar Mobile Layout */
+  .sticky-install-bar {
+    height: auto;
+    min-height: 56px;
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .sticky-bar-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 0 var(--spacing-md);
+    text-align: center;
+  }
+
+  .sticky-bar-command {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .sticky-bar-container .btn-primary {
+    width: 100%;
+    min-height: 40px;
+    justify-content: center;
+  }
+
+  /* Editorial & Why Pólya Hero */
+  .editorial-hero {
+    padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+  }
+
+  .editorial-title {
+    font-size: clamp(26px, 6vw, 34px);
+    line-height: 1.2;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .editorial-lead {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .polya-book-showcase {
+    padding: var(--spacing-lg) var(--spacing-md);
+    gap: var(--spacing-lg);
+  }
+
+  .polya-book-image {
+    width: 180px;
+    max-width: 100%;
+  }
+
+  .polya-quote-banner {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .polya-quote-text {
+    font-size: clamp(17px, 4.5vw, 22px);
+    line-height: 1.45;
+  }
+
+  .influence-card,
+  .problem-space-spotlight,
+  .pathology-card,
+  .stage-deepdive-card,
+  .triad-blueprint,
+  .problem-triad-card {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
 }
 
 /* ==========================================================================
@@ -220,32 +379,37 @@
    ========================================================================== */
 @media (max-width: 640px) {
   .hero-headline {
-    font-size: 34px;
+    font-size: 32px;
     letter-spacing: -0.025em;
+    line-height: 1.2;
+    word-break: break-word;
   }
 
   .hero-subhead {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.45;
   }
 
   .skill-detail-title {
-    font-size: 28px;
+    font-size: 26px;
+    word-break: break-word;
   }
 
   .skill-detail-header {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
   }
 
   .prompt-box-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--spacing-xs);
   }
 
   .prompt-box-header .btn-copy {
     width: 100%;
     justify-content: center;
+    min-height: 44px;
   }
 
   .footer-directory-grid {
@@ -253,11 +417,33 @@
     gap: var(--spacing-lg);
   }
 
-  /* Horizontal table scrolling protection */
+  .footer-col-title {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .footer-link-list {
+    gap: 8px;
+  }
+
+  .footer-link-list a {
+    display: inline-block;
+    padding: 3px 0;
+    font-size: 13px;
+    min-height: 28px;
+  }
+
+  .footer-bottom-bar {
+    text-align: left;
+    padding-top: var(--spacing-md);
+  }
+
+  /* Horizontal table scrolling protection with touch momentum */
   .docs-table {
     display: block;
     width: 100%;
     overflow-x: auto;
+    min-width: 540px;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -266,17 +452,21 @@
   }
 
   .store-utility-card {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-md);
   }
 
   .terminal-command-box {
     flex-direction: column;
     align-items: stretch;
     gap: var(--spacing-sm);
+    padding: var(--spacing-md);
   }
 
   .terminal-command-box .btn-copy {
-    align-self: flex-start;
+    align-self: stretch;
+    width: 100%;
+    min-height: 40px;
+    justify-content: center;
   }
 
   .install-step-card {
@@ -287,8 +477,57 @@
     padding: var(--spacing-lg) var(--spacing-md);
   }
 
+  .dictionary-title {
+    font-size: 18px;
+  }
+
+  .dictionary-desc {
+    font-size: 14px;
+  }
+
+  .dictionary-chips {
+    gap: 8px;
+  }
+
+  .dictionary-chip {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  .dictionary-chip .chip-term {
+    font-size: 12px;
+  }
+
+  .dictionary-chip .chip-meta {
+    font-size: 11px;
+  }
+
+  /* Editorial CTA Card Mobile */
   .editorial-cta-card {
     padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .editorial-cta-title {
+    font-size: 24px;
+  }
+
+  .editorial-cta-subtitle {
+    font-size: 14px;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .editorial-cta-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing-sm);
+  }
+
+  .editorial-cta-actions .btn-primary,
+  .editorial-cta-actions .btn-secondary {
+    width: 100%;
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
   }
 
   .install-method-switcher {
@@ -300,26 +539,58 @@
   .method-tab {
     flex: 1;
     text-align: center;
-    padding: 8px 10px;
-    font-size: 12px;
+    padding: 10px;
+    font-size: 13px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .footer-bottom-bar {
-    text-align: left;
+  .configurator-chips {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .configurator-chip {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    min-height: 42px;
   }
 }
 
 /* ==========================================================================
-   8. Small Phone (<= 419px)
+   8. Small Phone (<= 419px) - iPhone SE, Galaxy S, 320px - 375px
    ========================================================================== */
 @media (max-width: 419px) {
+  /* Tighter gutters for extreme compact viewports */
+  .tile-container,
+  .tile-container-narrow,
+  .global-nav-container,
+  .sub-nav-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
   .hero-headline {
-    font-size: 28px;
-    line-height: 1.15;
+    font-size: 26px;
+    line-height: 1.2;
   }
 
   .hero-subhead {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  .editorial-title {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .editorial-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.05em;
   }
 
   .skill-detail-title {
@@ -337,20 +608,55 @@
     display: none;
   }
 
+  .sub-nav-breadcrumb-title {
+    font-size: 14px;
+  }
+
+  .sub-nav-menu .btn-primary {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-height: 34px;
+  }
+
+  .polya-book-badge {
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .dictionary-chip {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .terminal-command-box {
+    padding: 12px;
+  }
+
+  .terminal-code {
+    font-size: 11px;
+  }
+
   .btn-capsule,
   .btn-utility {
     min-height: 44px;
     padding: 10px 18px;
+    width: 100%;
+    justify-content: center;
   }
 
-  .filter-chip {
+  .filter-chip,
+  .filter-pill {
     padding: 6px 10px;
     font-size: 12px;
+    min-height: 36px;
   }
 
   .platform-segment {
     padding: 6px 8px;
     font-size: 11px;
+    min-height: 34px;
   }
 
   .pause-rule-banner {

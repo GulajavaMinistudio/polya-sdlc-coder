@@ -82,10 +82,13 @@
 
     if (!toggleBtn || !navLinks) return;
 
-    toggleBtn.addEventListener('click', function () {
+    toggleBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', !isExpanded);
-      navLinks.classList.toggle('nav-open', !isExpanded);
+      const nextState = !isExpanded;
+      toggleBtn.setAttribute('aria-expanded', String(nextState));
+      navLinks.classList.toggle('nav-open', nextState);
     });
 
     // Close on Escape key
@@ -94,6 +97,23 @@
         toggleBtn.setAttribute('aria-expanded', 'false');
         navLinks.classList.remove('nav-open');
         toggleBtn.focus();
+      }
+    });
+
+    // Handle clicks inside drawer: close when tapping any link
+    navLinks.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (e.target.closest('a')) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('nav-open');
+      }
+    });
+
+    // Close on click outside (clicks outside toggleBtn & navLinks bubble to document)
+    document.addEventListener('click', function () {
+      if (toggleBtn.getAttribute('aria-expanded') === 'true') {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('nav-open');
       }
     });
   }
