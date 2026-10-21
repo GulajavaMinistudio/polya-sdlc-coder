@@ -6,6 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-polya--sdlc--coder-181717?logo=github)](https://github.com/GulajavaMinistudio/polya-sdlc-coder)
+[![Documentation](https://img.shields.io/badge/Documentation-Live%20Web-0ea5e9?logo=googlechrome&logoColor=white)](https://gulajavaministudio.github.io/polya-sdlc-coder/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GulajavaMinistudio/polya-sdlc-coder/pulls)
 [![Platforms](https://img.shields.io/badge/Platforms-Copilot%20%7C%20Antigravity%20%7C%20Cursor%20%7C%20Claude%20%7C%20Codex%20%7C%20Pi-blueviolet)](#-supported-platforms)
 
@@ -30,6 +31,26 @@ When given an ambiguous prompt, agents hallucinate assumptions, skip edge cases,
 5. **🛑 The Pause Rule Gate**: The agent **MUST** halt and receive explicit human verification before writing functional code.
 6. **Carry Out the Plan (`/to-code`)**: Enforce Uncle Bob's Clean Code, the Boy Scout Rule, and a Two-Layer Testing Mandate with zero tolerance for cheating or suppressions.
 7. **Look Back (`/to-review` & `/to-docs`)**: Audit 5 SOLID principles, test boundary invariants, and author structured Diátaxis documentation.
+
+---
+
+## 🌐 Interactive Web Documentation
+
+Prefer an interactive visual guide? Explore the official web documentation and live skill catalog:
+
+<p align="center">
+  <a href="https://gulajavaministudio.github.io/polya-sdlc-coder/">
+    <img src="https://img.shields.io/badge/Live%20Web%20Docs-gulajavaministudio.github.io%2Fpolya--sdlc--coder-0ea5e9?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Web Documentation">
+  </a>
+</p>
+
+🔗 **Live URL:** [https://gulajavaministudio.github.io/polya-sdlc-coder/](https://gulajavaministudio.github.io/polya-sdlc-coder/)
+
+### 🌟 What's in the Web Documentation?
+- **🗂️ 15-Skill Interactive Catalog**: Deep dive into all 15 skills across the 6 SDLC phases with real-world chat prompts, input/output contracts, and Diátaxis documentation.
+- **⚡ Copy-and-Paste Install Configurator**: One-click scripts and `npx skills` commands tailored for macOS, Linux, and Windows with instant clipboard affordance.
+- **📐 6-Phase Lifecycle Visualizer**: Visual mapping of George Pólya's 1945 heuristic principles integrated with Uncle Bob's Clean Architecture seams and the **🛑 The Pause Rule Gate**.
+- **📱 Apple HIG Aesthetics & Mobile-Ready**: Dark mode typography, smooth micro-interactions, responsive design across desktop, tablet, and smartphones.
 
 ---
 
@@ -96,6 +117,9 @@ This system prevents the agent from writing a single line of application code un
 ---
 
 ## 🚀 Quick Start & Installation
+
+> [!TIP]
+> **Try the Interactive Web Configurator**: You can also use our [Live Web Installation Configurator](https://gulajavaministudio.github.io/polya-sdlc-coder/#install) to easily switch between operating systems and copy terminal scripts with one click.
 
 You can install **Pólya SDLC Coder** into your project using any of the three methods below:
 
@@ -280,6 +304,9 @@ Pólya SDLC follows a strict, disciplined pipeline designed to eliminate ambigui
 ---
 
 ## 🧰 Skill Catalog
+
+> [!TIP]
+> Explore, search, and inspect the complete 15-skill catalog with copyable chat prompts in our [Interactive Web Skill Catalog](https://gulajavaministudio.github.io/polya-sdlc-coder/#skills).
 
 Each skill in Pólya SDLC is modular, standalone, and focused on a single responsibility:
 
