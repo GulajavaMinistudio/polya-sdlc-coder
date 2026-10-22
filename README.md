@@ -320,7 +320,7 @@ Each skill in Pólya SDLC is modular, standalone, and focused on a single respon
 | **`/to-clarify`** | [`to-clarify`](skills/to-clarify) | **Checkpoint: Clarify** | Interrogate ambiguities, `[ASSUMPTION]` tags, Condition Sanity Check, and Readiness Score (0–100). | `docs/audit/{slug}-clarification.md` |
 | **`/to-plan`** | [`to-plan`](skills/to-plan) | **Phase 2: Plan** | *Working Backwards*, *Auxiliary Problems*, Land & Expand (Tracer Bullets), Plan B, and **The Pause Rule**. | `docs/plan/{slug}-plan.md` |
 | **`/to-code`** | [`to-code`](skills/to-code) | **Phase 3: Implement** | Clean Code execution, single-responsibility small functions, and *Boy Scout Rule* compliance. | Production Source Code & Tests |
-| **`/to-review`** | [`to-review`](skills/to-review) | **Phase 4: Review** | Audit 5 SOLID principles (SRP, OCP, LSP, ISP, DIP), boundary specialization, and test by dimension. | `docs/reviews/{slug}-review.md` |
+| **`/to-review`** | [`to-review`](skills/to-review) | **Phase 4: Review** | Audit 5 SOLID principles, 14-vector defensive security, adversarial 3-state verdicts, and issue `GO/NO-GO` release gate. Supports `/to-review security`. | `docs/reviews/{slug}-review.md` |
 | **`/to-fix`** | [`to-fix`](skills/to-fix) | **Phase 5: Bug Fix** | Cease blind patching, return to First Principles, trace broken seams, and formulate reproduction test. | `docs/bug-reports/{slug}-bugfix.md` |
 | **`/to-docs`** | [`to-docs`](skills/to-docs) | **Phase 6: Docs** | Author structured documentation based on the 4 Diátaxis quadrants (Tutorials, How-To, Reference, Explanation). | `docs/{quadrant}/{slug}.md` |
 | **`/to-quick-fix`** | [`to-quick-fix`](skills/to-quick-fix) | **Fast-Track Bypass** | Routine problems, one-shot surgical fixes, and minor refactors (*Pedantry vs Mastery*, *The Excavator Rule*). | Surgical File Diff ($\le 2$ files) |
@@ -475,9 +475,13 @@ The agent ingests the approved Implementation Plan and Technical Specification, 
 ### 10. Review, Audit & Transfer Knowledge (`/to-review` & `/to-docs`)
 
 ```text
+# Full Quality & Release Audit (Default)
 /to-review @docs/plan/order-tracking-plan.md @docs/spec/order-tracking-spec.md
+
+# Focused Adversarial Security Audit
+/to-review security @docs/spec/order-tracking-spec.md
 ```
-Audits the implemented code directly against the requirements in the Specification and tasks in the Plan. Verifies the 5 SOLID principles (SRP, OCP, LSP, ISP, DIP), boundary invariants, and outputs `docs/reviews/order-tracking-review.md`.
+Audits the implemented code directly against the requirements in the Specification and tasks in the Plan. Verifies the 5 SOLID principles (SRP, OCP, LSP, ISP, DIP), boundary invariants, 14 defensive security vectors (OWASP, tenant isolation, LLM/MCP boundaries), and issues a definitive `GO | NO-GO` verdict using a 3-state verdict taxonomy (`CONFIRMED`, `NEEDS_VALIDATION`, `REJECTED`) inside `docs/reviews/order-tracking-review.md`.
 
 ```text
 /to-docs @docs/spec/order-tracking-spec.md @docs/plan/order-tracking-plan.md

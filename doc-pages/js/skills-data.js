@@ -187,12 +187,12 @@
       phase: 'Phase 4: Looking Back',
       phaseCategory: 'review',
       polyaStage: '4. Look Back (Examine)',
-      tagline: '5 SOLID principles audit, boundary specialization & 30s visual topology',
-      description: 'Examines the solution from first principles. Audits Single Responsibility, Open-Closed, Liskov, Interface Segregation, and Dependency Inversion, synthesizing a 30s mental model.',
+      tagline: '5 SOLID principles audit, 14-vector defensive security & release readiness gate',
+      description: 'Examines the implementation from first principles. Audits SOLID principles, executes adversarial doubt with a 3-state verdict taxonomy (CONFIRMED/NEEDS_VALIDATION/REJECTED), and inspects 14 defensive security vectors (OWASP, tenant isolation, LLM/MCP boundaries). Supports /to-review security.',
       inputs: ['docs/spec/{slug}-spec.md', 'docs/plan/{slug}-plan.md', 'Git diff'],
       outputs: ['docs/reviews/{slug}-review.md'],
       detailUrl: 'doc-pages/skills/to-review.html',
-      tags: ['review', 'solid', 'audit', 'looking-back', 'security', 'verification']
+      tags: ['review', 'solid', 'audit', 'looking-back', 'security', 'verification', 'adversarial', 'llm-security', 'tenant-isolation']
     },
     {
       slug: 'to-fix',
