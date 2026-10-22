@@ -94,7 +94,7 @@ When a user describes what they want to do, use the canonical pipeline defined i
 | "Clarify requirements" / "Check assumptions" / "Audit ambiguity" / "Score readiness" | `/to-clarify` | **Checkpoint: Clarify** (5-Axis Condition Sanity Check, Epistemic Doubt, Readiness Gate 0-100) |
 | "Let's plan the implementation steps" / "Break this into tasks" | `/to-plan` | **Phase 2: Plan** (Land & Expand vertical slices, `check:task` bindings, Plan B, The Pause Rule) |
 | "Let's start coding" / "Implement vertical slice 1" / "Build all tickets" | `/to-code` (or `/to-code auto`) | **Phase 3: Implement** (TDD Red-Green-Refactor-Simplify, 3-Tier Checks, 4 Circuit Breakers) |
-| "Review this code" / "Audit against SOLID principles" / "Release check" | `/to-review` | **Phase 4: Review & Release Gate** (Mutation Check, Epistemic Doubt, SOLID/Security/Perf, `GO \| NO-GO`) |
+| "Review this code" / "Audit against SOLID principles" / "Release check" / "Security audit" | `/to-review` | **Phase 4: Review & Release Gate** (Mutation Check, Adversarial Refutation, SOLID/14-Vector Security/Perf, `GO \| NO-GO`) |
 | "There is a bug" / "Fix this error" / "Why is this failing?" | `/to-fix` | **Phase 5: Bug Fix** (First Principles, 5-Category Triage, Trace Broken Seam, Prove-It Pattern) |
 | "Write documentation" / "API docs" / "How-to guide" / "Tutorial" | `/to-docs` | **Phase 6: Technical Documentation** (Diátaxis Framework: Tutorials, How-To, Reference, Explanation) |
 | "Quick fix" / "Minor tweak" / "Fix typo" / "Fast track" | `/to-quick-fix` | **Bypass Mode: Fast-Track** (Routine Problems, One-Shot Surgical Edits, XS/S sizing) |

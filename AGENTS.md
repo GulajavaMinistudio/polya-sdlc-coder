@@ -501,7 +501,7 @@ Execute the approved plan with surgical precision and discipline across two supp
 
 Review, stress-test, and solidify the solution upon completion:
 - **Verify the Tests First (Mutation Check by Experiment):** Before trusting a green test suite, mentally or experimentally invert one condition added by the change (e.g., drop `!` or swap `&&`/`||`), verify the test suite turns **RED**, and immediately restore the code. If tests remain GREEN when logic is broken, flag a **Critical/Required** missing test assertion.
-- **Adversarial Doubt Cycle (Pólya's *"Examine Your Guess"*, p. 199):** For non-trivial or One-Way Door decisions (auth, concurrency, migrations, public contracts), strip author rationale and pass only `ARTIFACT + CONTRACT` to a fresh-context adversarial subagent biased to *disprove* rather than validate (with an optional sandboxed read-only cross-model second opinion offer), bounded to at most 3 cycles with **Doubt Theater** detection.
+- **Adversarial Doubt Cycle (Pólya's *"Examine Your Guess"*, p. 199):** For non-trivial or One-Way Door decisions (auth, concurrency, migrations, public contracts), strip author rationale and pass only `ARTIFACT + CONTRACT` to a fresh-context adversarial subagent biased to *disprove* rather than validate (with an optional sandboxed read-only cross-model second opinion offer), bounded to at most 3 cycles with **Doubt Theater** detection. Enforce the strict 3-state verdict taxonomy: **`CONFIRMED`** (complete source trace from entrypoint to sink with observed impact), **`NEEDS_VALIDATION`** (source-grounded candidate with exact missing deployment/infra fact and owner validation plan; strictly forbidden as a speculative bucket), or **`REJECTED`** (refuted by visible code controls or impossible preconditions).
 - **Validate with Specialization (Boundary & Extreme Cases):**
   - What happens when the input is empty (`[]`, `null`, `""`)?
   - What happens at boundary limits ($0$, $1$, maximum payload size, connection timeouts)?
@@ -510,12 +510,17 @@ Review, stress-test, and solidify the solution upon completion:
 - **SOLID Principles & Floor-Guard Diff Audit:**
   - Verify **SRP, OCP, LSP, ISP, and DIP** across all modified seams.
   - Inspect `git diff` against the **5 Floor-Guard Cheating Moves**: verify zero new suppressions (`@ts-ignore`, `eslint-disable`, `istanbul ignore`, `nosemgrep`), zero `.skip`/deleted assertions, zero `TODO`/empty `catch {}` stubs, zero weakened config thresholds/ratchets in `docs/ARCHITECTURE.md`, and zero unapproved exceptions.
-- **Defensive Security, Supply-Chain & LLM Hardening Audit:**
-  - **OWASP Top 10 & Trust Boundaries:** Audit against Injection, BOLA/IDOR, XSS, Broken Auth, mass assignment, and unsafe deserialization. Treat local process args, shared files, third-party API responses, and LLM outputs as **untrusted data**.
-  - **SSRF & Network Guards:** Verify outbound URL fetchers allowlist `https:`, resolve all DNS records (`all: true`), reject non-unicast IPs (`127.0.0.1`, `169.254.169.254`, private ranges), and disable redirects (`redirect: 'error'`).
-  - **Destructive Path Operations:** Verify any `rm`/`mv`/overwrite on derived paths resolves symlinks first (`realpath`), validates containment inside `ALLOWED_ROOTS` with `MIN_DEPTH >= 1`, and checks ownership.
-  - **Distributed Rate Limiting & Supply Chain:** Ensure auth/mutation rate limiters use shared stores (e.g., Redis) rather than per-process memory behind load balancers; verify lockfile integrity and block unverified dependency install scripts (`--ignore-scripts` / `strictDepBuilds`).
-  - **AI / LLM Security (OWASP LLM Top 10 2025):** Ensure model outputs are schema-validated (never passed to `eval`/`innerHTML`), permissions are enforced in code rather than system prompts, and RAG contexts are tenant-isolated.
+- **Defensive Security, Attack Classes & LLM Hardening Audit (Cloudflare Heuristics):**
+  - **OWASP Top 10, Trust Boundaries & Second-Order Injections:** Parameterized queries, sanitization, and second-order sink guards (data stored safely becoming dangerous in downstream regex, paths, or shell args).
+  - **Tenant & Object Data Isolation Lifecycle:** Row-level filtering enforced on every query/join/worker (field existence $\neq$ enforcement); tenant-namespaced cache keys; derived copies (indexes/caches/exports) immediately reflecting ACL changes.
+  - **AI, LLM, Agentic & MCP Boundaries:** Code-level authorization (prompt guardrails are never security boundaries); tool-argument validation; action-binding & confused-deputy guards; subagent least-privilege; persistent memory poisoning defense.
+  - **Web, Protocol & Identity Boundaries:** JWT signature/algorithm confusion defense (`alg: "none"`, `RS256` vs `HS256`); OAuth cryptographic state & exact redirect URI match; CORS reflected origin rejection; cookie `HttpOnly`/`Secure`/`SameSite` & session fixation defense.
+  - **Client-Side Sinks & DOM:** Zero unescaped `innerHTML`/`javascript:` sinks; prototype pollution rejection in deep merges; `postMessage` origin allowlists; zero tokens in `localStorage`.
+  - **Async Queues, Webhooks & Idempotency:** Idempotency keys enforced on side-effecting handlers; webhook HMAC signature & replay timestamp checks; transport envelope vs. payload identity alignment.
+  - **Resource Exhaustion & Cancellation:** Algorithmic complexity ($O(n^2)$), ReDoS, and decompression bombs; pre-auth work bounds; client cancellation (`AbortSignal`) propagated downstream.
+  - **SSRF & Destructive Path Operations:** Outbound URLs allowlist `https:`, resolve all DNS records, reject non-unicast/metadata IPs (`169.254.169.254`); path operations resolve `realpath` inside `ALLOWED_ROOTS` with `MIN_DEPTH >= 1`.
+  - **Zero Hardcoded Secrets & Git Hygiene:** Zero committed API keys or credentials; git history audited for committed/reverted secrets; lockfile diff check with `--ignore-scripts`.
+  - **Universal Execution Safety:** Source-first read-only inspection; local verification strictly non-destructive using dummy principals; zero probing of live deployed infrastructure or production databases.
 - **Database, Caching & Performance Audit (`EXPLAIN ANALYZE` & Keep-or-Revert Gate):**
   - Check for N+1 queries, unbounded fetches, connection pool exhaustion (`instances * max < max_connections`), and composite index column order (*equality columns first, then range/sort* verified via `EXPLAIN ANALYZE`).
   - Verify cache keys include every varying input (`tenant`, `viewer`, `locale`, `permissions`) with explicit invalidation and stampede protection.
@@ -523,7 +528,7 @@ Review, stress-test, and solidify the solution upon completion:
 - **Reductio ad Absurdum, Test by Dimension & Symmetry (Pólya, p. 162–205):** Verify negative test proofs, dimensional unit consistency (ms vs s, integer cents vs float dollars, `Promise<T>` vs `T`), and round-trip lifecycle symmetry ($f^{-1}(f(x)) = x$, `open/close`, `acquire/release`).
 - **Derive Differently & Can You See It at a Glance? (Pólya, p. 59–61):** Challenge over-engineered abstractions and synthesize the implementation into a 30-second topological diagram.
 - **Pólya's Two Golden Questions & Generalization (Pólya, p. 61, 108):** Promote reusable DTOs/ports (*Can you use the result?*) and record proven patterns in `memory.instructions.md` (*Can you use the method?*).
-- **Release Readiness & Timed Rollback Gate (`GO | NO-GO`):** Conclude the review with an explicit **`GO | NO-GO`** release verdict (any Critical finding defaults to `NO-GO`), verifying feature flag hygiene (owner + expiration, no nested flags, tested ON/OFF), canary rollout thresholds (Error rate, P95 latency, Error budget), and a **Timed Rollback Plan** (Feature flag `< 1m`, Redeploy `< 5m`, Reversible DB migration `< 15m`).
+- **Release Readiness & Timed Rollback Gate (`GO | NO-GO`):** Conclude the review with an explicit **`GO | NO-GO`** release verdict (any unresolved Critical finding, any `CONFIRMED` security vulnerability, or any Floor-Guard violation defaults to `NO-GO`), verifying feature flag hygiene (owner + expiration, no nested flags, tested ON/OFF), canary rollout thresholds (Error rate, P95 latency, Error budget), and a **Timed Rollback Plan** (Feature flag `< 1m`, Redeploy `< 5m`, Reversible DB migration `< 15m`).
 - **Output:** Formal review report in `docs/reviews/{slug}-review.md`.
 
 ---
@@ -655,7 +660,7 @@ To maintain architectural integrity and prevent scope creep, all agents MUST ope
 | `/to-explore`      | User problem statement, raw idea, or target directory/module                            |
 | `/to-prd`          | Project Discovery Draft (`docs/discovery/`), or Comprehensive User Brief                |
 | `/to-spec`         | Approved PRD (`docs/prd/`), Project Discovery Draft (`docs/discovery/`), or User Brief  |
-| `/to-grill-me`     | Target PRD (`docs/prd/`), Spec (`docs/spec/`), Plan (`docs/plan/`), or Idea Concept   |
+| `/to-grill-me`     | Target PRD (`docs/prd/`), Spec (`docs/spec/`), Plan (`docs/plan/`), or Idea Concept     |
 | `/to-clarify`      | Target Specification (`docs/spec/`), Implementation Plan (`docs/plan/`), or Brief       |
 | `/to-plan`         | Approved Technical Spec (`docs/spec/`)                                                  |
 | `/to-code`         | Approved Implementation Plan (`docs/plan/`)                                             |
