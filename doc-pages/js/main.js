@@ -118,13 +118,34 @@
     });
   }
 
-  // 3. Sticky Bottom Install Bar Scroll Watcher
+  // 3. Sticky Bottom Install Bar Scroll Watcher with Dismiss & Session Persistence
   function setupStickyBar() {
     const stickyBar = document.getElementById('sticky-install-bar');
     if (!stickyBar) return;
 
+    const closeBtn = document.getElementById('sticky-bar-close');
+    let isDismissed = sessionStorage.getItem('polya-sticky-bar-dismissed') === 'true';
+
+    if (isDismissed) {
+      stickyBar.remove();
+      return;
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        isDismissed = true;
+        stickyBar.classList.remove('visible');
+        sessionStorage.setItem('polya-sticky-bar-dismissed', 'true');
+        setTimeout(() => {
+          stickyBar.remove();
+        }, 300);
+      });
+    }
+
     let ticking = false;
     window.addEventListener('scroll', function () {
+      if (isDismissed) return;
       if (!ticking) {
         window.requestAnimationFrame(function () {
           const scrollY = window.scrollY || window.pageYOffset;

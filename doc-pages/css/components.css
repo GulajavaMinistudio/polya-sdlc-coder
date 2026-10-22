@@ -353,7 +353,7 @@
   background-color: #10b981;
   color: #ffffff;
   border-color: #10b981;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+  box-shadow: none;
 }
 
 /* ==========================================================================
@@ -434,15 +434,58 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xxl);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+/* Hero Architectural Artifact Card */
+.hero-equation-card {
+  margin: var(--spacing-xl) auto 0 auto;
+  max-width: 680px;
+  background-color: var(--color-canvas-parchment);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--elevation-product-shadow);
+}
+
+.hero-equation-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: rgba(0, 102, 204, 0.08);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-equation-code {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+.hero-equation-note {
+  font-size: 13px;
+  color: var(--color-ink-muted-48);
 }
 
 /* Platform Configurator */
 .configurator-section {
   width: 100%;
   max-width: 860px;
-  margin: 0 auto var(--spacing-xxl) auto;
-  background-color: var(--color-surface-tile-1);
+  margin: 0 auto;
+  background-color: var(--color-surface-tile-2);
+  border: 1px solid var(--color-hairline-dark);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   box-shadow: var(--elevation-product-shadow);
@@ -502,7 +545,7 @@
   background-color: var(--color-primary);
   color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .method-tab:active {
@@ -647,9 +690,9 @@
   letter-spacing: 0.05em;
   padding: 3px 8px;
   border-radius: var(--radius-pill);
-  background-color: rgba(41, 151, 255, 0.15);
-  color: var(--color-primary-on-dark);
-  border: 1px solid rgba(41, 151, 255, 0.3);
+  background-color: rgba(41, 151, 255, 0.18);
+  color: #70b8ff;
+  border: 1px solid rgba(41, 151, 255, 0.35);
 }
 
 .install-step-badge-chat {
@@ -1426,6 +1469,38 @@
   padding: 6px 14px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-hairline);
+}
+
+.sticky-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.sticky-bar-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--color-hairline);
+  color: var(--color-ink-muted-80);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.sticky-bar-close:hover {
+  background-color: var(--color-canvas-parchment);
+  color: var(--color-ink);
+}
+
+.sticky-bar-close:focus-visible {
+  outline: 2px solid var(--color-primary-focus, #0071e3);
+  outline-offset: 2px;
 }
 
 /* 4-Column Directory Footer */

@@ -419,6 +419,11 @@
    7. Phone (420px - 640px)
    ========================================================================== */
 @media (max-width: 640px) {
+  /* Hide sticky bottom install bar on mobile to preserve viewport space */
+  .sticky-install-bar {
+    display: none !important;
+  }
+
   .hero-headline {
     font-size: 32px;
     letter-spacing: -0.025em;
