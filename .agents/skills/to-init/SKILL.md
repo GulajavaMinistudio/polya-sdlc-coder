@@ -55,17 +55,23 @@ foreach ($mem in $existingMemFiles) {
     $memBackups += @{ Target = $mem.FullName; TempSource = $tempBak }
 }
 
-# 2. Handle AGENTS.md idempotently (Merge once if existing custom AGENTS.md, copy if new)
+# 2. Handle AGENTS.md idempotently (Update merged section if existing, or append, copy if new)
 $srcAgents = "$tempDir\AGENTS.md"
 $dstAgents = ".\AGENTS.md"
 if (Test-Path $dstAgents) {
     Copy-Item $dstAgents "$dstAgents.bak" -Force
-    $alreadyMerged = Select-String -Path $dstAgents -Pattern "POLYA-SDLC COMPLETE PIPELINE|MERGED POLYA TEMPLATE" -Quiet
-    if (-not $alreadyMerged) {
-        $date = Get-Date -Format "yyyy-MM-dd"
-        Add-Content $dstAgents "`n`n# --- MERGED POLYA TEMPLATE (Added on $date) ---`n"
-        Get-Content $srcAgents | Add-Content $dstAgents
+    $existingContent = Get-Content -Path $dstAgents -Raw
+    $mergePattern = "(?s)# --- MERGED (?:POLYA )?TEMPLATE.*$"
+    $currentDate = Get-Date -Format "yyyy-MM-dd"
+    $newTemplate = Get-Content -Path $srcAgents -Raw
+    $newMergeBlock = "# --- MERGED POLYA TEMPLATE (Added on $currentDate) ---`r`n`r`n$newTemplate"
+    
+    if ($existingContent -match $mergePattern) {
+        $baseContent = ($existingContent -replace $mergePattern, "").TrimEnd()
+    } else {
+        $baseContent = $existingContent.TrimEnd()
     }
+    Set-Content -Path $dstAgents -Value "$baseContent`r`n`r`n$newMergeBlock" -Encoding utf8
 } else {
     Copy-Item $srcAgents $dstAgents
 }
@@ -109,15 +115,19 @@ find . -path "./$temp_dir" -prune -o \( -name "memory.instructions.md" -o -name 
     cp -p "$f" "/tmp/polya_mem_bak/$f"
 done
 
-# 2. Handle AGENTS.md idempotently (Merge once if existing custom AGENTS.md, copy if new)
+# 2. Handle AGENTS.md idempotently (Update merged section if existing, or append, copy if new)
 src_agents="$temp_dir/AGENTS.md"
 dst_agents="./AGENTS.md"
 if [ -f "$dst_agents" ]; then
     cp "$dst_agents" "${dst_agents}.bak"
-    if ! grep -Eq "POLYA-SDLC COMPLETE PIPELINE|MERGED POLYA TEMPLATE" "$dst_agents" 2>/dev/null; then
-        printf "\n\n# --- MERGED POLYA TEMPLATE (Added on %s) ---\n\n" "$(date +%Y-%m-%d)" >> "$dst_agents"
-        cat "$src_agents" >> "$dst_agents"
+    if grep -Eq "# --- MERGED.*TEMPLATE" "$dst_agents" 2>/dev/null; then
+        temp_trimmed=$(mktemp)
+        sed '/# --- MERGED.*TEMPLATE/,$d' "$dst_agents" > "$temp_trimmed"
+        cp "$temp_trimmed" "$dst_agents"
+        rm -f "$temp_trimmed"
     fi
+    printf "\n\n# --- MERGED POLYA TEMPLATE (Added on %s) ---\n\n" "$(date +%Y-%m-%d)" >> "$dst_agents"
+    cat "$src_agents" >> "$dst_agents"
 else
     cp "$src_agents" "$dst_agents"
 fi

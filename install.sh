@@ -217,15 +217,21 @@ if [ -f "$SRC_AGENTS" ]; then
             cp "$SRC_AGENTS" "$DST_AGENTS"
             echo -e "Replaced AGENTS.md. Old version backed up at: ${GREEN}${DST_AGENTS}.bak${NC}"
         elif [[ "$AGENTS_CHOICE" =~ ^[Mm]$ ]]; then
-            # Merge: Back up first, then append new template content
+            # Merge: Back up first, then update or append template content
             cp "$DST_AGENTS" "${DST_AGENTS}.bak"
-            if ! grep -Eq "POLYA-SDLC COMPLETE PIPELINE|MERGED POLYA TEMPLATE" "$DST_AGENTS" 2>/dev/null; then
-                echo -e "\n\n# --- MERGED POLYA TEMPLATE (Added on $(date +%Y-%m-%d)) ---\n" >> "$DST_AGENTS"
-                cat "$SRC_AGENTS" >> "$DST_AGENTS"
-                echo -e "Merged new template into existing AGENTS.md. Backup created at: ${GREEN}${DST_AGENTS}.bak${NC}"
-            else
-                echo -e "${YELLOW}Pólya SDLC template already merged in AGENTS.md. Skipping duplicate append.${NC}"
+            
+            # If a previous merged template block exists, strip it out first to update cleanly
+            if grep -Eq "# --- MERGED.*TEMPLATE" "$DST_AGENTS" 2>/dev/null; then
+                TEMP_TRIMMED=$(mktemp)
+                sed '/# --- MERGED.*TEMPLATE/,$d' "$DST_AGENTS" > "$TEMP_TRIMMED"
+                cp "$TEMP_TRIMMED" "$DST_AGENTS"
+                rm -f "$TEMP_TRIMMED"
+                echo -e "${YELLOW}Replacing previous merged template block in AGENTS.md...${NC}"
             fi
+            
+            echo -e "\n\n# --- MERGED POLYA TEMPLATE (Added on $(date +%Y-%m-%d)) ---\n" >> "$DST_AGENTS"
+            cat "$SRC_AGENTS" >> "$DST_AGENTS"
+            echo -e "Merged new template into existing AGENTS.md. Backup created at: ${GREEN}${DST_AGENTS}.bak${NC}"
         else
             echo -e "${YELLOW}Skipping copy of 'AGENTS.md'...${NC}"
         fi

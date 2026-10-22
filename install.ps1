@@ -194,21 +194,28 @@ try {
                 Copy-Item -Path $srcAgents -Destination $dstAgents -Force
                 Write-Host "Replaced AGENTS.md. Old version backed up at: $bakPath" -ForegroundColor Green
             } elseif ($agentsChoice -match '^[Mm]$') {
-                # Merge: Back up first, then append new template content
+                # Merge: Back up first, then update or append template content
                 $bakPath = $dstAgents + ".bak"
                 Copy-Item -Path $dstAgents -Destination $bakPath -Force
                 
-                $alreadyMerged = Select-String -Path $dstAgents -Pattern "POLYA-SDLC COMPLETE PIPELINE|MERGED POLYA TEMPLATE" -Quiet
-                if (-not $alreadyMerged) {
-                    $currentDate = Get-Date -Format "yyyy-MM-dd"
-                    $mergeHeader = "`r`n`r`n# --- MERGED POLYA TEMPLATE (Added on $currentDate) ---`r`n"
-                    Add-Content -Path $dstAgents -Value $mergeHeader -Encoding utf8
-                    $newContent = Get-Content -Path $srcAgents -Raw
-                    Add-Content -Path $dstAgents -Value $newContent -Encoding utf8
-                    Write-Host "Merged new template into existing AGENTS.md. Backup created at: $bakPath" -ForegroundColor Green
+                $currentDate = Get-Date -Format "yyyy-MM-dd"
+                $mergeHeader = "# --- MERGED POLYA TEMPLATE (Added on $currentDate) ---"
+                $newTemplateContent = Get-Content -Path $srcAgents -Raw
+                $newMergeBlock = "$mergeHeader`r`n`r`n$newTemplateContent"
+                
+                $existingContent = Get-Content -Path $dstAgents -Raw
+                $mergePattern = "(?s)# --- MERGED (?:POLYA )?TEMPLATE.*$"
+                
+                if ($existingContent -match $mergePattern) {
+                    $baseContent = ($existingContent -replace $mergePattern, "").TrimEnd()
+                    Write-Host "Replacing previous merged template block in AGENTS.md..." -ForegroundColor Yellow
                 } else {
-                    Write-Host "Pólya SDLC template already merged in AGENTS.md. Skipping duplicate append." -ForegroundColor Yellow
+                    $baseContent = $existingContent.TrimEnd()
                 }
+                
+                $updatedContent = "$baseContent`r`n`r`n$newMergeBlock"
+                Set-Content -Path $dstAgents -Value $updatedContent -Encoding utf8
+                Write-Host "Merged new template into existing AGENTS.md. Backup created at: $bakPath" -ForegroundColor Green
             } else {
                 Write-Host "Skipping copy of 'AGENTS.md'..." -ForegroundColor Yellow
             }
