@@ -6,11 +6,11 @@
 
 The **Pólya SDLC Coder** web showcase and documentation site is built upon Apple's iconic web design philosophy: **reverent product and engineering presentation framed by near-invisible UI**. 
 
-Every page is structured as a rhythmic vertical stack of edge-to-edge product "tiles" — alternating light canvases (Pure White and Parchment) and near-black surfaces (`#272729`), each centered on a confident display headline, a concise tagline, two pill-shaped CTAs, and crisp technical or architectural visual renders. Nothing competes with the engineering artifacts (George Pólya's heuristics, Clean Architecture seams, and the 14 modular skills).
+Every page is structured as a rhythmic vertical stack of edge-to-edge product "tiles" — alternating light canvases (Pure White and Parchment) and near-black surfaces (`#272729`), each centered on a confident display headline, a concise tagline, two pill-shaped CTAs, and crisp technical or architectural visual renders. Nothing competes with the engineering artifacts (George Pólya's heuristics, Clean Architecture seams, and the 15 modular skills).
 
 Density is unusually low: each major section occupies roughly one viewport, with generous breathing air (80px vertical padding) and zero decorative chrome — no gratuitous gradients, no heavy cards, and no box-shadows on headlines or containers. Elevation appears only when a technical artifact, terminal card, or architectural diagram rests on a surface (a single whisper-soft `rgba(0, 0, 0, 0.22) 3px 5px 30px` drop shadow for visual weight).
 
-When exploring the 14-skill catalog and platform options, the page transitions to utility mode: a tight grid of white utility cards at `{rounded.lg}` (18px) radius with a 1px hairline border, paired with interactive platform configurator chips (`{rounded.pill}`) and a persistent frosted-glass sub-nav strip. Across all surfaces, the typographic hierarchy, 8px layout rhythm, and single blue interactive accent are rigorously uniform.
+When exploring the 15-skill catalog and platform options, the page transitions to utility mode: a tight grid of white utility cards at `{rounded.lg}` (18px) radius with a 1px hairline border, paired with interactive platform configurator chips (`{rounded.pill}`) and a persistent frosted-glass sub-nav strip. Across all surfaces, the typographic hierarchy, 8px layout rhythm, and single blue interactive accent are rigorously uniform.
 
 **Key Characteristics:**
 - **Artifact-first presentation:** UI recedes so the engineering heuristics and code seams speak.
@@ -228,7 +228,7 @@ Whitespace is the pedestal of the engineering concept. Every tile begins with $\
 ### 4. Utility Cards & Interactive Controls
 
 **`store-utility-card` (Skill Card)**  
-- Used in the 14-Skill Catalog Grid.
+- Used in the 15-Skill Catalog Grid.
 - Background: `{colors.canvas}` (#ffffff), border: `1px solid {colors.hairline}`, shape: `{rounded.lg}` (18px), padding: `{spacing.lg}` (24px).
 - Top: Monospace slash command badge (`/to-spec`, `/to-plan`) in `{typography.code-pill}`.
 - Middle: Title in `{typography.body-strong}` (17px / 600) + concise Pólya heuristic description.
@@ -246,7 +246,7 @@ Whitespace is the pedestal of the engineering concept. Every tile begins with $\
 - Right: Primary CTA `{component.button-primary}` ("Copy Command").
 
 **`search-input`**  
-- Pill-shaped interactive search bar for filtering the 14 skills.
+- Pill-shaped interactive search bar for filtering the 15 skills.
 - Background: `{colors.canvas}`, border: `1px solid rgba(0, 0, 0, 0.08)`, shape: `{rounded.pill}`, height: `44px`, padding: `12px 20px`.
 
 ### 5. Scannable Footer

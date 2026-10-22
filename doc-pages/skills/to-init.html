@@ -74,7 +74,7 @@
         </div>
         <h1 class="skill-detail-title">The /to-init Skill</h1>
         <p style="font-size: 19px; line-height: 1.45; color: var(--color-ink-muted-80); margin-top: 8px;">
-          Bootstraps fresh or legacy repositories into the Pólya SDLC Coder ecosystem. Scaffolds <code>AGENTS.md</code> governance, orchestrator rules, and installs the 14 modular sub-skills in seconds with zero data loss.
+          Bootstraps fresh or legacy repositories into the Pólya SDLC Coder ecosystem. Scaffolds <code>AGENTS.md</code> governance, orchestrator rules, and installs the 15 modular sub-skills in seconds with zero data loss.
         </p>
         <blockquote class="skill-detail-quote">
           "A good notation is of great value in the solution of problems... it should be easy to remember and suggestive."  
@@ -107,7 +107,7 @@
           What it does
         </h2>
         <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
-          <code>to-init</code> is the official architecture bootstrapper and scaffolding architect for the Pólya SDLC Coder ecosystem. It automates the installation of governance rules (<code>AGENTS.md</code>), the base Socratic orchestrator (<code>.agents/rules/PolyaOrchestrator.md</code>), and the full suite of 14 modular sub-skills with zero git history overhead via <code>npx degit</code>.
+          <code>to-init</code> is the official architecture bootstrapper and scaffolding architect for the Pólya SDLC Coder ecosystem. It automates the installation of governance rules (<code>AGENTS.md</code>), the base Socratic orchestrator (<code>.agents/rules/PolyaOrchestrator.md</code>), and the full suite of 15 modular sub-skills with zero git history overhead via <code>npx degit</code>.
         </p>
         <p style="font-size: 16px; line-height: 1.6; color: var(--color-ink-muted-80); margin-bottom: var(--spacing-md);">
           It operates under a strict <strong>Non-Destructive Guarantee</strong>: before unpacking templates, it safely preserves pre-existing user instructions, domain glossaries (<code>CONTEXT.md</code>), ADR records (<code>docs/adr/</code>), and session memory (<code>memory.instructions.md</code>). If a custom <code>AGENTS.md</code> already exists, it idempotently appends the Pólya template without destroying existing rules.
@@ -190,7 +190,7 @@
           <li><strong>Workspace Pre-Flight & Safety Backup:</strong> Checks for existing <code>AGENTS.md</code>, <code>CONTEXT.md</code>, or <code>memory.instructions.md</code> and backs them up to temporary storage before unpacking.</li>
           <li><strong>Verified Scaffolding Download:</strong> Downloads the official architecture payload from <code>GulajavaMinistudio/polya-sdlc-coder#main</code> via <code>npx degit</code> (fast, clean, zero git history baggage).</li>
           <li><strong>Idempotent Merging & Rules Injection:</strong> Merges the Pólya Orchestrator rules into <code>.agents/rules/PolyaOrchestrator.md</code> and preserves existing user instructions in <code>AGENTS.md</code>.</li>
-          <li><strong>Multi-Toolchain Scaffolding:</strong> Populates <code>.agents/skills/</code> with all 14 modular sub-skills, and mirrors the setup to <code>.claude</code> or <code>.cursor</code> if those directories are detected.</li>
+          <li><strong>Multi-Toolchain Scaffolding:</strong> Populates <code>.agents/skills/</code> with all 15 modular sub-skills, and mirrors the setup to <code>.claude</code> or <code>.cursor</code> if those directories are detected.</li>
           <li><strong>Integrity Verification & Interactive Onboarding:</strong> Confirms all files exist, restores backed-up files, removes temp directories, and prompts the user to customize their Project Name and Domain Mission.</li>
         </ol>
       </section>

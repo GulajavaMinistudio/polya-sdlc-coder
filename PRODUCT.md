@@ -40,7 +40,7 @@ Unlike unconstrained AI assistants or brittle autonomous coding agents that jump
 ## Capabilities and Constraints
 
 - **Capabilities:**
-  - **14 Dedicated Sub-Skills:** Modular skills covering every phase from Socratic triage (`/to-ask-help`) to Diátaxis documentation (`/to-docs`) and surgical one-shot fixes (`/to-quick-fix`).
+  - **15 Dedicated Sub-Skills:** Modular skills covering every phase from Socratic triage (`/to-ask-help`) to Diátaxis documentation (`/to-docs`) and surgical one-shot fixes (`/to-quick-fix`).
   - **Autonomous Codebase Reconnaissance:** Auto-detects domain models, package manifests, and architecture seams without asking blind questions.
   - **Socratic Triage & Pólya Cards:** ASCII diagnostic triage cards deconstructing the problem into Unknown, Data, and Condition.
   - **5-Axis Grill-Me Checkpoint:** Interactive assumption stress-testing with objective 0–100 Readiness Scoring.
@@ -61,7 +61,7 @@ Unlike unconstrained AI assistants or brittle autonomous coding agents that jump
 
 ## Evidence on Hand
 
-- **Repository Source Code:** 14 modular skill files in `skills/` and `.agents/skills/`.
+- **Repository Source Code:** 15 modular skill files in `skills/` and `.agents/skills/`.
 - **Installers:** Battle-tested `install.ps1` and `install.sh` scripts supporting `.agents/`, `.claude/`, and `.cursor/`.
 - **Governance Blueprints:** Root `AGENTS.md`, `README.md`, and `.agents/rules/PolyaOrchestrator.md`.
 - **Design Specifications:** Structured token hierarchy, typography ladders, and component specifications in `DESIGN.md`.
