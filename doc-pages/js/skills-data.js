@@ -187,12 +187,12 @@
       phase: 'Phase 4: Looking Back',
       phaseCategory: 'review',
       polyaStage: '4. Look Back (Examine)',
-      tagline: '5 SOLID principles audit, 14-vector defensive security & release readiness gate',
-      description: 'Examines the implementation from first principles. Audits SOLID principles, executes adversarial doubt with a 3-state verdict taxonomy (CONFIRMED/NEEDS_VALIDATION/REJECTED), and inspects 14 defensive security vectors (OWASP, tenant isolation, LLM/MCP boundaries). Supports /to-review security.',
-      inputs: ['docs/spec/{slug}-spec.md', 'docs/plan/{slug}-plan.md', 'Git diff'],
+      tagline: 'Risk-tiered review (Quick/Standard/Deep), 5 SOLID principles, 14-vector security & GO/NO-GO gate',
+      description: 'Assesses blast-radius Risk Tiers (Low/Medium/High) and Review Depth (Quick/Standard/Deep). Audits SOLID principles, executes adversarial doubt (CONFIRMED/NEEDS_VALIDATION/REJECTED), tags findings with [Important]/[Nit]/[Pre-existing] + Bug Class, enforces 3-round convergence, and inspects 14 defensive security vectors. Supports /to-review security.',
+      inputs: ['docs/spec/{slug}-spec.md', 'docs/plan/{slug}-plan.md', 'Git diff / Code snippet'],
       outputs: ['docs/reviews/{slug}-review.md'],
       detailUrl: 'doc-pages/skills/to-review.html',
-      tags: ['review', 'solid', 'audit', 'looking-back', 'security', 'verification', 'adversarial', 'llm-security', 'tenant-isolation']
+      tags: ['review', 'solid', 'audit', 'looking-back', 'security', 'verification', 'adversarial', 'llm-security', 'tenant-isolation', 'risk-tier', 'bug-class']
     },
     {
       slug: 'to-fix',

@@ -1,17 +1,28 @@
 # 🔍 Code Review & Quality Audit: [Feature / PR Name]
 
-**Reviewed Target:** `[Commit / Branch / File List]`  
-**Specification Ref:** `docs/spec/{slug}-spec.md`  
-**Plan Ref:** `docs/plan/{slug}-plan.md`  
+**Reviewed Target:** `[Commit / Branch / File List / Isolated Snippet]`  
+**Specification Ref:** `docs/spec/{slug}-spec.md` *(or `N/A — Ad-Hoc Diff / Snippet`)*  
+**Plan Ref:** `docs/plan/{slug}-plan.md` *(or `N/A — Ad-Hoc Diff / Snippet`)*  
+**Risk Tier:** **`{Low (Tier 0) | Medium (Tier 1) | High/Critical (Tier 2)}`**  
+**Review Mode:** **`{Quick | Standard | Deep | Focused Security}`**  
+**Human Audit Gate:** **`{0 Approvals (Tier 0) | >= 1 Approval (Tier 1) | 🚨 >= 2 Approvals [MANDATORY HUMAN AUDIT REQUIRED] (Tier 2)}`**  
+**Findings Summary:** **`[Important]: X | [Nit]: Y | [Pre-existing]: Z`** — **`{"No blocking issues found" | "Blocking issues require remediation"}`**  
 **Review Status:** **{Approved / Remediation Required}**  
 **Release Readiness Verdict:** **{GO | NO-GO}**  
 
 ---
 <!-- markdownlint-disable-->
 
-## 0. Pre-Review Verification Gates (Mutation Check & Epistemic Doubt)
+## 0. Pre-Review Verification Gates (Risk Tier, Mutation Check & Epistemic Doubt)
 
-### 0.1 Verify the Tests First (Mutation Check by Experiment)
+### 0.0 Risk Tier, Intent & Root-Cause Alignment
+- **Blast Radius & Touched Paths:** `{Summary of touched layers, entrypoints, CI/CD, migrations, or governance files}`
+- **Immutable Base-Branch Governance Check:** `[PASS — Evaluated against base branch AGENTS.md / REVIEW.md / ARCHITECTURE.md]`
+- **Base-Branch Drift & Git Hygiene Check:** `[PASS — Up to date with main; selective atomic staging verified; Phase 3 NOTICED BUT NOT TOUCHING mapped to [Pre-existing]]`
+- **Intent & Root-Cause Verification:** `[PASS / FAIL]` — `{Confirms the change solves the stated goal and addresses root causes rather than masking symptoms}`
+
+### 0.1 Verify the Tests First (Mutation Check & 5-Way Test Classification)
+- **5-Way File Classification Check (`TEST-WRITING-GUIDE.md`):** `[PASS — LOGIC, BOUNDARY, UI_COMPONENT, SECURITY_SURFACE, CONFIG_TRIVIAL covered proportionally]`
 - **Target Mutated Seam:** `[file_path:line]` — `{Brief description of temporary 1-line logic/condition inversion}`
 - **Observed Test Outcome:** `[CAUGHT (Test Failed as Expected) / ESCAPED (False-Green Suite — Blocker!)]`
 - **Isolation / Reversion Confirmed:** `[Yes — Executed in isolated git worktree or static audit; main working tree untouched]`
@@ -19,6 +30,7 @@
 ### 0.2 Adversarial Doubt Cycle & Verification Ledger (Pólya's "Examine Your Guess")
 - **Independent Refutation Audit:** `[EXECUTED / N/A]` — `{Fresh subagent or adversarial pass attempting to disprove candidate findings}`
 - **Candidate Verdict Breakdown:** `[X Confirmed, Y Needs Validation, Z Rejected]`
+- **Verifier Proof-of-Failure Filter:** `[PASS — Every [Important] finding verified with Call Chain + Trigger Condition + Failure Outcome; speculative warnings dropped]`
 - **Tautological / Vacuous Assertions Checked:** `[PASS / FAIL]` — `{Details}`
 - **Unverified Runtime Seams / Happy-Path Bias Checked:** `[PASS / FAIL]` — `{Details}`
 
@@ -30,10 +42,10 @@
 - **Move 5 (Lowered Quality Ratchets — Coverage, Bundle, CWV, Complexity):** `[0 Violations / Ratchets Ratcheted Up / FAIL]`
 - **Verification Scope Executed:** `[check:full / Scoped Suite: X/Y tests passed, 0 warnings / GATE_ONLY]`
 
-### 0.4 Runtime Evidence Ledger & AC Surface Conformance
+### 0.4 Runtime Evidence Ledger, AC Surface Conformance & Review Convergence
 *Anti-Fabrication Rule: No evidence = No `MET ✅`. Static file reading never counts as runtime execution. Unapplied DB migrations on disk must be marked `SPECCED BUT NOT APPLIED ⚠️`.*
 - **Trust Boundary Transitions Crossed:** `[e.g., Unauthenticated Public HTTP ➔ Order Service ➔ PostgreSQL]`
-- **Prior Run Iteration Status:** `[Initial Audit / Re-Audit (Carried Forward: X, Revalidated: Y)]`
+- **Prior Run Iteration & Convergence Status:** `[Iteration 1 (Initial Audit) / Iteration N of 3 — Delta-Scoped Re-Audit (Carried Forward: X, Revalidated: Y, Validly Dismissed: Z)]`
 
 | AC / Surface ID | Target Surface (Route / Component / Migration / CLI) | Conformance Status (`MET ✅` \| `SPECCED BUT MISSING 🚫` \| `SPECCED BUT NOT APPLIED ⚠️` \| `BLOCKED ⚠️`) | Concrete Execution Evidence (Command, HTTP Status, DB Check, or Blocker Reason) |
 | :--- | :--- | :---: | :--- |
@@ -127,6 +139,11 @@
 - **Cache Invalidation & Stampede Protection:** `[Verified / N/A]` — `{Explicit TTL, deterministic invalidation on write, single-flight/jitter protection}`
 - **Performance Attempt Ledger (Keep-or-Revert Rule):** `[Verified / N/A]` — `{Any complexity-adding optimization includes before/after benchmark evidence; unverified micro-optimizations reverted}`
 
+### 5.5 Frontend, Accessibility & UI Disqualifier Audit (`UI-ENGINEERING-GUIDE.md` — When UI Files Are Touched)
+- **4 Mandatory UI States & Breakpoints (`375px` / `768px` / `1280px`):** `[Verified / N/A]` — `{Empty, Loading aria-busy="true", Error, and Success states verified}`
+- **WCAG 2.1 AA & Keyboard Accessibility:** `[Verified / N/A]` — `{Contrast >= 4.5:1 / >= 3:1, semantic <button>, aria-label, Enter/Space navigation, focus trapping}`
+- **Zero 6 UI Disqualifiers, 8 Banned AI Defaults & Clean Console:** `[Verified / N/A]` — `{Zero overflow/overlap/raw debug strings, zero inline fake data, 0 console errors/warnings in --isolated session}`
+
 ---
 
 ## 6. Remediation Action Items
@@ -144,24 +161,27 @@
 | `merge:` | Duplicated logic across multiple near-identical functions | Consolidate into a single parameterized function. |
 | `split:` | Single function handling multiple distinct responsibilities | Extract helper for SRP at natural cohesion seam. |
 
-### Findings (Standardized 4-Part Structure + Security Trace)
+### Categorized Findings (`[Important]` ➔ `[Nit]` ➔ `[Pre-existing]`)
 
-*For general code quality findings:*
-1. **`[file_path:line]` - `[action_tag]` [Brief Title]**
-   - **What this is:** [Exact construct, e.g., custom date formatter function]
-   - **Problem:** [Hand-rolled date formatting duplicating stdlib Intl.DateTimeFormat]
-   - **Fix:** [`stdlib:` Replace with native Intl.DateTimeFormat]
-   - **If we skip it:** [Maintenance overhead, potential timezone edge case bugs]
+*Order findings strictly by severity (`[Important]` blockers first, then capped `[Nit]`s, then `[Pre-existing]` legacy debt). If `[Important] = 0`, state explicitly: **"No blocking issues found."***
+
+*For general code quality & logic findings:*
+1. **`[Important | Nit | Pre-existing]` `[file_path:line]` (or `[function_name:relative_line]`) - `[action_tag]` [Brief Title]**
+   - **Bug Class & Sibling Sweep:** `[e.g., Hand-Rolled Stdlib Duplication / Unchecked Optional Unwrap — Checked 3 sibling files in module]`
+   - **What this is:** `[Exact construct, e.g., custom date formatter function]`
+   - **Problem:** `[Hand-rolled date formatting duplicating stdlib Intl.DateTimeFormat]`
+   - **Fix:** `[stdlib: Replace with native Intl.DateTimeFormat]`
+   - **If we skip it:** `[Maintenance overhead, potential timezone edge case bugs]`
 
 *For security & boundary integrity findings (Section 4):*
-2. **`[file_path:line]` - `[CONFIRMED | NEEDS_VALIDATION]` [Security Finding Title]**
+2. **`[Important | Pre-existing]` `[file_path:line]` - `[CONFIRMED | NEEDS_VALIDATION]` [Security Finding Title]**
    - **Root-Cause Fingerprint:** `[seam:file:line:slug]`
-   - **Severity / CWE:** `[CRITICAL | HIGH | MEDIUM | LOW]` (e.g., `CWE-89` / `CWE-79` / `CWE-862` / `CWE-918`)
-   - **What this is:** [Exact file, line range, and vulnerable construct]
+   - **Bug Class & Severity / CWE:** `[e.g., BOLA / Missing Tenant Scope Filter]` — `[CRITICAL | HIGH | MEDIUM | LOW]` (e.g., `CWE-89` / `CWE-79` / `CWE-862` / `CWE-918`)
+   - **What this is:** `[Exact file, line range, and vulnerable construct]`
    - **Source Trace:** `[Entrypoint]` $\to$ `[Propagation / Handler]` $\to$ `[Dangerous Sink / Broken Invariant]`
-   - **Actor & Impact:** [Attacker privilege level] $\to$ [Affected principal] $\to$ [Capability / data exposed]
-   - **Smallest Effective Fix:** [Minimal surgical fix using stdlib or house components; avoid speculative security wrapper layers]
-   - **Validation Plan / Blocker (if `NEEDS_VALIDATION`):** [Exact missing deployment/IAM/infra fact and owner-executable verification command]
+   - **Actor & Impact:** `[Attacker privilege level]` $\to$ `[Affected principal]` $\to$ `[Capability / data exposed]`
+   - **Smallest Effective Fix:** `[Minimal surgical fix using stdlib or house components; avoid speculative security wrapper layers]`
+   - **Validation Plan / Blocker (if `NEEDS_VALIDATION`):** `[Exact missing deployment/IAM/infra fact and owner-executable verification command]`
 
 ---
 
@@ -210,10 +230,13 @@
 - **Not checked:** [Unverified environments, scale thresholds, or edge cases outside current scope]
 - **Residual Risks / Upgrade Triggers:** [Known capacity ceilings, deliberate shortcuts, or future upgrade milestones]
 
-### 9.3 Release & Launch Readiness Gate (`GO | NO-GO`)
-- **Release Decision:** **`{GO | NO-GO}`**
+### 9.3 Release & Launch Readiness Gate (`GO | NO-GO`), Pre-Merge Proofs & Rollback Plan
+- **Release Decision:** **`{GO | NO-GO}`** *(Any unresolved `[Important]` finding, `CONFIRMED` vulnerability, or Floor-Guard violation forces `NO-GO`)*
+- **Pre-Merge Runnable Proofs Checklist:**
+  - [ ] `{Targeted test / verification command, e.g., npm run check:task / vitest run ...}`
+  - [ ] `{Build / typecheck / migration dry-run / UI state verification}`
 - **Backward Compatibility & Migration Safety:** `[Verified Expand-Migrate-Contract / N/A]`
-- **Timed Rollback Plan (`< 15 Minutes`):**
+- **Timed Rollback Plan (`< 15 Minutes` — How to Revert):**
   1. **Revert Trigger:** `{Exact error rate, latency spike, or healthcheck failure that triggers rollback}`
   2. **Rollback Command / Action:** `{git revert <sha> / feature-flag toggle / reversible migration step}`
   3. **Post-Rollback Verification:** `{Smoke check confirming system recovery}`
